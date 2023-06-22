@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useRoutes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Marketplace from './pages/marketplace';
+import About from './pages/about';
+import Forum from './pages/forum';
+import Support from './pages/support';
+import Trends from './pages/trends';
+import Landing from './pages/landing';
 
-function App() {
+const App = () => {
+  let element = useRoutes([
+    { path: '/', element: <Landing /> },
+    { path: '/marketplace', element: <Marketplace /> },
+    { path: '/about', element: <About /> },
+    { path: '/trends', element: <Trends /> },
+    { path: '/forum', element: <Forum /> },
+    { path: '/support', element: <Support /> },
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      {element}
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
