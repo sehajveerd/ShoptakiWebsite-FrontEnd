@@ -64,7 +64,7 @@ const Navbar = () => {
         <div className="flex flex-row items-start justify-start gap-[32px]">
           <button
             className="cursor-pointer [border:none] p-2 bg-[transparent] rounded-lg flex flex-row items-center justify-start hover:shadow-[0px_1px_4px_rgba(0,_0,_0,_0.25)] active:mix-blend-color lg:hover:shadow-[0px_1px_3px_rgba(0,_0,_0,_0.25)]"
-            onClick={() => loginWithRedirect}
+            onClick={() => loginWithRedirect()}
           >
             <div className="relative text-sm font-medium font-poppins text-dimgray-200 text-left">
               Login
