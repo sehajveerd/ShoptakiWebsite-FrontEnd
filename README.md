@@ -50,7 +50,7 @@
    ```bash
    npm run start
    ```
-   The application will start on your local machine and can be accessed at http://localhost:3000.
+   The application will start on your local machine and can be accessed at http://localhost:3001.
 
 ## Project setup steps followed
 
