@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import { useAuth0 } from '@auth0/auth0-react';
-import { IconDropdownOutline, IconNotificationOutline } from './ui/icons';
+import ProfileDropdown from './ui/ProfileDropdown';
 
 const Navbar = () => {
-  const { loginWithRedirect, logout, user, isLoading } = useAuth0();
+  const { loginWithRedirect, user, isLoading } = useAuth0();
   return (
-    <div className="self-stretch bg-white overflow-hidden flex flex-row py-4 px-[100px] items-center justify-between text-left text-5xl text-darkslategray-100 font-poppins border-b-[1px] border-solid border-gainsboro">
+    <div className="self-stretch bg-white flex flex-row py-4 px-[100px] items-center justify-between text-left text-5xl text-darkslategray-100 font-poppins border-b-[1px] border-solid border-gainsboro">
       <div
         className="relative font-semibold"
         style={{
@@ -77,33 +78,7 @@ const Navbar = () => {
           </button>
         </div>
       )}
-      {!isLoading && user && (
-        <div className="flex flex-row items-center justify-start gap-[32px] text-gray-500">
-          <button className="cursor-pointer [border:none] p-0 bg-[transparent] relative w-6 h-6">
-            <IconNotificationOutline className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full" />
-          </button>
-          <div className="flex flex-row items-center justify-start gap-[16px]">
-            <div className="flex flex-row items-center justify-start gap-[8px]">
-              <img
-                className="relative rounded-[50%] w-8 h-8 object-cover"
-                alt=""
-                src="/ellipse-67@2x.png"
-              />
-              <div className="relative leading-[28px] font-medium">
-                Greg Lam
-              </div>
-            </div>
-            <IconDropdownOutline className="relative w-[19px] h-[19px]" />
-          </div>
-          {/* The below button is temporary logout button */}
-          <button
-            className="cursor-pointer [border:none] p-0 bg-[transparent] relative w-6 h-6"
-            onClick={() => logout()}
-          >
-            Logout
-          </button>
-        </div>
-      )}
+      {!isLoading && user && <ProfileDropdown />}
     </div>
   );
 };
