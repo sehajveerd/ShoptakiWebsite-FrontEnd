@@ -71,7 +71,14 @@ const Navbar = () => {
               Login
             </div>
           </button>
-          <button className="cursor-pointer [border:none] py-2 px-2.5 bg-primary rounded-lg flex flex-row items-center justify-start hover:shadow-[0px_1px_4px_rgba(0,_0,_0,_0.25)] lg:hover:shadow-[0px_1px_3px_rgba(0,_0,_0,_0.25)]">
+          <button
+            className="cursor-pointer [border:none] py-2 px-2.5 bg-primary rounded-lg flex flex-row items-center justify-start hover:shadow-[0px_1px_4px_rgba(0,_0,_0,_0.25)] lg:hover:shadow-[0px_1px_3px_rgba(0,_0,_0,_0.25)]"
+            onClick={() =>
+              loginWithRedirect({
+                authorizationParams: { screen_hint: 'signup' },
+              })
+            }
+          >
             <div className="relative text-sm font-medium font-poppins text-white text-left">
               Get Started
             </div>
