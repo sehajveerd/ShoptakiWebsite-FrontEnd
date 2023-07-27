@@ -89,6 +89,7 @@ This project follows a structured layout to organize the codebase. Here's a brie
 - `@headlessui/react`: A set of completely unstyled, fully accessible UI components for React, designed to integrate beautifully with Tailwind CSS.
 - `axios`: A promise-based HTTP client for the browser and node.js.
 - `formik`: A small library that helps with the 3 most annoying parts: getting values in and out of form state, validation and error messages, and handling form submission.
+- `yup`: A schema validation library used along with `formik`
 - `react-i18next`: A powerful internationalization framework for React / React Native which provides a way to manage your app's language resources.
 - `react-redux`: Official React bindings for Redux - allows your React components to read data from a Redux store, and dispatch actions to the store to update data.
 - `react-router-dom`: The standard routing library for React, used for managing and rendering routes in your React applications in a declarative manner.

@@ -8,17 +8,25 @@ function classNames(...classes) {
 
 const SelectComponent = ({
   options,
-  selected,
-  onSelectedChange,
+  field,
+  form,
   label,
   placeholder,
   containerSizeClasses = 'w-[484px] h-[69px]',
   buttonSizeClasses = 'w-[484px] h-[37px]',
   buttonPositionClasses = 'top-[32px] left-[0px]',
+  buttonBorderClasses = 'border-[1px] border-solid border-dimgray-800',
   optionPositionClasses = 'top-[69px]',
 }) => {
+  const selectedOption =
+    options.find(option => option.value === field.value) || '';
+
+  const handleSelectedChange = value => {
+    form.setFieldValue(field.name, value);
+  };
+
   return (
-    <Listbox value={selected} onChange={onSelectedChange}>
+    <Listbox value={selectedOption} onChange={handleSelectedChange}>
       {({ open }) => (
         <div
           className={classNames(
@@ -30,16 +38,17 @@ const SelectComponent = ({
             className={classNames(
               buttonPositionClasses,
               buttonSizeClasses,
-              'absolute rounded-lg box-border bg-white overflow-hidden flex flex-row py-2 px-3 border-[1px] border-solid border-dimgray-800'
+              buttonBorderClasses,
+              'absolute rounded-lg box-border bg-white overflow-hidden flex flex-row py-2 px-3'
             )}
           >
             <span
               className={classNames(
-                selected ? '' : 'text-silver',
+                selectedOption ? '' : 'text-silver',
                 'text-left text-sm font-label-small14sb block truncate'
               )}
             >
-              {selected ? selected.name : placeholder}
+              {selectedOption ? selectedOption.name : placeholder}
             </span>
             <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-3">
               <IconDropdownOutline className="h-6 w-6" />
