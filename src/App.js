@@ -14,18 +14,7 @@ import UserOnboarding from './components/onboarding';
 import NotFound from './components/NotFound';
 
 const App = () => {
-  // Individual - Personal Account (Most Users)
-  // Entity - LLC, Trust or Corporation
-  // Retirement - Checkbook IRA
-
-  // Under $50,000
-  // $50,000 - $100,000
-  // $100,001 - $200,000
-  // $200,001 - $500,000
-  // $500,001 - $1,000,000
-  // $1,000,001 - $5,000,000
-  // $5,000,000+
-
+  // TODO: /onboarding/* should be accessed by signed in users only
   let element = useRoutes([
     { path: '/', element: <Landing /> },
     { path: '/marketplace', element: <Marketplace /> },

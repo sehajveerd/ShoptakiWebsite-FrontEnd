@@ -58,13 +58,19 @@ const IdentityFinanceForm = ({ nextStep, prevStep, skipStep }) => {
   ];
 
   const accountTypeOptions = [
-    { name: 'Option 1', value: 'option1' },
-    { name: 'Option 2', value: 'option2' },
+    { name: 'Individual - Personal Account (Most Users)', value: 'individual' },
+    { name: 'Entity - LLC, Trust or Corporation', value: 'entity' },
+    { name: 'Retirement - Checkbook IRA', value: 'retirement' },
   ];
 
   const estimatedNetWorthOptions = [
-    { name: 'Option 1', value: 'option1' },
-    { name: 'Option 2', value: 'option2' },
+    { name: 'Under $50,000', value: 'under_50000' },
+    { name: '$50,000 - $100,000', value: '50000_100000' },
+    { name: '$100,001 - $200,000', value: '100001_200000' },
+    { name: '$200,001 - $500,000', value: '200001_500000' },
+    { name: '$500,001 - $1,000,000', value: '500001_1000000' },
+    { name: '$1,000,001 - $5,000,000', value: '1000001_5000000' },
+    { name: '$5,000,000+', value: 'over_5000000' },
   ];
 
   return (
