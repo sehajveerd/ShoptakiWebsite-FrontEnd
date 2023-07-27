@@ -165,7 +165,7 @@ const IdentityFinanceForm = ({ nextStep, prevStep, skipStep }) => {
                 </div>
               </div>
 
-              {/* Breadcrumb steps - only step 1 is ticked and clickable  */}
+              {/* Breadcrumb steps - only step 1 is ticked/crossed and clickable  */}
               <div className="absolute top-[0px] left-[0px] flex flex-row items-center justify-center gap-[8px] text-center text-xs text-cornflowerblue">
                 <div className="flex flex-row items-center justify-center gap-[8px]">
                   <button
@@ -173,7 +173,7 @@ const IdentityFinanceForm = ({ nextStep, prevStep, skipStep }) => {
                     type="button"
                     onClick={() => navigate(`/onboarding/personal-info`)}
                   >
-                    {/* TODO: If I skipped previous step then show red cross bold icon */}
+                    {/* TODO: If personal details step is skipped then show red cross bold icon */}
                     <IconTickCircleBold
                       className="absolute top-[0px] left-[0px] max-w-full overflow-hidden max-h-full"
                       height="24"
@@ -244,7 +244,7 @@ const IdentityFinanceForm = ({ nextStep, prevStep, skipStep }) => {
                 </button>
               </div>
 
-              {/* Skip button to skip filling current form and go to next step */}
+              {/* Skip button to skip filling current form and go to Investment Experience Form */}
               <button
                 className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[19px] left-[397px] w-[87px] h-[21px]"
                 type="button"
