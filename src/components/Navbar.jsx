@@ -14,6 +14,9 @@ import { IconSearchOutline } from './ui/icons';
 
 const Navbar = () => {
   const { loginWithRedirect, user, isLoading } = useAuth0();
+  const linkClassNames =
+    '[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit] hover:bg-gray-50 hover:text-primary-blue5001';
+
   return (
     <div className="self-stretch bg-white flex flex-row py-4 px-[100px] items-center justify-between text-left text-sm text-neutral-gray600484848 font-body-small14 border-b-[1px] border-solid border-gainsboro-100">
       <div
@@ -29,61 +32,43 @@ const Navbar = () => {
       </div>
       <div className="flex flex-row items-start justify-start gap-[24px] text-sm">
         {!isLoading && user && (
-          <Link
-            to="/portfolio"
-            className="[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit]"
-          >
+          <Link to="/portfolio" className={linkClassNames}>
             <div className="flex flex-row items-center justify-center">
               <div className="relative font-medium">Portfolio</div>
             </div>
           </Link>
         )}
-        <Link
-          to="/marketplace"
-          className="[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit]"
-        >
+        <Link to="/marketplace" className={linkClassNames}>
           <div className="flex flex-row items-center justify-center">
             <div className="relative font-medium">Marketplace</div>
           </div>
         </Link>
-        <Link
-          to="/trends"
-          className="[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit]"
-        >
+        <Link to="/trends" className={linkClassNames}>
           <div className="flex flex-row items-center justify-center">
             <div className="relative font-medium">Trends</div>
           </div>
         </Link>
-        <Link
-          to="/community"
-          className="[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit]"
-        >
+        <Link to="/community" className={linkClassNames}>
           <div className="flex flex-row items-center justify-center">
             <div className="relative font-medium">Community</div>
           </div>
         </Link>
         {!isLoading && !user && (
           <>
-            <Link
-              to="/our-story"
-              className="[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit]"
-            >
+            <Link to="/our-story" className={linkClassNames}>
               <div className="flex flex-row items-center justify-center">
                 <div className="relative font-medium">Our Story</div>
               </div>
             </Link>
             <Link
               to="/contact-us"
-              className="[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit]"
+              className="[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit] hover:bg-secondary-blue50 hover:text-primary-blue5001"
             >
               <div className="flex flex-row items-center justify-center">
                 <div className="relative font-medium">Contact Us</div>
               </div>
             </Link>
-            <Link
-              to="/support"
-              className="[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit]"
-            >
+            <Link to="/support" className={linkClassNames}>
               <div className="flex flex-row items-center justify-center">
                 <div className="relative font-medium">Support</div>
               </div>

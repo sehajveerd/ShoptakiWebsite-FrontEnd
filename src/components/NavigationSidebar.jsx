@@ -10,7 +10,7 @@ import {
 const NavigationSidebar = () => {
   const location = useLocation();
   const linkClassNames =
-    '[text-decoration:none] text-[inherit] hover:rounded hover:bg-secondary-blue50 w-[195px] flex flex-row py-2 pl-1 hover:box-border items-center justify-start hover:text-primary-blue5001';
+    '[text-decoration:none] text-[inherit] hover:rounded hover:bg-gray-50 w-[195px] flex flex-row py-2 pl-1 hover:box-border items-center justify-start hover:text-primary-blue5001';
 
   const getActiveLinkClassName = pathname => {
     return location.pathname === pathname

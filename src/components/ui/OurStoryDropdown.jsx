@@ -16,7 +16,7 @@ function OurStoryDropdown() {
         <>
           <div>
             <Menu.Button className="inline-flex justify-center w-full px-2.5 py-2.5 bg-white hover:bg-gray-50">
-              <div className="flex flex-row items-center justify-start gap-[16px] relative text-sm font-medium font-body-small14 text-neutral-gray600484848 text-left">
+              <div className="flex flex-row items-center justify-start gap-[16px] relative text-sm font-medium font-body-small14 text-neutral-gray600484848 text-left hover:text-primary-blue5001">
                 Our Story
                 <IconDropdownOutline className="relative w-[19px] h-[19px]" />
               </div>
