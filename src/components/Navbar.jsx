@@ -60,10 +60,7 @@ const Navbar = () => {
                 <div className="relative font-medium">Our Story</div>
               </div>
             </Link>
-            <Link
-              to="/contact-us"
-              className="[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit] hover:bg-secondary-blue50 hover:text-primary-blue5001"
-            >
+            <Link to="/contact-us" className={linkClassNames}>
               <div className="flex flex-row items-center justify-center">
                 <div className="relative font-medium">Contact Us</div>
               </div>
