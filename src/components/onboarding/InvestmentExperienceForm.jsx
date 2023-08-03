@@ -73,11 +73,7 @@ const InvestmentExperienceForm = ({ nextStep, prevStep, skipStep }) => {
                       ? 'border-[1px] border-solid border-error'
                       : 'border-[1px] border-solid border-dimgray-800'
                   }`}
-                  optionTextClasses={`${
-                    errors.hasInvestedBefore && touched.hasInvestedBefore
-                      ? 'text-error'
-                      : ''
-                  }`}
+                  error={errors.hasInvestedBefore && touched.hasInvestedBefore}
                 />
               </div>
               {/* Investment experience level radio button options */}

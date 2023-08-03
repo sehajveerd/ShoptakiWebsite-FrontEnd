@@ -41,7 +41,7 @@ const UserOnboarding = ({ currentStep }) => {
   };
 
   const homeStep = () => {
-    navigate('/');
+    navigate('/portfolio');
   };
 
   switch (currentStep) {

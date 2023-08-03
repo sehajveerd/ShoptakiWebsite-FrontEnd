@@ -17,7 +17,7 @@ const SelectComponent = ({
   buttonPositionClasses = 'top-[32px] left-[0px]',
   buttonBorderClasses = 'border-[1px] border-solid border-dimgray-800',
   optionPositionClasses = 'top-[69px]',
-  optionTextClasses = '',
+  error = false,
 }) => {
   const selectedOption =
     options.find(option => option.value === field.value) || '';
@@ -47,7 +47,7 @@ const SelectComponent = ({
               className={classNames(
                 selectedOption ? '' : 'text-silver',
                 'text-left text-sm font-label-small14sb block truncate',
-                optionTextClasses
+                error ? 'text-error' : ''
               )}
             >
               {selectedOption ? selectedOption.name : placeholder}
@@ -57,7 +57,12 @@ const SelectComponent = ({
             </span>
           </Listbox.Button>
           {label && (
-            <div className="absolute top-[0%] left-[0%] font-medium">
+            <div
+              className={classNames(
+                'absolute top-[0%] left-[0%] font-medium',
+                error ? 'text-error' : ''
+              )}
+            >
               {label}
             </div>
           )}

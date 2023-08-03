@@ -36,12 +36,12 @@ const IdentityFinanceForm = ({ nextStep, prevStep, skipStep }) => {
   // TODO: Confirm what validations are required in this forms
   const validationSchema = Yup.object().shape({
     citizenshipStatus: Yup.string().required('Citizenship Status is required'),
-    // ssn: Yup.string()
-    //   .matches(
-    //     /^[0-9]{3}-[0-9]{2}-[0-9]{4}$/,
-    //     'SSN is not valid. It should be in format XXX-XX-XXXX'
-    //   )
-    //   .required('SSN is required'),
+    ssn: Yup.string()
+      .matches(
+        /^[0-9]{3}-[0-9]{2}-[0-9]{4}$/,
+        'SSN is not valid. It should be in format XXX-XX-XXXX'
+      )
+      .required('SSN is required'),
     // accountType: Yup.string().required('Account Type is required'),
     // estimatedNetWorth: Yup.string().required('Estimated Net Worth is required'),
   });
@@ -104,21 +104,27 @@ const IdentityFinanceForm = ({ nextStep, prevStep, skipStep }) => {
                         ? 'border-[1px] border-solid border-error'
                         : 'border-[1px] border-solid border-dimgray-800'
                     }`}
-                    optionTextClasses={`${
+                    error={
                       errors.citizenshipStatus && touched.citizenshipStatus
-                        ? 'text-error'
-                        : ''
-                    }`}
+                    }
                   />
                 </div>
 
                 {/* SSN Number form component */}
                 <div className="relative w-[484px] h-[69px]">
                   <div className="absolute top-[32px] left-[0px] w-[484px] h-[37px]">
-                    <div className="absolute top-[0px] left-[0px] rounded-lg box-border w-[484px] overflow-hidden flex flex-row py-2 px-3 items-center justify-center gap-[10px] border-[1px] border-solid border-dimgray-800">
+                    <div
+                      className={`absolute top-[0px] left-[0px] rounded-lg box-border w-[484px] overflow-hidden flex flex-row py-2 px-3 items-center justify-center gap-[10px] border-[1px] border-solid border-dimgray-800 ${
+                        errors.ssn && touched.ssn ? 'border-error' : ''
+                      }`}
+                    >
                       <Field
                         name="ssn"
-                        className="flex-1 relative p-0 text-left text-sm font-label-small14sb placeholder-silver"
+                        className={`flex-1 relative p-0 text-left text-sm font-label-small14sb placeholder-silver ${
+                          errors.ssn && touched.ssn
+                            ? 'text-error label-error placeholder-error'
+                            : ''
+                        }`}
                         type={isSSNVisible ? 'text' : 'password'}
                         placeholder="123-45-6789"
                       />
@@ -143,7 +149,11 @@ const IdentityFinanceForm = ({ nextStep, prevStep, skipStep }) => {
                       </button>
                     </div>
                   </div>
-                  <div className="absolute w-[61.59%] top-[0%] left-[0%] text-base font-medium text-black inline-block">
+                  <div
+                    className={`absolute w-[61.59%] top-[0%] left-[0%] text-base font-medium text-black inline-block ${
+                      errors.ssn && touched.ssn ? 'text-error' : ''
+                    }`}
+                  >
                     SSN Number
                   </div>
                 </div>
