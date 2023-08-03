@@ -23,7 +23,7 @@ function ProfileDropdown() {
       {({ open }) => (
         <>
           <div>
-            <Menu.Button className="inline-flex justify-center w-full px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+            <Menu.Button className="inline-flex justify-center w-full px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none">
               <div className="flex flex-row items-center justify-start gap-[16px]">
                 <div className="flex flex-row items-center justify-start gap-[8px]">
                   <img

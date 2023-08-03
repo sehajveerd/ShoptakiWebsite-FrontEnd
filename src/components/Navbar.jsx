@@ -6,6 +6,12 @@ import ProfileDropdown from './ui/ProfileDropdown';
 import OurStoryDropdown from './ui/OurStoryDropdown';
 import { IconSearchOutline } from './ui/icons';
 
+/**
+ * TODO: to fix Navbar reload issue for authenticated page
+ * create a new NavbarSkeleton and return if isLoading is true
+ * or create the items that are not displayed for if isLoading is true
+ */
+
 const Navbar = () => {
   const { loginWithRedirect, user, isLoading } = useAuth0();
   return (

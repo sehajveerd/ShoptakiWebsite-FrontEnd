@@ -27,6 +27,7 @@ const LoginCallback = () => {
   }, [getAccessTokenSilently, navigate, user]);
 
   // Render something while the onboarding check is ongoing
+  // TODO: design a custom redirection page
   return <div>Checking onboarding status...</div>;
 };
 

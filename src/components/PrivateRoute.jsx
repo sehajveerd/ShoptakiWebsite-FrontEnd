@@ -5,8 +5,9 @@ import { useAuth0 } from '@auth0/auth0-react';
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated, isLoading } = useAuth0();
 
+  // TODO: create a custom loading component
   if (isLoading) {
-    return <div>Loading...</div>; // Or any loading component
+    return <div>Loading...</div>;
   }
 
   return isAuthenticated ? children : <Navigate to="/" />;
