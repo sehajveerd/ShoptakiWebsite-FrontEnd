@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 
@@ -101,14 +101,14 @@ const IdentityFinanceForm = ({ nextStep, prevStep, skipStep }) => {
                     placeholder="Please select your status"
                     buttonBorderClasses={`${
                       errors.citizenshipStatus && touched.citizenshipStatus
-                        ? 'border-[1px] border-solid border-brown'
+                        ? 'border-[1px] border-solid border-error'
                         : 'border-[1px] border-solid border-dimgray-800'
                     }`}
-                  />
-                  <ErrorMessage
-                    name="citizenshipStatus"
-                    component="div"
-                    className="text-red-500 text-xs"
+                    optionTextClasses={`${
+                      errors.citizenshipStatus && touched.citizenshipStatus
+                        ? 'text-error'
+                        : ''
+                    }`}
                   />
                 </div>
 

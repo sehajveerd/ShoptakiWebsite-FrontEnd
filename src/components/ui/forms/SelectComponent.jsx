@@ -17,6 +17,7 @@ const SelectComponent = ({
   buttonPositionClasses = 'top-[32px] left-[0px]',
   buttonBorderClasses = 'border-[1px] border-solid border-dimgray-800',
   optionPositionClasses = 'top-[69px]',
+  optionTextClasses = '',
 }) => {
   const selectedOption =
     options.find(option => option.value === field.value) || '';
@@ -45,7 +46,8 @@ const SelectComponent = ({
             <span
               className={classNames(
                 selectedOption ? '' : 'text-silver',
-                'text-left text-sm font-label-small14sb block truncate'
+                'text-left text-sm font-label-small14sb block truncate',
+                optionTextClasses
               )}
             >
               {selectedOption ? selectedOption.name : placeholder}

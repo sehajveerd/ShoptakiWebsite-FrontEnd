@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 
@@ -70,14 +70,14 @@ const InvestmentExperienceForm = ({ nextStep, prevStep, skipStep }) => {
                   placeholder="Please select your status"
                   buttonBorderClasses={`${
                     errors.hasInvestedBefore && touched.hasInvestedBefore
-                      ? 'border-[1px] border-solid border-brown'
+                      ? 'border-[1px] border-solid border-error'
                       : 'border-[1px] border-solid border-dimgray-800'
                   }`}
-                />
-                <ErrorMessage
-                  name="hasInvestedBefore"
-                  component="div"
-                  className="text-red-500 text-xs"
+                  optionTextClasses={`${
+                    errors.hasInvestedBefore && touched.hasInvestedBefore
+                      ? 'text-error'
+                      : ''
+                  }`}
                 />
               </div>
               {/* Investment experience level radio button options */}

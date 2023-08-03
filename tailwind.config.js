@@ -93,6 +93,7 @@ module.exports = {
         'neutral-gray300dododo': '#d0d0d0',
         'neutral-gray500747474': '#747474',
         green: '#007c00',
+        error: '#b72a2a',
         'neutral-gray200e8e8e8': '#e8e8e8',
         'neutral-gray-50': '#f8fafc',
         'secondary-blue50': '#ddefff',
