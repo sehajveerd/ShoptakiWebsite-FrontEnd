@@ -4,6 +4,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import PrivateRoute from './components/PrivateRoute';
+import LoginCallback from './components/LoginCallback';
 import Marketplace from './pages/marketplace';
 import About from './pages/about';
 import Forum from './pages/forum';
@@ -18,27 +20,58 @@ const App = () => {
   // TODO: /onboarding/* should be accessed by signed in users only
   let element = useRoutes([
     { path: '/', element: <Landing /> },
+    {
+      path: '/callback',
+      element: (
+        <PrivateRoute>
+          <LoginCallback />
+        </PrivateRoute>
+      ),
+    },
     { path: '/marketplace', element: <Marketplace /> },
     { path: '/about', element: <About /> },
     { path: '/trends', element: <Trends /> },
     { path: '/forum', element: <Forum /> },
     { path: '/support', element: <Support /> },
-    { path: '/portfolio', element: <Portfolio /> },
+    {
+      path: '/portfolio',
+      element: (
+        <PrivateRoute>
+          <Portfolio />
+        </PrivateRoute>
+      ),
+    },
     {
       path: '/onboarding/personal-info',
-      element: <UserOnboarding currentStep="personal-info" />,
+      element: (
+        <PrivateRoute>
+          <UserOnboarding currentStep="personal-info" />
+        </PrivateRoute>
+      ),
     },
     {
       path: '/onboarding/identity-finance',
-      element: <UserOnboarding currentStep="identity-finance" />,
+      element: (
+        <PrivateRoute>
+          <UserOnboarding currentStep="identity-finance" />
+        </PrivateRoute>
+      ),
     },
     {
       path: '/onboarding/investment-experience',
-      element: <UserOnboarding currentStep="investment-experience" />,
+      element: (
+        <PrivateRoute>
+          <UserOnboarding currentStep="investment-experience" />
+        </PrivateRoute>
+      ),
     },
     {
       path: '/onboarding/investment-reason',
-      element: <UserOnboarding currentStep="investment-reason" />,
+      element: (
+        <PrivateRoute>
+          <UserOnboarding currentStep="investment-reason" />
+        </PrivateRoute>
+      ),
     },
 
     { path: '*', element: <NotFound /> },

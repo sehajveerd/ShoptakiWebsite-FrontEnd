@@ -94,7 +94,11 @@ const Navbar = () => {
           {!isLoading && !user && (
             <button
               className="cursor-pointer [border:none] py-2 px-2.5 bg-primary-blue500 rounded-lg flex flex-row items-center justify-start cursor-pointer [border:none] py-2 px-2.5 bg-primary-blue500 rounded-lg flex flex-row items-center justify-start"
-              onClick={() => loginWithRedirect()}
+              onClick={() =>
+                loginWithRedirect({
+                  redirectUri: `${window.location.origin}/callback`,
+                })
+              }
             >
               <div className="relative text-sm font-medium font-body-xs12 text-primary-white text-left relative text-sm font-medium font-body-xs12 text-primary-white text-left">
                 Get Started

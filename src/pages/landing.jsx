@@ -21,7 +21,7 @@ const Landing = () => {
               className="cursor-pointer [border:none] py-2 px-2.5 bg-primary rounded-lg flex flex-row items-center justify-start hover:shadow-[0px_1px_4px_rgba(0,_0,_0,_0.25)]"
               onClick={() =>
                 loginWithRedirect({
-                  authorizationParams: { screen_hint: 'signup' },
+                  redirectUri: `${window.location.origin}/callback`,
                 })
               }
             >
