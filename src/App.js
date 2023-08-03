@@ -10,6 +10,7 @@ import Forum from './pages/forum';
 import Support from './pages/support';
 import Trends from './pages/trends';
 import Landing from './pages/landing';
+import Portfolio from './pages/portfolio';
 import UserOnboarding from './components/onboarding';
 import NotFound from './components/NotFound';
 
@@ -22,6 +23,7 @@ const App = () => {
     { path: '/trends', element: <Trends /> },
     { path: '/forum', element: <Forum /> },
     { path: '/support', element: <Support /> },
+    { path: '/portfolio', element: <Portfolio /> },
     {
       path: '/onboarding/personal-info',
       element: <UserOnboarding currentStep="personal-info" />,

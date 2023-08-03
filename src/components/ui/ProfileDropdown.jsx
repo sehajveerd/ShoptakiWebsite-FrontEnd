@@ -40,7 +40,7 @@ function ProfileDropdown() {
           </div>
           {/* Code for the open dropdown */}
           <Menu.Items
-            className={`absolute z-50 right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${
+            className={`absolute z-50 right-0 w-56 mt-0 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${
               open ? 'block' : 'hidden'
             }`}
           >
@@ -55,9 +55,9 @@ function ProfileDropdown() {
                         }
                         className={`${
                           active
-                            ? 'bg-blue-400 text-white'
+                            ? 'bg-primary-blue500 text-white'
                             : 'bg-white text-gray-900'
-                        } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                        } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium font-body-small14 text-neutral-gray600484848`}
                       >
                         {item}
                       </button>
@@ -65,8 +65,10 @@ function ProfileDropdown() {
                       <Link
                         to={`/${item.toLowerCase()}`}
                         className={`${
-                          active ? 'bg-blue-400 text-white' : 'text-gray-900'
-                        } group flex rounded-md items-center w-full px-2 py-2 text-sm no-underline w-auto`}
+                          active
+                            ? 'bg-primary-blue500 text-white'
+                            : 'text-gray-900'
+                        } group flex rounded-md items-center px-2 py-2 text-sm font-medium font-body-small14 text-neutral-gray600484848 no-underline w-auto`}
                       >
                         {item}
                       </Link>

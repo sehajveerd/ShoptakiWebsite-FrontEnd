@@ -3,23 +3,35 @@ import { Link } from 'react-router-dom';
 
 import { useAuth0 } from '@auth0/auth0-react';
 import ProfileDropdown from './ui/ProfileDropdown';
+import OurStoryDropdown from './ui/OurStoryDropdown';
+import { IconSearchOutline } from './ui/icons';
 
 const Navbar = () => {
   const { loginWithRedirect, user, isLoading } = useAuth0();
   return (
-    <div className="self-stretch bg-white flex flex-row py-4 px-[100px] items-center justify-between text-left text-5xl text-darkslategray-100 font-poppins border-b-[1px] border-solid border-gainsboro">
+    <div className="self-stretch bg-white flex flex-row py-4 px-[100px] items-center justify-between text-left text-sm text-neutral-gray600484848 font-body-small14 border-b-[1px] border-solid border-gainsboro-100">
       <div
-        className="relative font-semibold"
+        className="relative font-semibold font-body-small14 text-5xl"
         style={{
-          background: 'linear-gradient(93.33deg, #0085ff, #b1daff 60.42%)',
+          background:
+            'linear-gradient(93.33deg, #0d65b6 10.42%, #b1daff 77.6%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
         }}
       >
         <Link to="/">Sophtera</Link>
       </div>
-
       <div className="flex flex-row items-start justify-start gap-[24px] text-sm">
+        {!isLoading && user && (
+          <Link
+            to="/portfolio"
+            className="[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit]"
+          >
+            <div className="flex flex-row items-center justify-center">
+              <div className="relative font-medium">Portfolio</div>
+            </div>
+          </Link>
+        )}
         <Link
           to="/marketplace"
           className="[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit]"
@@ -37,55 +49,61 @@ const Navbar = () => {
           </div>
         </Link>
         <Link
-          to="/about"
+          to="/community"
           className="[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit]"
         >
           <div className="flex flex-row items-center justify-center">
-            <div className="relative font-medium">About</div>
+            <div className="relative font-medium">Community</div>
           </div>
         </Link>
-        <Link
-          to="/forum"
-          className="[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit]"
-        >
-          <div className="flex flex-row items-center justify-center">
-            <div className="relative font-medium">Forum</div>
-          </div>
-        </Link>
-        <Link
-          to="/support"
-          className="[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit]"
-        >
-          <div className="flex flex-row items-center justify-center">
-            <div className="relative font-medium">Support</div>
-          </div>
-        </Link>
+        {!isLoading && !user && (
+          <>
+            <Link
+              to="/our-story"
+              className="[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit]"
+            >
+              <div className="flex flex-row items-center justify-center">
+                <div className="relative font-medium">Our Story</div>
+              </div>
+            </Link>
+            <Link
+              to="/contact-us"
+              className="[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit]"
+            >
+              <div className="flex flex-row items-center justify-center">
+                <div className="relative font-medium">Contact Us</div>
+              </div>
+            </Link>
+            <Link
+              to="/support"
+              className="[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit]"
+            >
+              <div className="flex flex-row items-center justify-center">
+                <div className="relative font-medium">Support</div>
+              </div>
+            </Link>
+          </>
+        )}
+        {!isLoading && user && <OurStoryDropdown />}
       </div>
-      {!isLoading && !user && (
-        <div className="flex flex-row items-start justify-start gap-[32px]">
-          <button
-            className="cursor-pointer [border:none] p-2 bg-[transparent] rounded-lg flex flex-row items-center justify-start hover:shadow-[0px_1px_4px_rgba(0,_0,_0,_0.25)] active:mix-blend-color lg:hover:shadow-[0px_1px_3px_rgba(0,_0,_0,_0.25)]"
-            onClick={() => loginWithRedirect()}
-          >
-            <div className="relative text-sm font-medium font-poppins text-dimgray-200 text-left">
-              Login
-            </div>
+      <div className="flex flex-row items-start justify-start flex flex-row items-start justify-start">
+        <div className="flex flex-row items-center justify-end gap-[24px] flex flex-row items-center justify-end gap-[24px]">
+          <button className="cursor-pointer [border:none] p-0 bg-[transparent] relative w-[22px] h-[22px] overflow-hidden shrink-0 cursor-pointer [border:none] p-0 bg-[transparent] relative w-[22px] h-[22px] overflow-hidden shrink-0">
+            <IconSearchOutline />
           </button>
-          <button
-            className="cursor-pointer [border:none] py-2 px-2.5 bg-primary rounded-lg flex flex-row items-center justify-start hover:shadow-[0px_1px_4px_rgba(0,_0,_0,_0.25)] lg:hover:shadow-[0px_1px_3px_rgba(0,_0,_0,_0.25)]"
-            onClick={() =>
-              loginWithRedirect({
-                authorizationParams: { screen_hint: 'signup' },
-              })
-            }
-          >
-            <div className="relative text-sm font-medium font-poppins text-white text-left">
-              Get Started
-            </div>
-          </button>
+          {!isLoading && !user && (
+            <button
+              className="cursor-pointer [border:none] py-2 px-2.5 bg-primary-blue500 rounded-lg flex flex-row items-center justify-start cursor-pointer [border:none] py-2 px-2.5 bg-primary-blue500 rounded-lg flex flex-row items-center justify-start"
+              onClick={() => loginWithRedirect()}
+            >
+              <div className="relative text-sm font-medium font-body-xs12 text-primary-white text-left relative text-sm font-medium font-body-xs12 text-primary-white text-left">
+                Get Started
+              </div>
+            </button>
+          )}
+          {!isLoading && user && <ProfileDropdown />}
         </div>
-      )}
-      {!isLoading && user && <ProfileDropdown />}
+      </div>
     </div>
   );
 };

@@ -40,7 +40,7 @@ const Landing = () => {
           <img
             className="absolute top-[0px] left-[0px] w-[704px] h-[607px] object-cover"
             alt="landing page photo"
-            src="/rectangle-1@2x.png"
+            src="/onboarding/onboarding_identity_finance.jpg"
           />
         </div>
       </div>
