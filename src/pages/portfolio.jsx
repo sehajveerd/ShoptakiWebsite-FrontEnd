@@ -83,7 +83,7 @@ const Portfolio = () => {
             cardHeader="CURRENT VALUE"
             amount={26500}
             baseAmount={27000}
-            chartData={investmentValueChart}
+            chartData={[...investmentValueChart].reverse()}
           />
         </div>
         <div className="absolute top-[276px] left-[32px] rounded-3xs bg-white w-[754px] h-[362px] text-center text-xs text-neutralgray-500 font-inter">
