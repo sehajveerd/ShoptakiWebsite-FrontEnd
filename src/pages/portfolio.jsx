@@ -19,6 +19,14 @@ const Portfolio = () => {
     { title: 'November', value: '77651' },
   ];
 
+  // TEMP: this will be extracted from the fetched data. The keys of the objects in the list can be different. If different then update in the InvestmentDistributionCard component as well
+  const distributionChartData = [
+    { propertyType: 'Residential', amountInvested: 225000 },
+    { propertyType: 'Commercial', amountInvested: 135000 },
+    { propertyType: 'Other', amountInvested: 90000 },
+  ];
+  const totalInvestedAmount = 450000;
+
   return (
     <div className="relative bg-neutral-gray100f1f1f1 w-full min-h-screen overflow-y-auto text-left text-sm text-black font-body-xs12">
       <div className="absolute top-5 left-[272px] text-5xl font-semibold text-gray-900">
@@ -28,12 +36,8 @@ const Portfolio = () => {
       <NavigationSidebar />
       <div className="absolute top-[106px] left-[1058px] rounded bg-shades-white w-[244px] h-[531px] overflow-hidden text-xl text-neutral-gray700010101">
         <InvestmentDistributionCard
-          chartData={[
-            { propertyType: 'Residential', amountInvested: 225000 },
-            { propertyType: 'Commercial', amountInvested: 135000 },
-            { propertyType: 'Other', amountInvested: 90000 },
-          ]}
-          totalInvestedAmount={450000}
+          chartData={distributionChartData}
+          totalInvestedAmount={totalInvestedAmount}
         />
       </div>
       <div className="absolute top-[106px] left-[272px] w-[365px] h-[145px] text-xs text-gray-2000">

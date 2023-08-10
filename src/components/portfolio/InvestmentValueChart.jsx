@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 
@@ -25,7 +24,7 @@ const InvestmentValueChart = ({ chartData }) => {
           lineStyle: {
             color: '#0085ff',
             shadowColor: '#3355de',
-            shadowBlur: 30,
+            shadowBlur: 25,
             shadowOffsetY: 20,
           },
         },

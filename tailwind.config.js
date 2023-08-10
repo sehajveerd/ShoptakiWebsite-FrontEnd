@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary-blue500': '#0d65b6',
+        'secondary-blue50': '#ddefff',
         'primary-white': '#fff',
         'primary-black': '#010101',
         lightgray: '#d0d0d0',
@@ -23,7 +23,7 @@ module.exports = {
         black: '#000',
         silver: '#bfbfbf',
         blueviolet: '#9747ff',
-        'secondary-blue700': '#064682',
+
         darkslategray: {
           100: '#424242',
           200: '#3f3f3f',
@@ -90,6 +90,9 @@ module.exports = {
         mediumslateblue: '#3355de',
         primary: '#0085ff',
         error: '#b72a2a',
+        'primary-blue500': '#0d65b6',
+        'primary-blue5001': '#0d64b5',
+        'secondary-blue700': '#064682',
         'neutral-gray600484848': '#484848',
         'neutral-gray700010101': '#010101',
         'neutral-gray100f1f1f1': '#f1f1f1',
@@ -97,8 +100,6 @@ module.exports = {
         'neutral-gray500747474': '#747474',
         'neutral-gray200e8e8e8': '#e8e8e8',
         'neutral-gray-50': '#f8fafc',
-        'secondary-blue50': '#ddefff',
-        'primary-blue5001': '#0d64b5',
         'shades-white': '#fff',
       },
       fontFamily: {

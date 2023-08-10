@@ -1,23 +1,28 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import * as echarts from 'echarts';
 
 const InvestmentDistributionCard = ({ chartData, totalInvestedAmount }) => {
-  const chartColors = [
+  const chartColorClasses = [
     'bg-secondary-blue50',
     'bg-primary-blue500',
     'bg-secondary-blue700',
   ];
 
-  // Transforms chart data in required format as per thr charting library to be used
+  const chartColors = ['#ddefff', '#0d65b6', '#064682'];
+
+  const chartRef = useRef(null);
+
+  // Transforms chart data in required format as per the echarts charting library
   const transformData = (chartData, totalInvestedAmount) => {
-    // TODO: update this function based on the charting library
     return chartData.map((item, index) => ({
       name: item.propertyType,
-      amountInvested: item.amountInvested,
+      value: item.amountInvested,
       investmentPercent: (
         (item.amountInvested / totalInvestedAmount) *
         100
-      ).toFixed(2), // to fix to two decimal points
-      colorClass: chartColors[index % chartColors.length],
+      ).toFixed(2),
+      itemStyle: { color: chartColors[index % chartColors.length] },
+      colorClass: chartColorClasses[index % chartColorClasses.length],
     }));
   };
 
@@ -29,10 +34,49 @@ const InvestmentDistributionCard = ({ chartData, totalInvestedAmount }) => {
   // convert total invested amount float to the formatted string to display
   const formattedTotalInvestedAmount = `$${totalInvestedAmount.toLocaleString()}`;
 
+  useEffect(() => {
+    const myChart = echarts.init(chartRef.current);
+
+    const option = {
+      series: [
+        {
+          type: 'pie',
+          radius: ['70%', '90%'],
+          avoidLabelOverlap: false,
+          itemStyle: {
+            borderRadius: 50,
+            borderColor: '#fff',
+            borderWidth: 1,
+          },
+          label: {
+            show: false,
+          },
+          data: propertyDistributionData,
+        },
+      ],
+      tooltip: {
+        show: true,
+        trigger: 'item',
+        confine: true,
+        textStyle: {
+          fontFamily: 'Poppins',
+        },
+      },
+    };
+
+    myChart.setOption(option);
+
+    return () => {
+      myChart.dispose();
+    };
+  }, []);
+
   return (
     <div>
-      {/* TODO: add the donut chart here to display the property distribution data */}
-      {/* TODO: for demo purpose we can add the chart as an image */}
+      <div
+        ref={chartRef}
+        className="absolute top-[72px] left-[16px] w-[213px] h-[213px]"
+      ></div>
       <div className="absolute top-[163px] left-[82px] font-medium text-right">
         {formattedTotalInvestedAmount}
       </div>
