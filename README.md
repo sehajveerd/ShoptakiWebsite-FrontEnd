@@ -87,6 +87,7 @@ This project follows a structured layout to organize the codebase. Here's a brie
 - `@auth0/auth0-react`: A library for integrating Auth0 authentication into React applications.
 - `tailwindcss`: A utility-first CSS framework for rapidly building custom user interfaces.
 - `@headlessui/react`: A set of completely unstyled, fully accessible UI components for React, designed to integrate beautifully with Tailwind CSS.
+- `@tremor/react`: A react library used to build different graphs and charts
 - `axios`: A promise-based HTTP client for the browser and node.js.
 - `formik`: A small library that helps with the 3 most annoying parts: getting values in and out of form state, validation and error messages, and handling form submission.
 - `yup`: A schema validation library used along with `formik`
