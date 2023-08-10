@@ -81,7 +81,7 @@ const IdentityFinanceForm = ({ nextStep, prevStep, skipStep }) => {
     >
       {({ touched, errors, isSubmitting }) => (
         <Form>
-          <div className="relative rounded-xl bg-white w-full h-[768px] overflow-hidden text-left text-sm text-silver font-label-small14sb">
+          <div className="relative rounded-xl bg-white w-full h-[768px] overflow-hidden text-left text-sm text-silver font-poppins">
             {/* Left side image */}
             <img
               className="absolute top-[calc(50%_-_320px)] left-[64px] rounded-xl w-[554px] h-[640px] object-cover"
@@ -120,7 +120,7 @@ const IdentityFinanceForm = ({ nextStep, prevStep, skipStep }) => {
                     >
                       <Field
                         name="ssn"
-                        className={`flex-1 relative p-0 text-left text-sm font-label-small14sb placeholder-silver ${
+                        className={`flex-1 relative p-0 text-left text-sm font-poppins placeholder-silver ${
                           errors.ssn && touched.ssn
                             ? 'text-error label-error placeholder-error'
                             : ''
@@ -243,7 +243,7 @@ const IdentityFinanceForm = ({ nextStep, prevStep, skipStep }) => {
                   disabled={isSubmitting}
                   type="submit"
                 >
-                  <div className="relative text-sm font-semibold font-label-small14sb text-white text-left">
+                  <div className="relative text-sm font-semibold font-poppins text-white text-left">
                     Continue
                   </div>
                 </button>
@@ -254,7 +254,7 @@ const IdentityFinanceForm = ({ nextStep, prevStep, skipStep }) => {
                   type="button"
                   onClick={prevStep}
                 >
-                  <div className="relative text-sm font-semibold font-label-small14sb text-primary-black text-left">
+                  <div className="relative text-sm font-semibold font-poppins text-primary-black text-left">
                     Go Back
                   </div>
                 </button>
@@ -266,7 +266,7 @@ const IdentityFinanceForm = ({ nextStep, prevStep, skipStep }) => {
                 type="button"
                 onClick={skipStep}
               >
-                <div className="absolute top-[0%] left-[0%] text-sm font-semibold font-label-small14sb text-primary-black text-center">
+                <div className="absolute top-[0%] left-[0%] text-sm font-semibold font-poppins text-primary-black text-center">
                   Skip for now
                 </div>
               </button>

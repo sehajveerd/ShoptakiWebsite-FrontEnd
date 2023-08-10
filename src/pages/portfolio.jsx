@@ -28,7 +28,7 @@ const Portfolio = () => {
   const totalInvestedAmount = 450000;
 
   return (
-    <div className="relative bg-neutralgray-100 w-full min-h-screen overflow-y-auto text-left text-sm text-black font-body-xs12">
+    <div className="relative bg-neutralgray-100 w-full min-h-screen overflow-y-auto text-left text-sm text-black font-poppins">
       <div className="absolute top-5 left-[272px] text-5xl font-semibold text-gray-900">
         My Portfolio
       </div>

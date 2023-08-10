@@ -73,14 +73,13 @@ module.exports = {
         },
       },
       fontFamily: {
-        'label-small14sb': 'Poppins',
         inherit: 'inherit',
         inter: 'Inter',
         'avenir-next': "'Avenir Next'",
         'work-sans': "'Work Sans'",
         'body-small14': 'Poppins',
-        'paragraph-p3-regular': "'Plus Jakarta Sans'",
-        'body-xs12': 'Poppins',
+        'plus-jakarta-sans': "'Plus Jakarta Sans'",
+        poppins: 'Poppins',
       },
       borderRadius: {
         '3xs': '10px',

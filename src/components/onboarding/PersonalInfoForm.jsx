@@ -50,7 +50,7 @@ const PersonalInfoForm = ({ nextStep, skipStep }) => {
   ];
 
   const fieldClassNames =
-    'absolute h-[55.56%] w-full top-[44.44%] right-[0%] bottom-[0%] left-[0%] text-sm rounded-lg bg-white box-border border-[1px] border-solid border-dimgray-401 text-sm font-label-small14sb placeholder-silver pl-3';
+    'absolute h-[55.56%] w-full top-[44.44%] right-[0%] bottom-[0%] left-[0%] text-sm rounded-lg bg-white box-border border-[1px] border-solid border-dimgray-401 text-sm font-poppins placeholder-silver pl-3';
   const fieldLabelClassNames = 'absolute top-[0%] left-[0%] font-medium';
   return (
     <Formik
@@ -60,7 +60,7 @@ const PersonalInfoForm = ({ nextStep, skipStep }) => {
     >
       {({ touched, errors, isSubmitting }) => (
         <Form>
-          <div className="relative rounded-xl bg-white w-full h-[768px] overflow-hidden text-left text-sm text-silver font-label-small14sb">
+          <div className="relative rounded-xl bg-white w-full h-[768px] overflow-hidden text-left text-sm text-silver font-poppins">
             {/* Left side image */}
             <img
               className="absolute top-[calc(50%_-_320px)] left-[64px] rounded-xl w-[554px] h-[640px] object-cover"
@@ -240,7 +240,7 @@ const PersonalInfoForm = ({ nextStep, skipStep }) => {
                   disabled={isSubmitting}
                   type="submit"
                 >
-                  <div className="relative text-sm font-semibold font-label-small14sb text-white text-left">
+                  <div className="relative text-sm font-semibold font-poppins text-white text-left">
                     Continue
                   </div>
                 </button>
@@ -252,7 +252,7 @@ const PersonalInfoForm = ({ nextStep, skipStep }) => {
                 type="button"
                 onClick={skipStep}
               >
-                <div className="absolute top-[0%] left-[0%] text-sm font-semibold font-label-small14sb text-primary-black text-center">
+                <div className="absolute top-[0%] left-[0%] text-sm font-semibold font-poppins text-primary-black text-center">
                   Skip for now
                 </div>
               </button>

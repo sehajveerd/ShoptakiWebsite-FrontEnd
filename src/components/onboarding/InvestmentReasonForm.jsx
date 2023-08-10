@@ -48,7 +48,7 @@ const InvestmentReasonForm = ({ prevStep, homeStep }) => {
     >
       {({ touched, errors, isSubmitting }) => (
         <Form>
-          <div className="relative rounded-xl bg-white w-full h-[768px] overflow-hidden text-left text-base text-primary-black font-label-small14sb">
+          <div className="relative rounded-xl bg-white w-full h-[768px] overflow-hidden text-left text-base text-primary-black font-poppins">
             {/* Left side image */}
             <img
               className="absolute top-[calc(50%_-_320px)] left-[64px] rounded-xl w-[554px] h-[640px] object-cover"
@@ -244,7 +244,7 @@ const InvestmentReasonForm = ({ prevStep, homeStep }) => {
                   disabled={isSubmitting}
                   type="submit"
                 >
-                  <div className="relative text-sm font-semibold font-label-small14sb text-white text-left">
+                  <div className="relative text-sm font-semibold font-poppins text-white text-left">
                     Continue
                   </div>
                 </button>
@@ -253,7 +253,7 @@ const InvestmentReasonForm = ({ prevStep, homeStep }) => {
                   type="button"
                   onClick={prevStep}
                 >
-                  <div className="relative text-sm font-semibold font-label-small14sb text-primary-black text-left">
+                  <div className="relative text-sm font-semibold font-poppins text-primary-black text-left">
                     Go Back
                   </div>
                 </button>
@@ -263,7 +263,7 @@ const InvestmentReasonForm = ({ prevStep, homeStep }) => {
                 type="button"
                 onClick={homeStep}
               >
-                <div className="absolute top-[0%] left-[0%] text-sm font-semibold font-label-small14sb text-primary-black text-center">
+                <div className="absolute top-[0%] left-[0%] text-sm font-semibold font-poppins text-primary-black text-center">
                   Skip for now
                 </div>
               </button>

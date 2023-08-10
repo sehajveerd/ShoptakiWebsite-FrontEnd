@@ -46,7 +46,7 @@ const SelectComponent = ({
             <span
               className={classNames(
                 selectedOption ? '' : 'text-silver',
-                'text-left text-sm font-label-small14sb block truncate',
+                'text-left text-sm font-poppins block truncate',
                 error ? 'text-error' : ''
               )}
             >
@@ -97,7 +97,7 @@ const SelectComponent = ({
                       <span
                         className={classNames(
                           selected ? 'font-semibold' : 'font-normal',
-                          'text-left text-sm font-label-small14sb block truncate'
+                          'text-left text-sm font-poppins block truncate'
                         )}
                       >
                         {option.name}

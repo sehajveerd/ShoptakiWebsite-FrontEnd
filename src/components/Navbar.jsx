@@ -80,7 +80,7 @@ const Navbar = () => {
                 })
               }
             >
-              <div className="relative text-sm font-medium font-body-xs12 text-white text-left relative text-sm font-medium font-body-xs12 text-white text-left">
+              <div className="relative text-sm font-medium font-poppins text-white text-left relative text-sm font-medium font-poppins text-white text-left">
                 Get Started
               </div>
             </button>
