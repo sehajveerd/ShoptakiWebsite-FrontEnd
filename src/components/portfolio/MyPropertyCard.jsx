@@ -14,6 +14,16 @@ const MyPropertyCard = ({ property, cardClassNames }) => {
     );
   };
 
+  const getFormattedReturns = (currentAmount, investedAmount) => {
+    const difference = currentAmount - investedAmount;
+    const formattedDifference = Math.abs(difference).toLocaleString('en-US', {
+      minimumFractionDigits: 2,
+    });
+    return difference < 0
+      ? `-$${formattedDifference}`
+      : `$${formattedDifference}`;
+  };
+
   const getValueColor = (currentAmount, investedAmount) => {
     return currentAmount > investedAmount
       ? 'green'
@@ -71,11 +81,12 @@ const MyPropertyCard = ({ property, cardClassNames }) => {
             property.currentInvestmentValue,
             property.myInvestedAmount
           )}
-          % ($
-          {(
-            property.currentInvestmentValue - property.myInvestedAmount
-          ).toLocaleString('en-US', { minimumFractionDigits: 2 })}
-          )
+          % {` (`}
+          {getFormattedReturns(
+            property.currentInvestmentValue,
+            property.myInvestedAmount
+          )}
+          {`)`}
         </div>
       </div>
       <button className="absolute right-[17px] bottom-[18px] rounded-xl py-[5px] px-2 bg-primaryblue-500 text-white font-semibold">
