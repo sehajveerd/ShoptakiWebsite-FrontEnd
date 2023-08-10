@@ -35,9 +35,9 @@ const App = () => {
     {
       path: '/portfolio',
       element: (
-        // <PrivateRoute>
-        <Portfolio />
-        // </PrivateRoute>
+        <PrivateRoute>
+          <Portfolio />
+        </PrivateRoute>
       ),
     },
     {
