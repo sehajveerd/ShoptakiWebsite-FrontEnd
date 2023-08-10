@@ -6,6 +6,13 @@ module.exports = {
       colors: {
         lightgray: '#d0d0d0',
         silver: '#bfbfbf',
+        white: '#ffffff',
+        black: '#000000',
+        green: '#007c00',
+        red: '#b72a2a',
+        primary: '#0085ff',
+        success: '#007c00',
+        error: '#b72a2a',
         cornflowerblue: '#419df1',
         dimgray: {
           100: '#717171',
@@ -63,13 +70,6 @@ module.exports = {
         primaryblue: {
           500: '#0d65b6',
         },
-        white: '#ffffff',
-        black: '#000000',
-        green: '#007c00',
-        red: '#b72a2a',
-        primary: '#0085ff',
-        success: '#007c00',
-        error: '#b72a2a',
       },
       fontFamily: {
         'label-small14sb': 'Poppins',
