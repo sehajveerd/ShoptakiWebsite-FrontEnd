@@ -45,13 +45,15 @@ const Portfolio = () => {
           cardHeader="TOTAL INVESTMENT"
           amount={26500}
           baseAmount={25000}
+          chartData={investmentValueChart}
         />
       </div>
       <div className="absolute top-[106px] left-[661px] w-[365px] h-[145px] text-xs text-gray-2000">
         <InvestmentInfoCard
           cardHeader="CURRENT VALUE"
           amount={26500}
-          baseAmount={25000}
+          baseAmount={27000}
+          chartData={investmentValueChart}
         />
       </div>
       <div className="absolute top-[276px] left-[272px] rounded-3xs bg-shades-white w-[754px] h-[362px] text-center text-xs text-neutral-gray500747474 font-inter">

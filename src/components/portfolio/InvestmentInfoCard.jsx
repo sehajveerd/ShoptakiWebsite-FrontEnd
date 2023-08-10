@@ -1,13 +1,66 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import * as echarts from 'echarts';
 import { IconPositivePctChange, IconNegativePctChange } from '../ui/icons';
 
 // TODO: take the data required for graph as a prop and format the it as required by the chart
-const InvestmentInfoCard = ({ cardHeader, amount, baseAmount }) => {
+const InvestmentInfoCard = ({ cardHeader, amount, baseAmount, chartData }) => {
+  const chartRef = useRef(null);
+
   // convert amount in float to the formatted string to display
   const formattedAmount = `$${amount.toLocaleString()}`;
   const amountPctChange = (((amount - baseAmount) / baseAmount) * 100).toFixed(
     2
   );
+
+  useEffect(() => {
+    const myChart = echarts.init(chartRef.current);
+
+    const option = {
+      xAxis: {
+        show: false,
+        type: 'category',
+      },
+      yAxis: {
+        show: false,
+        type: 'value',
+      },
+      grid: {
+        width: 150,
+        height: 125,
+        bottom: 0,
+        left: 0,
+      },
+      series: [
+        {
+          data: chartData.map(item => item.value), // TEMP: will need to update if the key is changed,
+          type: 'line',
+          smooth: true,
+          symbol: 'none',
+          lineStyle: {
+            color: amount > baseAmount ? '#007c00' : '#b72a2a',
+          },
+          areaStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              {
+                offset: 0,
+                color: amount > baseAmount ? '#007c00' : '#b72a2a',
+              },
+              {
+                offset: 1,
+                color: '#FFFFFF',
+              },
+            ]),
+          },
+        },
+      ],
+    };
+
+    myChart.setOption(option);
+
+    return () => {
+      myChart.dispose();
+    };
+  }, [chartData, amount, baseAmount]);
 
   return (
     <div>
@@ -34,12 +87,10 @@ const InvestmentInfoCard = ({ cardHeader, amount, baseAmount }) => {
       ) : (
         <IconNegativePctChange className="absolute top-[109px] left-[25px] w-5 h-5" />
       )}
-      {/* TODO: add actual graph here for current value over a period of time */}
-      <img
+      <div
+        ref={chartRef}
         className="absolute top-[20px] left-[213px] rounded w-[152px] h-[125px] overflow-hidden"
-        alt="Graph of current value over a period of time"
-        src="/frame-1370.svg"
-      />
+      ></div>
     </div>
   );
 };
