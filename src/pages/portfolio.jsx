@@ -62,12 +62,13 @@ const Portfolio = () => {
   return (
     <div className="flex-1 flex bg-neutralgray-100">
       <NavigationSidebar />
-      <div className="flex-1 overflow-x-hidden overflow-y-auto relative text-left text-sm text-black font-poppins">
+      {/* Right side scrollable component */}
+      <div className="flex-1 overflow-y-auto relative text-left text-sm text-black font-poppins">
         <div className="absolute top-5 left-[32px] text-5xl font-semibold text-gray-900">
           My Portfolio
         </div>
         <div className="absolute top-[76.5px] left-[0px] box-border w-full h-px border-t-[1px] border-solid border-gainsboro-100" />
-        <div className="absolute top-[106px] left-[848px] rounded bg-white w-[244px] h-[531px] overflow-hidden text-xl text-neutralgray-700">
+        <div className="absolute top-[106px] left-[818px] rounded bg-white w-[244px] h-[531px] overflow-hidden text-xl text-neutralgray-700">
           <InvestmentDistributionCard
             chartData={distributionChartData}
             totalInvestedAmount={totalInvestedAmount}
