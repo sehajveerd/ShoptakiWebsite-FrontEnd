@@ -50,7 +50,7 @@ const PersonalInfoForm = ({ nextStep, skipStep }) => {
   ];
 
   const fieldClassNames =
-    'absolute h-[55.56%] w-full top-[44.44%] right-[0%] bottom-[0%] left-[0%] text-sm rounded-lg bg-white box-border border-[1px] border-solid border-dimgray-800 text-sm font-label-small14sb placeholder-silver pl-3';
+    'absolute h-[55.56%] w-full top-[44.44%] right-[0%] bottom-[0%] left-[0%] text-sm rounded-lg bg-white box-border border-[1px] border-solid border-dimgray-401 text-sm font-label-small14sb placeholder-silver pl-3';
   const fieldLabelClassNames = 'absolute top-[0%] left-[0%] font-medium';
   return (
     <Formik

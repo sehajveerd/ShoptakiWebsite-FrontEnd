@@ -64,7 +64,7 @@ const InvestmentReasonForm = ({ prevStep, homeStep }) => {
                 <div className="absolute top-[36px] left-[0px] flex flex-col items-start justify-start gap-[12px] text-sm">
                   {/* Diverse investment opportunities card with checkbox */}
                   <div className="relative w-[484px] h-16">
-                    <div className="absolute top-[calc(50%_-_32px)] left-[calc(50%_-_242px)] rounded-lg box-border w-[484px] h-16 overflow-hidden border-[1px] border-solid border-dimgray-800">
+                    <div className="absolute top-[calc(50%_-_32px)] left-[calc(50%_-_242px)] rounded-lg box-border w-[484px] h-16 overflow-hidden border-[1px] border-solid border-dimgray-401">
                       <label className="absolute top-[12px] left-[15px] w-[453px] h-10">
                         <Field
                           id="diverseInvestment"
@@ -87,7 +87,7 @@ const InvestmentReasonForm = ({ prevStep, homeStep }) => {
 
                   {/* Competitive returns card with checkbox */}
                   <div className="relative w-[484px] h-16">
-                    <div className="absolute top-[calc(50%_-_32px)] left-[calc(50%_-_242px)] rounded-lg box-border w-[484px] h-16 overflow-hidden border-[1px] border-solid border-dimgray-800">
+                    <div className="absolute top-[calc(50%_-_32px)] left-[calc(50%_-_242px)] rounded-lg box-border w-[484px] h-16 overflow-hidden border-[1px] border-solid border-dimgray-401">
                       <label className="absolute top-[12px] left-[16px] w-[452px] h-10">
                         <Field
                           id="competitiveReturns"
@@ -110,7 +110,7 @@ const InvestmentReasonForm = ({ prevStep, homeStep }) => {
 
                   {/* Property ownership card with checkbox */}
                   <div className="relative w-[484px] h-16">
-                    <div className="absolute top-[calc(50%_-_32px)] left-[calc(50%_-_242px)] rounded-lg box-border w-[484px] h-16 overflow-hidden border-[1px] border-solid border-dimgray-800">
+                    <div className="absolute top-[calc(50%_-_32px)] left-[calc(50%_-_242px)] rounded-lg box-border w-[484px] h-16 overflow-hidden border-[1px] border-solid border-dimgray-401">
                       <label className="absolute top-[12px] left-[16px] w-[452px] h-10">
                         <Field
                           id="propertyOwnership"
@@ -133,7 +133,7 @@ const InvestmentReasonForm = ({ prevStep, homeStep }) => {
 
                   {/* Learn card with checkbox */}
                   <div className="relative w-[484px] h-16">
-                    <div className="absolute top-[calc(50%_-_32px)] left-[calc(50%_-_242px)] rounded-lg box-border w-[484px] h-16 overflow-hidden border-[1px] border-solid border-dimgray-800">
+                    <div className="absolute top-[calc(50%_-_32px)] left-[calc(50%_-_242px)] rounded-lg box-border w-[484px] h-16 overflow-hidden border-[1px] border-solid border-dimgray-401">
                       <label className="absolute top-[12px] left-[16px] w-[452px] h-10">
                         <Field
                           id="learn"
@@ -156,7 +156,7 @@ const InvestmentReasonForm = ({ prevStep, homeStep }) => {
 
                   {/* Other reason card with checkbox */}
                   <div className="relative w-[484px] h-16">
-                    <div className="absolute top-[0px] left-[0px] rounded-lg box-border w-[484px] h-16 overflow-hidden border-[1px] border-solid border-dimgray-800">
+                    <div className="absolute top-[0px] left-[0px] rounded-lg box-border w-[484px] h-16 overflow-hidden border-[1px] border-solid border-dimgray-401">
                       <label className="absolute top-[22px] left-[16px] w-[452px] h-[21px]">
                         <Field
                           id="other"

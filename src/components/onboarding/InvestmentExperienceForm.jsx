@@ -71,7 +71,7 @@ const InvestmentExperienceForm = ({ nextStep, prevStep, skipStep }) => {
                   buttonBorderClasses={`${
                     errors.hasInvestedBefore && touched.hasInvestedBefore
                       ? 'border-[1px] border-solid border-error'
-                      : 'border-[1px] border-solid border-dimgray-800'
+                      : 'border-[1px] border-solid border-dimgray-401'
                   }`}
                   error={errors.hasInvestedBefore && touched.hasInvestedBefore}
                 />
@@ -84,7 +84,7 @@ const InvestmentExperienceForm = ({ nextStep, prevStep, skipStep }) => {
                 <div className="absolute top-[36px] left-[0px] flex flex-col items-start justify-start gap-[12px] text-sm text-primary-black">
                   {/* Beginner card with radio button */}
                   <div className="relative w-[484px] h-16">
-                    <div className="absolute top-[calc(50%_-_32px)] left-[calc(50%_-_242px)] rounded-lg box-border w-[484px] h-16 overflow-hidden border-[1px] border-solid border-dimgray-800">
+                    <div className="absolute top-[calc(50%_-_32px)] left-[calc(50%_-_242px)] rounded-lg box-border w-[484px] h-16 overflow-hidden border-[1px] border-solid border-dimgray-401">
                       <label className="absolute top-[calc(50%_-_20px)] left-[12px] w-[456px] h-10">
                         <Field
                           name="investmentExperienceLevel"
@@ -107,7 +107,7 @@ const InvestmentExperienceForm = ({ nextStep, prevStep, skipStep }) => {
                   </div>
                   <div className="relative w-[484px] h-16">
                     {/* Proficient card with radio button */}
-                    <div className="absolute top-[calc(50%_-_32px)] left-[calc(50%_-_242px)] rounded-lg box-border w-[484px] h-16 overflow-hidden border-[1px] border-solid border-dimgray-800">
+                    <div className="absolute top-[calc(50%_-_32px)] left-[calc(50%_-_242px)] rounded-lg box-border w-[484px] h-16 overflow-hidden border-[1px] border-solid border-dimgray-401">
                       <label className="absolute top-[calc(50%_-_20px)] left-[12px] w-[456px] h-10">
                         <Field
                           name="investmentExperienceLevel"
@@ -129,7 +129,7 @@ const InvestmentExperienceForm = ({ nextStep, prevStep, skipStep }) => {
                   </div>
                   <div className="relative w-[484px] h-16">
                     {/* Expert card with radio button */}
-                    <div className="absolute top-[calc(50%_-_32px)] left-[calc(50%_-_242px)] rounded-lg box-border w-[484px] h-16 overflow-hidden border-[1px] border-solid border-dimgray-800">
+                    <div className="absolute top-[calc(50%_-_32px)] left-[calc(50%_-_242px)] rounded-lg box-border w-[484px] h-16 overflow-hidden border-[1px] border-solid border-dimgray-401">
                       <label className="absolute top-[calc(50%_-_21px)] left-[14px] w-[454px] h-10">
                         <Field
                           name="investmentExperienceLevel"

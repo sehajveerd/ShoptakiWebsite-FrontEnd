@@ -102,7 +102,7 @@ const IdentityFinanceForm = ({ nextStep, prevStep, skipStep }) => {
                     buttonBorderClasses={`${
                       errors.citizenshipStatus && touched.citizenshipStatus
                         ? 'border-[1px] border-solid border-error'
-                        : 'border-[1px] border-solid border-dimgray-800'
+                        : 'border-[1px] border-solid border-dimgray-401'
                     }`}
                     error={
                       errors.citizenshipStatus && touched.citizenshipStatus
@@ -114,7 +114,7 @@ const IdentityFinanceForm = ({ nextStep, prevStep, skipStep }) => {
                 <div className="relative w-[484px] h-[69px]">
                   <div className="absolute top-[32px] left-[0px] w-[484px] h-[37px]">
                     <div
-                      className={`absolute top-[0px] left-[0px] rounded-lg box-border w-[484px] overflow-hidden flex flex-row py-2 px-3 items-center justify-center gap-[10px] border-[1px] border-solid border-dimgray-800 ${
+                      className={`absolute top-[0px] left-[0px] rounded-lg box-border w-[484px] overflow-hidden flex flex-row py-2 px-3 items-center justify-center gap-[10px] border-[1px] border-solid border-dimgray-401 ${
                         errors.ssn && touched.ssn ? 'border-error' : ''
                       }`}
                     >
