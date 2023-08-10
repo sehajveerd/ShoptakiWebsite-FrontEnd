@@ -4,7 +4,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 const Landing = () => {
   const { loginWithRedirect } = useAuth0();
   return (
-    <div className="relative bg-white w-full overflow-hidden flex flex-col items-center justify-start gap-[191px] text-left text-17xl text-darkslategray-300 font-poppins">
+    <div className="relative bg-white w-full overflow-hidden flex flex-col items-center justify-start gap-[191px] text-left text-17xl text-dimgray-800 font-poppins">
       <div className="self-stretch bg-gray-400 flex flex-row py-0 pr-0 pl-[100px] items-center justify-between text-dimgray-300">
         <div className="flex flex-col items-start justify-start gap-[96px]">
           <div className="flex flex-col items-start justify-start gap-[40px]">

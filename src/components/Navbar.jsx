@@ -15,10 +15,10 @@ import { IconSearchOutline } from './ui/icons';
 const Navbar = () => {
   const { loginWithRedirect, user, isLoading } = useAuth0();
   const linkClassNames =
-    '[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit] hover:bg-gray-50 hover:text-primary-blue5001';
+    '[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit] hover:bg-gray-50 hover:text-primaryblue-500';
 
   return (
-    <div className="self-stretch bg-white flex flex-row py-4 px-[100px] items-center justify-between text-left text-sm text-neutral-gray600484848 font-body-small14 border-b-[1px] border-solid border-gainsboro-100">
+    <div className="self-stretch bg-white flex flex-row py-4 px-[100px] items-center justify-between text-left text-sm text-neutralgray-600 font-body-small14 border-b-[1px] border-solid border-gainsboro-100">
       <Link to="/">
         <img src="/SophteraLogo.svg" />
       </Link>
@@ -73,14 +73,14 @@ const Navbar = () => {
           </button>
           {!isLoading && !user && (
             <button
-              className="cursor-pointer [border:none] py-2 px-2.5 bg-primary-blue500 rounded-lg flex flex-row items-center justify-start cursor-pointer [border:none] py-2 px-2.5 bg-primary-blue500 rounded-lg flex flex-row items-center justify-start"
+              className="cursor-pointer [border:none] py-2 px-2.5 bg-primaryblue-500 rounded-lg flex flex-row items-center justify-start cursor-pointer [border:none] py-2 px-2.5 bg-primaryblue-500 rounded-lg flex flex-row items-center justify-start"
               onClick={() =>
                 loginWithRedirect({
                   redirectUri: `${window.location.origin}/callback`,
                 })
               }
             >
-              <div className="relative text-sm font-medium font-body-xs12 text-primary-white text-left relative text-sm font-medium font-body-xs12 text-primary-white text-left">
+              <div className="relative text-sm font-medium font-body-xs12 text-white text-left relative text-sm font-medium font-body-xs12 text-white text-left">
                 Get Started
               </div>
             </button>

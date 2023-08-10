@@ -16,7 +16,7 @@ function OurStoryDropdown() {
         <>
           <div>
             <Menu.Button className="inline-flex justify-center w-full px-2.5 py-2.5 bg-white hover:bg-gray-50">
-              <div className="flex flex-row items-center justify-start gap-[16px] relative text-sm font-medium font-body-small14 text-neutral-gray600484848 text-left hover:text-primary-blue5001">
+              <div className="flex flex-row items-center justify-start gap-[16px] relative text-sm font-medium font-body-small14 text-neutralgray-600 text-left hover:text-primaryblue-500">
                 Our Story
                 <IconDropdownOutline className="relative w-[19px] h-[19px]" />
               </div>
@@ -36,9 +36,9 @@ function OurStoryDropdown() {
                       to={value}
                       className={`${
                         active
-                          ? 'bg-primary-blue500 text-white'
+                          ? 'bg-primaryblue-500 text-white'
                           : 'text-gray-900'
-                      } group flex rounded-md items-center px-2 py-2 text-sm font-medium font-body-small14 text-neutral-gray600484848 text-left no-underline w-auto`}
+                      } group flex rounded-md items-center px-2 py-2 text-sm font-medium font-body-small14 text-neutralgray-600 text-left no-underline w-auto`}
                     >
                       {key}
                     </Link>

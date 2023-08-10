@@ -55,9 +55,9 @@ function ProfileDropdown() {
                         }
                         className={`${
                           active
-                            ? 'bg-primary-blue500 text-white'
+                            ? 'bg-primaryblue-500 text-white'
                             : 'bg-white text-gray-900'
-                        } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium font-body-small14 text-neutral-gray600484848`}
+                        } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium font-body-small14 text-neutralgray-600`}
                       >
                         {item}
                       </button>
@@ -66,9 +66,9 @@ function ProfileDropdown() {
                         to={`/${item.toLowerCase()}`}
                         className={`${
                           active
-                            ? 'bg-primary-blue500 text-white'
+                            ? 'bg-primaryblue-500 text-white'
                             : 'text-gray-900'
-                        } group flex rounded-md items-center px-2 py-2 text-sm font-medium font-body-small14 text-neutral-gray600484848 no-underline w-auto`}
+                        } group flex rounded-md items-center px-2 py-2 text-sm font-medium font-body-small14 text-neutralgray-600 no-underline w-auto`}
                       >
                         {item}
                       </Link>

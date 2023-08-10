@@ -3,9 +3,9 @@ import * as echarts from 'echarts';
 
 const InvestmentDistributionCard = ({ chartData, totalInvestedAmount }) => {
   const chartColorClasses = [
-    'bg-secondary-blue50',
-    'bg-primary-blue500',
-    'bg-secondary-blue700',
+    'bg-secondaryblue-50',
+    'bg-primaryblue-500',
+    'bg-secondaryblue-700',
   ];
 
   const chartColors = ['#ddefff', '#0d65b6', '#064682'];
@@ -99,7 +99,7 @@ const InvestmentDistributionCard = ({ chartData, totalInvestedAmount }) => {
               </div>
             </div>
             {index !== propertyDistributionData.length - 1 && (
-              <div className="relative left-[-0.5px] box-border w-[191px] h-px border-t-[1px] border-solid border-neutral-gray200e8e8e8 my-[10px]"></div>
+              <div className="relative left-[-0.5px] box-border w-[191px] h-px border-t-[1px] border-solid border-neutralgray-200 my-[10px]"></div>
             )}
           </React.Fragment>
         ))}

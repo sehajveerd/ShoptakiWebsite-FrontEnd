@@ -64,7 +64,7 @@ const InvestmentInfoCard = ({ cardHeader, amount, baseAmount, chartData }) => {
 
   return (
     <div>
-      <div className="absolute top-[0px] left-[0px] rounded bg-shades-white w-[365px] h-[145px]" />
+      <div className="absolute top-[0px] left-[0px] rounded bg-white w-[365px] h-[145px]" />
       <div className="absolute top-[20px] left-[20px] flex flex-col items-start justify-start gap-[8px]">
         <div className="relative font-medium">{cardHeader}</div>
         <div

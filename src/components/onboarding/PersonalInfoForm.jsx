@@ -50,7 +50,7 @@ const PersonalInfoForm = ({ nextStep, skipStep }) => {
   ];
 
   const fieldClassNames =
-    'absolute h-[55.56%] w-full top-[44.44%] right-[0%] bottom-[0%] left-[0%] text-sm rounded-lg bg-primary-white box-border border-[1px] border-solid border-dimgray-800 text-sm font-label-small14sb placeholder-silver pl-3';
+    'absolute h-[55.56%] w-full top-[44.44%] right-[0%] bottom-[0%] left-[0%] text-sm rounded-lg bg-white box-border border-[1px] border-solid border-dimgray-800 text-sm font-label-small14sb placeholder-silver pl-3';
   const fieldLabelClassNames = 'absolute top-[0%] left-[0%] font-medium';
   return (
     <Formik
@@ -60,7 +60,7 @@ const PersonalInfoForm = ({ nextStep, skipStep }) => {
     >
       {({ touched, errors, isSubmitting }) => (
         <Form>
-          <div className="relative rounded-xl bg-primary-white w-full h-[768px] overflow-hidden text-left text-sm text-silver font-label-small14sb">
+          <div className="relative rounded-xl bg-white w-full h-[768px] overflow-hidden text-left text-sm text-silver font-label-small14sb">
             {/* Left side image */}
             <img
               className="absolute top-[calc(50%_-_320px)] left-[64px] rounded-xl w-[554px] h-[640px] object-cover"
@@ -69,21 +69,21 @@ const PersonalInfoForm = ({ nextStep, skipStep }) => {
             />
             {/* Right side breadcrumb */}
             <div className="absolute top-[144px] left-[683px] flex flex-row items-center justify-center gap-[8px] text-center text-xs text-cornflowerblue">
-              <div className="flex flex-row items-center justify-center gap-[8px] text-primary-blue500">
+              <div className="flex flex-row items-center justify-center gap-[8px] text-primaryblue-500">
                 <div className="relative w-5 h-5">
                   <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-                    <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-[50%] bg-secondary-blue50 box-border border-[1px] border-solid border-primary-blue500" />
+                    <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-[50%] bg-secondaryblue-50 box-border border-[1px] border-solid border-primaryblue-500" />
                     <div className="absolute top-[5%] left-[40%] font-semibold">
                       1
                     </div>
                   </div>
                 </div>
-                <div className="relative box-border w-[66px] h-px border-t-[1px] border-solid border-neutral-gray300dododo" />
+                <div className="relative box-border w-[66px] h-px border-t-[1px] border-solid border-neutralgray-300" />
               </div>
               <div className="flex flex-row items-center justify-center gap-[8px]">
                 <div className="relative w-5 h-5">
                   <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-                    <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-[50%] bg-aliceblue" />
+                    <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-[50%] bg-secondaryblue-50" />
                     <div className="absolute top-[5%] left-[30%] font-semibold">
                       2
                     </div>
@@ -94,7 +94,7 @@ const PersonalInfoForm = ({ nextStep, skipStep }) => {
               <div className="flex flex-row items-center justify-center gap-[8px]">
                 <div className="relative w-5 h-5">
                   <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-                    <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-[50%] bg-aliceblue" />
+                    <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-[50%] bg-secondaryblue-50" />
                     <div className="absolute top-[5%] left-[30%] font-semibold">
                       3
                     </div>
@@ -105,7 +105,7 @@ const PersonalInfoForm = ({ nextStep, skipStep }) => {
               <div className="flex flex-row items-center justify-center gap-[8px]">
                 <div className="relative w-5 h-5">
                   <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-                    <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-[50%] bg-aliceblue" />
+                    <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-[50%] bg-secondaryblue-50" />
                     <div className="absolute top-[5%] left-[30%] font-semibold">
                       4
                     </div>
@@ -206,7 +206,7 @@ const PersonalInfoForm = ({ nextStep, skipStep }) => {
                 <div className="absolute top-[0px] left-[322px] w-[162px] h-[72px]">
                   <div className={`${fieldLabelClassNames}`}>Date of Birth</div>
                   <div className="absolute h-[55.56%] w-full top-[44.44%] right-[0%] bottom-[0%] left-[0%] text-sm text-silver">
-                    <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-lg bg-primary-white box-border border-[1px] border-solid border-dimgray-900" />
+                    <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-lg bg-white box-border border-[1px] border-solid border-dimgray-900" />
                     <img
                       className="absolute h-3/6 w-[11.11%] top-[25%] right-[9.88%] bottom-[25%] left-[79.01%] max-w-full overflow-hidden max-h-full"
                       alt=""
@@ -223,7 +223,7 @@ const PersonalInfoForm = ({ nextStep, skipStep }) => {
                 <Field
                   name="isMailAddressSame"
                   type="checkbox"
-                  className="m-0 absolute top-[0px] left-[0px] rounded-sm box-border w-[18px] h-[18px] overflow-hidden border-[1px] border-solid border-neutral-gray300dododo"
+                  className="m-0 absolute top-[0px] left-[0px] rounded-sm box-border w-[18px] h-[18px] overflow-hidden border-[1px] border-solid border-neutralgray-300"
                 />
                 <div className="absolute top-[0px] left-[24px]">
                   My Mailing address is the same
@@ -236,11 +236,11 @@ const PersonalInfoForm = ({ nextStep, skipStep }) => {
               <div className="absolute top-[0px] left-[0px] w-64 h-10">
                 {/* Continue button to save current form details and go to Identity Finance form */}
                 <button
-                  className="cursor-pointer [border:none] py-2 px-2.5 bg-primary-blue500 absolute top-[0px] left-[0px] rounded-lg w-[124px] h-10 flex flex-row flex-wrap box-border items-center justify-center"
+                  className="cursor-pointer [border:none] py-2 px-2.5 bg-primaryblue-500 absolute top-[0px] left-[0px] rounded-lg w-[124px] h-10 flex flex-row flex-wrap box-border items-center justify-center"
                   disabled={isSubmitting}
                   type="submit"
                 >
-                  <div className="relative text-sm font-semibold font-label-small14sb text-primary-white text-left">
+                  <div className="relative text-sm font-semibold font-label-small14sb text-white text-left">
                     Continue
                   </div>
                 </button>

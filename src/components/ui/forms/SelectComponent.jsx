@@ -85,7 +85,7 @@ const SelectComponent = ({
                   className={({ active }) =>
                     classNames(
                       active
-                        ? 'bg-primary-blue500 text-white'
+                        ? 'bg-primaryblue-500 text-white'
                         : 'text-gray-900',
                       'relative cursor-default select-none px-4 py-2'
                     )

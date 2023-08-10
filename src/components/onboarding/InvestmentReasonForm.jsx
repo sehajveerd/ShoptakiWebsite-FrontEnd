@@ -48,7 +48,7 @@ const InvestmentReasonForm = ({ prevStep, homeStep }) => {
     >
       {({ touched, errors, isSubmitting }) => (
         <Form>
-          <div className="relative rounded-xl bg-primary-white w-full h-[768px] overflow-hidden text-left text-base text-primary-black font-label-small14sb">
+          <div className="relative rounded-xl bg-white w-full h-[768px] overflow-hidden text-left text-base text-primary-black font-label-small14sb">
             {/* Left side image */}
             <img
               className="absolute top-[calc(50%_-_320px)] left-[64px] rounded-xl w-[554px] h-[640px] object-cover"
@@ -76,7 +76,7 @@ const InvestmentReasonForm = ({ prevStep, homeStep }) => {
                           <div className="relative inline-block w-[408px]">
                             Diverse Investment Opportunities
                           </div>
-                          <div className="relative text-2xs text-neutral-gray600484848">
+                          <div className="relative text-2xs text-neutralgray-600">
                             Access a wide range of investment options for
                             diversifying your portfolio.
                           </div>
@@ -99,7 +99,7 @@ const InvestmentReasonForm = ({ prevStep, homeStep }) => {
                           <div className="relative inline-block w-[408px]">
                             Competitive Returns
                           </div>
-                          <div className="relative text-2xs text-neutral-gray600484848">
+                          <div className="relative text-2xs text-neutralgray-600">
                             Earn competitive returns on your investments with
                             Sophtera.
                           </div>
@@ -122,7 +122,7 @@ const InvestmentReasonForm = ({ prevStep, homeStep }) => {
                           <div className="relative inline-block w-[408px]">
                             Property Ownership
                           </div>
-                          <div className="relative text-2xs text-neutral-gray600484848">
+                          <div className="relative text-2xs text-neutralgray-600">
                             Explore real estate ownership opportunities with
                             secure investments.
                           </div>
@@ -145,7 +145,7 @@ const InvestmentReasonForm = ({ prevStep, homeStep }) => {
                           <div className="relative inline-block w-[408px]">
                             Learn
                           </div>
-                          <div className="relative text-2xs text-neutral-gray600484848">
+                          <div className="relative text-2xs text-neutralgray-600">
                             I want to be a real-estate investor and start with
                             Sophtera
                           </div>
@@ -177,7 +177,7 @@ const InvestmentReasonForm = ({ prevStep, homeStep }) => {
             </div>
 
             {/* Breadcrumb steps - step 1, 2, 3 is ticked/crossed and clickable  */}
-            <div className="absolute top-[144px] left-[682px] flex flex-row items-center justify-center gap-[8px] text-center text-xs text-primary-blue500">
+            <div className="absolute top-[144px] left-[682px] flex flex-row items-center justify-center gap-[8px] text-center text-xs text-primaryblue-500">
               <div className="flex flex-row items-center justify-center gap-[8px]">
                 <button
                   className="cursor-pointer [border:none] p-0 bg-[transparent] relative w-6 h-6"
@@ -226,7 +226,7 @@ const InvestmentReasonForm = ({ prevStep, homeStep }) => {
               <div className="flex flex-row items-center justify-center gap-[8px]">
                 <div className="relative w-5 h-5">
                   <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-                    <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-[50%] bg-aliceblue box-border border-[1px] border-solid border-primary-blue500" />
+                    <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-[50%] bg-secondaryblue-50 box-border border-[1px] border-solid border-primaryblue-500" />
                     <div className="absolute top-[5%] left-[30%] font-semibold">
                       4
                     </div>
@@ -240,16 +240,16 @@ const InvestmentReasonForm = ({ prevStep, homeStep }) => {
             <div className="absolute top-[632px] left-[682px] w-[484px] h-10">
               <div className="absolute top-[0px] left-[0px] w-64 h-10">
                 <button
-                  className="cursor-pointer [border:none] py-2 px-2.5 bg-primary-blue500 absolute top-[0px] left-[132px] rounded-lg w-[124px] h-10 flex flex-row flex-wrap box-border items-center justify-center"
+                  className="cursor-pointer [border:none] py-2 px-2.5 bg-primaryblue-500 absolute top-[0px] left-[132px] rounded-lg w-[124px] h-10 flex flex-row flex-wrap box-border items-center justify-center"
                   disabled={isSubmitting}
                   type="submit"
                 >
-                  <div className="relative text-sm font-semibold font-label-small14sb text-primary-white text-left">
+                  <div className="relative text-sm font-semibold font-label-small14sb text-white text-left">
                     Continue
                   </div>
                 </button>
                 <button
-                  className="cursor-pointer py-2 px-2.5 bg-primary-white absolute top-[0px] left-[0px] rounded-lg box-border w-[124px] h-10 flex flex-row flex-wrap items-center justify-center border-[1px] border-solid border-primary-blue500"
+                  className="cursor-pointer py-2 px-2.5 bg-white absolute top-[0px] left-[0px] rounded-lg box-border w-[124px] h-10 flex flex-row flex-wrap items-center justify-center border-[1px] border-solid border-primaryblue-500"
                   type="button"
                   onClick={prevStep}
                 >
