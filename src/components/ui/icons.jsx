@@ -354,3 +354,74 @@ export const IconHistoryLinear = ({
     </svg>
   );
 };
+
+export const IconPositivePctChange = ({
+  width = '20',
+  height = '20',
+  fill = 'none',
+  circleColor = '#C2FFC2',
+  arrowColor = '#007C00',
+  className,
+}) => {
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 20 20"
+      fill={fill}
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <circle
+        cx="10"
+        cy="10"
+        r="10"
+        transform="matrix(-1 0 0 1 20 0)"
+        fill={circleColor}
+      />
+      <path
+        d="M14.5 9.625L10 5.125L5.5 9.625M10 5.75V14.875"
+        stroke={arrowColor}
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+// TODO: update the colors provided by the UI/UX team
+export const IconNegativePctChange = ({
+  width = '20',
+  height = '20',
+  fill = 'none',
+  circleColor = '#F7DDDD',
+  arrowColor = '#B72A2A',
+  className,
+}) => {
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 20 20"
+      fill={fill}
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <circle
+        cx="10"
+        cy="10"
+        r="10"
+        transform="matrix(-1 0 0 1 20 0)"
+        fill={circleColor}
+      />
+      <path
+        d="M14.5 10.375L10 14.875L5.5 10.375M10 14.25V5.125"
+        stroke={arrowColor}
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};

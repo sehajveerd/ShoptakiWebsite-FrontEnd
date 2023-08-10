@@ -30,7 +30,7 @@ const InvestmentDistributionCard = ({ chartData, totalInvestedAmount }) => {
   const formattedTotalInvestedAmount = `$${totalInvestedAmount.toLocaleString()}`;
 
   return (
-    <div className="absolute top-[106px] left-[1058px] rounded bg-shades-white w-[244px] h-[531px] overflow-hidden text-xl text-neutral-gray700010101">
+    <div>
       {/* TODO: add the donut chart here to display the property distribution data */}
       {/* TODO: for demo purpose we can add the chart as an image */}
       <div className="absolute top-[163px] left-[82px] font-medium text-right">
@@ -40,7 +40,7 @@ const InvestmentDistributionCard = ({ chartData, totalInvestedAmount }) => {
         Distribution
       </div>
       {/* Chart legend showing percentage of total amount invested in different property types */}
-      <div className="relative top-[295px] left-[28px] w-[190px] h-[auto] text-sm">
+      <div className="relative top-[295px] left-[16px] w-[190px] h-[auto] text-sm">
         {propertyDistributionData.map((property, index) => (
           <React.Fragment key={property.name}>
             <div className="relative w-[190px] h-[21px] ">
