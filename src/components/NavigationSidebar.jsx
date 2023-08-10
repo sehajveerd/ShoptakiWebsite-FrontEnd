@@ -19,7 +19,10 @@ const NavigationSidebar = () => {
   };
 
   return (
-    <div className="absolute top-0 left-[0px] rounded-t-none rounded-br-xl rounded-bl-none bg-white shadow-[0px_4px_10px_rgba(0,_0,_0,_0.15)] w-60 h-[695px] overflow-hidden text-left text-sm text-neutralgray-600 font-poppins">
+    <div
+      style={{ height: 'calc(100vh - 81px)', position: 'sticky' }}
+      className="absolute top-0 w-60 left-[0px] rounded-t-none rounded-br-xl rounded-bl-none bg-white shadow-[0px_4px_10px_rgba(0,_0,_0,_0.15)] overflow-hidden text-left text-sm text-neutralgray-600 font-poppins"
+    >
       <div className="absolute top-[424.78px] left-[307.29px] rounded-[10.79px] bg-neutralgray-600 shadow-[0px_3.0822370052337646px_28.51px_rgba(0,_0,_0,_0.11)] w-[118.67px] h-[51.63px]" />
       <div className="absolute h-[1.96%] w-[6.25%] top-[56.9%] right-[80%] bottom-[41.14%] left-[13.75%] overflow-hidden" />
       <div className="absolute top-[33px] left-[20px] flex flex-col items-start justify-start gap-[16px]">

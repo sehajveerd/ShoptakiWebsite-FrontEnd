@@ -80,7 +80,7 @@ const App = () => {
   const showNavbarFooter = !location.pathname.startsWith('/onboarding');
 
   return (
-    <div>
+    <div className="h-screen flex flex-col">
       {showNavbarFooter && <Navbar />}
       {element}
       {showNavbarFooter && <Footer />}

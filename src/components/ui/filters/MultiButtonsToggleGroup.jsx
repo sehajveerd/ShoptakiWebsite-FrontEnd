@@ -8,9 +8,8 @@ const MultiButtonsToggleGroup = ({
   const [selectedFilters, setSelectedFilters] = useState([initialFilterValue]);
 
   useEffect(() => {
-    // console.log('Toggle button use effect hook', selectedFilters);
     onFiltersChange(selectedFilters);
-  }, [selectedFilters, onFiltersChange]);
+  }, [selectedFilters]);
 
   const toggleFilter = filter => {
     if (filter === initialFilterValue) {
