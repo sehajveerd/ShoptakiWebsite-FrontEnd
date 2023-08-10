@@ -68,12 +68,6 @@ const Portfolio = () => {
           My Portfolio
         </div>
         <div className="absolute top-[76.5px] left-[0px] box-border w-full h-px border-t-[1px] border-solid border-gainsboro-100" />
-        <div className="absolute top-[106px] left-[818px] rounded bg-white w-[244px] h-[531px] overflow-hidden text-xl text-neutralgray-700">
-          <InvestmentDistributionCard
-            chartData={distributionChartData}
-            totalInvestedAmount={totalInvestedAmount}
-          />
-        </div>
         <div className="absolute top-[106px] left-[32px] w-[365px] h-[145px] text-xs text-gray-2000">
           {/* TODO: extract required data from the fetched data to be send for the chart. currently the same common chart data is sent */}
           <InvestmentInfoCard
@@ -95,6 +89,12 @@ const Portfolio = () => {
         <div className="absolute top-[276px] left-[32px] rounded-3xs bg-white w-[754px] h-[362px] text-center text-xs text-neutralgray-500 font-inter">
           {/* TODO: pass required data as props to the chart */}
           <InvestmentValueChart chartData={investmentValueChart} />
+        </div>
+        <div className="absolute top-[106px] left-[818px] rounded bg-white w-[244px] h-[531px] overflow-hidden text-xl text-neutralgray-700">
+          <InvestmentDistributionCard
+            chartData={distributionChartData}
+            totalInvestedAmount={totalInvestedAmount}
+          />
         </div>
         <div className="absolute top-[668px] left-[32px] text-xl rounded-xl bg-white w-[1030px] h-12 overflow-hidden">
           <div className="absolute top-[9px] left-[21px] font-semibold">
