@@ -1,42 +1,40 @@
 import React from 'react';
 
-const InvestmentDistributionCard = () => {
-  /**
-   * TODO: fetch the property distribution data
-   * The data should contain a total amount invested and
-   * list of
-   *  - propertyType, amount invested in property type,
-   *  - percent of total amount invested (decide to calculate here or return from BE),
-   *  - color class (required for chart legend)
-   * Format the Total Amount Invested if returned unformatted
-   */
-  const propertyDistributionData = [
-    {
-      name: 'Residential',
-      amountInvested: 225000,
-      investmentPercent: 50,
-      colorClass: 'bg-secondary-blue50',
-    },
-    {
-      name: 'Commercial',
-      amountInvested: 135000,
-      investmentPercent: 30,
-      colorClass: 'bg-primary-blue500',
-    },
-    {
-      name: 'Other',
-      amountInvested: 90000,
-      investmentPercent: 20,
-      colorClass: 'bg-secondary-blue700',
-    },
+const InvestmentDistributionCard = ({ chartData, totalInvestedAmount }) => {
+  const chartColors = [
+    'bg-secondary-blue50',
+    'bg-primary-blue500',
+    'bg-secondary-blue700',
   ];
-  const totalInvestedAmount = '$450,000';
+
+  // Transforms chart data in required format as per thr charting library to be used
+  const transformData = (chartData, totalInvestedAmount) => {
+    // TODO: update this function based on the charting library
+    return chartData.map((item, index) => ({
+      name: item.propertyType,
+      amountInvested: item.amountInvested,
+      investmentPercent: (
+        (item.amountInvested / totalInvestedAmount) *
+        100
+      ).toFixed(2), // to fix to two decimal points
+      colorClass: chartColors[index % chartColors.length],
+    }));
+  };
+
+  const propertyDistributionData = transformData(
+    chartData,
+    totalInvestedAmount
+  );
+
+  // convert total invested amount float to the formatted string to display
+  const formattedTotalInvestedAmount = `$${totalInvestedAmount.toLocaleString()}`;
 
   return (
     <div className="absolute top-[106px] left-[1058px] rounded bg-shades-white w-[244px] h-[531px] overflow-hidden text-xl text-neutral-gray700010101">
       {/* TODO: add the donut chart here to display the property distribution data */}
+      {/* TODO: for demo purpose we can add the chart as an image */}
       <div className="absolute top-[163px] left-[82px] font-medium text-right">
-        {totalInvestedAmount}
+        {formattedTotalInvestedAmount}
       </div>
       <div className="absolute top-[16px] left-[16px] text-5xl font-semibold text-black">
         Distribution

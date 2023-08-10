@@ -10,7 +10,14 @@ const Portfolio = () => {
       </div>
       <div className="absolute top-[76.5px] left-[239.5px] box-border w-full h-px border-t-[1px] border-solid border-gainsboro-100" />
       <NavigationSidebar />
-      <InvestmentDistributionCard />
+      <InvestmentDistributionCard
+        chartData={[
+          { propertyType: 'Residential', amountInvested: 225000 },
+          { propertyType: 'Commercial', amountInvested: 135000 },
+          { propertyType: 'Other', amountInvested: 90000 },
+        ]}
+        totalInvestedAmount={450000}
+      />
     </div>
   );
 };
