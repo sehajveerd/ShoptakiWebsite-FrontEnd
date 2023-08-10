@@ -19,17 +19,9 @@ const Navbar = () => {
 
   return (
     <div className="self-stretch bg-white flex flex-row py-4 px-[100px] items-center justify-between text-left text-sm text-neutral-gray600484848 font-body-small14 border-b-[1px] border-solid border-gainsboro-100">
-      <div
-        className="relative font-semibold font-body-small14 text-5xl"
-        style={{
-          background:
-            'linear-gradient(93.33deg, #0d65b6 10.42%, #b1daff 77.6%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-        }}
-      >
-        <Link to="/">Sophtera</Link>
-      </div>
+      <Link to="/">
+        <img src="/SophteraLogo.svg" />
+      </Link>
       <div className="flex flex-row items-start justify-start gap-[24px] text-sm">
         {!isLoading && user && (
           <Link to="/portfolio" className={linkClassNames}>
