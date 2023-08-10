@@ -3,8 +3,10 @@ import NavigationSidebar from '../components/NavigationSidebar';
 import InvestmentDistributionCard from '../components/portfolio/InvestmentDistributionCard';
 import InvestmentInfoCard from '../components/portfolio/InvestmentInfoCard';
 import InvestmentValueChart from '../components/portfolio/InvestmentValueChart';
+import MultiButtonsToggleGroup from '../components/ui/filters/MultiButtonsToggleGroup';
 
 const Portfolio = () => {
+  console.log('ParentComponent rendered!');
   /**
    * TODO: fetch the data required for all the cards using a single query and pass them to each card as props
    */
@@ -26,6 +28,18 @@ const Portfolio = () => {
     { propertyType: 'Other', amountInvested: 90000 },
   ];
   const totalInvestedAmount = 450000;
+
+  // Property type filter options for My Investment Section
+  const propTypeFilters = ['All', 'Retail', 'Commercial', 'Residential']; // add more types if required
+
+  const handlePropTypeFiltersChange = filters => {
+    /**
+     * TODO: Call the initial query to fetch My Investments data
+     * Initially 'All' filter is set
+     * When any changes are made to the filter then the query will recalled and filtered as per selection
+     */
+    console.log('handle prop type multi toggle filter', filters);
+  };
 
   return (
     <div className="relative bg-neutralgray-100 w-full min-h-screen overflow-y-auto text-left text-sm text-black font-poppins">
@@ -66,6 +80,14 @@ const Portfolio = () => {
         <div className="absolute top-[9px] left-[21px] font-semibold">
           My Investments
         </div>
+      </div>
+      {/* My investment section -> property type filter */}
+      <div className="absolute top-[731px] left-[272px] flex flex-row items-start justify-start gap-[8px]">
+        <MultiButtonsToggleGroup
+          filters={propTypeFilters}
+          initialFilterValue="All"
+          onFiltersChange={handlePropTypeFiltersChange}
+        />
       </div>
     </div>
   );

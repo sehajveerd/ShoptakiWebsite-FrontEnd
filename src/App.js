@@ -1,6 +1,5 @@
 import React from 'react';
 import { useRoutes, useLocation } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -77,27 +76,13 @@ const App = () => {
     { path: '*', element: <NotFound /> },
   ]);
 
-  const { error } = useAuth0();
   const location = useLocation();
   const showNavbarFooter = !location.pathname.startsWith('/onboarding');
 
   return (
     <div>
       {showNavbarFooter && <Navbar />}
-      {error && (
-        <div
-          className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
-          role="alert"
-        >
-          <strong className="font-bold">Hold on!</strong>
-          <span className="block sm:inline">
-            {' '}
-            You need to verify your email before you can log in. Check your
-            inbox for the verification email.
-          </span>
-        </div>
-      )}
-      {!error && element}
+      {element}
       {showNavbarFooter && <Footer />}
     </div>
   );
