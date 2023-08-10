@@ -1,5 +1,6 @@
 import React from 'react';
 import NavigationSidebar from '../components/NavigationSidebar';
+import InvestmentDistributionCard from '../components/portfolio/InvestmentDistributionCard';
 
 const Portfolio = () => {
   return (
@@ -7,7 +8,9 @@ const Portfolio = () => {
       <div className="absolute top-5 left-[272px] text-5xl font-semibold text-gray-900">
         My Portfolio
       </div>
+      <div className="absolute top-[76.5px] left-[239.5px] box-border w-full h-px border-t-[1px] border-solid border-gainsboro-100" />
       <NavigationSidebar />
+      <InvestmentDistributionCard />
     </div>
   );
 };
