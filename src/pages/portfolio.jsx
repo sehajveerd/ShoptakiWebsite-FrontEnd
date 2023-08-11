@@ -60,80 +60,70 @@ const Portfolio = () => {
   };
 
   return (
-    <div className="flex-1 flex bg-neutralgray-100">
+    <div
+      className="flex-1 flex bg-neutralgray-100"
+      style={{ height: 'calc(100vh - 81px)' }}
+    >
       <NavigationSidebar />
       {/* Right side scrollable component */}
-      <div className="flex-1 overflow-y-auto relative text-left text-sm text-black font-poppins">
-        <div className="absolute top-5 left-[32px] text-5xl font-semibold text-gray-900">
-          My Portfolio
-        </div>
-        <div className="absolute top-[76.5px] left-[0px] box-border w-full h-px border-t-[1px] border-solid border-gainsboro-100" />
-        <div className="absolute top-[106px] left-[32px] w-[365px] h-[145px] text-xs text-gray-2000">
-          {/* TODO: extract required data from the fetched data to be send for the chart. currently the same common chart data is sent */}
-          <InvestmentInfoCard
-            cardHeader="TOTAL INVESTMENT"
-            amount={26500}
-            baseAmount={25000}
-            chartData={investmentValueChart}
-          />
-        </div>
-        <div className="absolute top-[106px] left-[421px] w-[365px] h-[145px] text-xs text-gray-2000">
-          {/* TODO: extract required data from the fetched data to be send for the chart. currently the same common chart data is sent */}
-          <InvestmentInfoCard
-            cardHeader="CURRENT VALUE"
-            amount={26500}
-            baseAmount={27000}
-            chartData={[...investmentValueChart].reverse()}
-          />
-        </div>
-        <div className="absolute top-[276px] left-[32px] rounded-3xs bg-white w-[754px] h-[362px] text-center text-xs text-neutralgray-500 font-inter">
-          {/* TODO: pass required data as props to the chart */}
-          <InvestmentValueChart chartData={investmentValueChart} />
-        </div>
-        <div className="absolute top-[106px] left-[818px] rounded bg-white w-[244px] h-[531px] overflow-hidden text-xl text-neutralgray-700">
-          <InvestmentDistributionCard
-            chartData={distributionChartData}
-            totalInvestedAmount={totalInvestedAmount}
-          />
-        </div>
-        <div className="absolute top-[668px] left-[32px] text-xl rounded-xl bg-white w-[1030px] h-12 overflow-hidden">
-          <div className="absolute top-[9px] left-[21px] font-semibold">
-            My Investments
+      <div className="flex w-full flex-col flex-1 h-full overflow-y-auto text-left text-sm text-black font-poppins">
+        <div className="flex flex-col">
+          <div className="pl-6 pt-4 text-5xl font-semibold text-gray-900">
+            My Portfolio
+          </div>
+          <div className="my-4 box-border w-full h-px border-t-[1px] border-solid border-gainsboro-100"></div>
+          <div className="flex flex-row">
+            <div className="flex-1">
+              {/* Investment Info Cards */}
+              <div className="mb-6 mx-6 flex text-xs text-gray-2000 gap-x-4">
+                {/* TODO: extract required data from the fetched data to be send for the chart. currently the same common chart data is sent */}
+                <InvestmentInfoCard
+                  cardHeader="TOTAL INVESTMENT"
+                  amount={26500}
+                  baseAmount={25000}
+                  chartData={investmentValueChart}
+                />
+                <InvestmentInfoCard
+                  cardHeader="TOTAL INVESTMENT"
+                  amount={26500}
+                  baseAmount={30000}
+                  chartData={[...investmentValueChart].reverse()}
+                />
+              </div>
+              {/* Investment Value Chart */}
+              <div className="mx-6 h-[362px] min-w-[658px] rounded-3xs bg-white ">
+                {/* TODO: pass required data as props to the chart */}
+                <InvestmentValueChart chartData={investmentValueChart} />
+              </div>
+            </div>
+            {/* Portfolio Distribution Card */}
+            <div className="mr-6 flex h-[531px] min-w-[244px] max-w-[280px] flex-1 flex-col rounded bg-white overflow-hidden text-xl text-neutralgray-700">
+              <InvestmentDistributionCard
+                chartData={distributionChartData}
+                totalInvestedAmount={totalInvestedAmount}
+              />
+            </div>
           </div>
         </div>
+        <div className="mx-6 mt-4 py-2 h-12 rounded-xl bg-white pl-4 pt-2 text-xl font-semibold">
+          My Investments
+        </div>
         {/* My investment section -> property type filter */}
-        <div className="absolute top-[731px] left-[32px] flex flex-row items-start justify-start gap-[8px]">
+        <div className="flex flex-row items-start justify-start gap-[8px] pl-6 pt-2">
           <MultiButtonsToggleGroup
             filters={propTypeFilters}
             initialFilterValue="All"
             onFiltersChange={handlePropTypeFiltersChange}
           />
         </div>
-        {/* Grid of my invested properties */}
-        <div className="absolute top-[779px] left-[32px] w-[1030px] flex flex-wrap justify-start items-start">
-          {filteredProperties.map((property, index) => {
-            const isOdd = index % 2 === 0; // Check if the index is odd (0-based)
-            const isLastRow =
-              index >=
-              filteredProperties.length - (filteredProperties.length % 2);
-
-            let classNames = '';
-
-            // Apply "mr-4" for the first item of each row
-            if (isOdd) {
-              classNames += 'mr-4 ';
-            }
-
-            // Apply "mb-4" for all items except those in the last row
-            if (!isLastRow) {
-              classNames += 'mb-4';
-            }
-
+        {/* Properties grid */}
+        <div className="mx-6 my-4 flex flex-wrap items-start justify-start gap-4">
+          {filteredProperties.map(property => {
             return (
               <MyPropertyCard
                 key={property.id}
                 property={property}
-                cardClassNames={classNames.trim()}
+                cardClassNames=""
               />
             );
           })}

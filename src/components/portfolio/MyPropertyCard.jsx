@@ -35,7 +35,6 @@ const MyPropertyCard = ({ property, cardClassNames }) => {
   return (
     <div className={`w-[507px] h-[200px] relative ${cardClassNames}`}>
       <div className="absolute top-0 left-0 rounded-3xs bg-white w-full h-full" />
-      <div className="absolute top-[16px] left-[16px] rounded-3xs bg-gainsboro-200 w-[178px] h-[168px]" />
       <img
         className="absolute top-[16px] left-[16px] rounded-3xs w-[178px] h-[168px] object-cover"
         alt=""

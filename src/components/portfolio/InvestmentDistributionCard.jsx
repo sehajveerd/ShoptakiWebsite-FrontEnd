@@ -38,6 +38,18 @@ const InvestmentDistributionCard = ({ chartData, totalInvestedAmount }) => {
     const myChart = echarts.init(chartRef.current);
 
     const option = {
+      title: {
+        text: formattedTotalInvestedAmount,
+        textAlign: 'middle',
+        textVerticalAlign: 'middle',
+        top: '50%',
+        left: '50%',
+        textStyle: {
+          fontFamily: 'Poppins',
+          fontSize: '20px',
+          fontWeight: '500',
+        },
+      },
       series: [
         {
           type: 'pie',
@@ -73,38 +85,34 @@ const InvestmentDistributionCard = ({ chartData, totalInvestedAmount }) => {
 
   return (
     <div>
-      <div
-        ref={chartRef}
-        className="absolute top-[72px] left-[16px] w-[213px] h-[213px]"
-      ></div>
-      <div className="absolute top-[163px] left-[82px] font-medium text-right">
-        {formattedTotalInvestedAmount}
-      </div>
-      <div className="absolute top-[16px] left-[16px] text-5xl font-semibold text-black">
+      <div className="px-4 py-2 text-5xl font-semibold text-black">
         Distribution
       </div>
+      <div className="box-border h-px border-t-[1px] border-solid border-gainsboro-100" />
+      <div className="flex flex-grow justify-center">
+        <div ref={chartRef} className="m-3 w-[213px] h-[213px]"></div>
+      </div>
       {/* Chart legend showing percentage of total amount invested in different property types */}
-      <div className="relative top-[295px] left-[16px] w-[190px] h-[auto] text-sm">
+      <div className="flex flex-col flex-grow justify-center mx-3 text-sm">
         {propertyDistributionData.map((property, index) => (
           <React.Fragment key={property.name}>
-            <div className="relative w-[190px] h-[21px] ">
-              <div
-                className={`absolute top-[0px] left-[0px] rounded ${property.colorClass} w-[18px] h-[18px]`}
-              ></div>
-              <div className="absolute top-[0px] left-[34px] font-medium">
-                {property.name}
+            <div className="flex flex-row justify-between">
+              <div className="flex flex-row justify-between">
+                <div
+                  className={`w-[18px] h-[18px] ${property.colorClass} rounded mr-4`}
+                ></div>
+                <div className="font-medium">{property.name}</div>
               </div>
-              <div className="absolute top-[0px] left-[160px] font-medium text-right">
+              <div className="font-medium text-right">
                 {property.investmentPercent}%
               </div>
             </div>
             {index !== propertyDistributionData.length - 1 && (
-              <div className="relative left-[-0.5px] box-border w-[191px] h-px border-t-[1px] border-solid border-neutralgray-200 my-[10px]"></div>
+              <div className="box-border h-px border-t-[1px] border-solid border-neutralgray-200 my-[10px]"></div>
             )}
           </React.Fragment>
         ))}
       </div>
-      <div className="absolute top-[55.5px] left-[-0.5px] box-border w-[245px] h-px border-t-[1px] border-solid border-gainsboro-100" />
     </div>
   );
 };

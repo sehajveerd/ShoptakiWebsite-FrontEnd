@@ -45,7 +45,7 @@ const InvestmentValueChart = ({ chartData }) => {
     };
   }, []);
 
-  return <div ref={chartRef} className="absolute w-full h-full"></div>;
+  return <div ref={chartRef} className="w-full h-full"></div>;
 };
 
 export default InvestmentValueChart;

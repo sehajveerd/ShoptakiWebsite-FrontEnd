@@ -63,33 +63,36 @@ const InvestmentInfoCard = ({ cardHeader, amount, baseAmount, chartData }) => {
   }, [chartData, amount, baseAmount]);
 
   return (
-    <div>
-      <div className="absolute top-[0px] left-[0px] rounded bg-white w-[365px] h-[145px]" />
-      <div className="absolute top-[20px] left-[20px] flex flex-col items-start justify-start gap-[8px]">
-        <div className="relative font-medium">{cardHeader}</div>
-        <div
-          className={`relative text-5xl font-semibold ${
-            amount > baseAmount ? 'text-green' : 'text-red'
-          }`}
-        >
-          {formattedAmount}
+    <div className="h-[145px] min-w-[329px] flex-1 flex flex-row justify-between rounded bg-white">
+      <div className="flex flex-col justify-between pl-4 py-4">
+        <div>
+          <div className="font-medium pb-1">{cardHeader}</div>
+          <div
+            className={` text-5xl font-semibold ${
+              amount > baseAmount ? 'text-green' : 'text-red'
+            }`}
+          >
+            {formattedAmount}
+          </div>
+        </div>
+        <div className="flex flex-row items-center">
+          {amount > baseAmount ? (
+            <IconPositivePctChange className="mr-2 w-5 h-5" />
+          ) : (
+            <IconNegativePctChange className="mr-2 w-5 h-5" />
+          )}
+          <div
+            className={`text-base font-medium ${
+              amount > baseAmount ? 'text-green' : 'text-red'
+            }`}
+          >
+            {amountPctChange}%
+          </div>
         </div>
       </div>
       <div
-        className={`absolute top-[107px] left-[51px] text-base font-medium ${
-          amount > baseAmount ? 'text-green' : 'text-red'
-        }`}
-      >
-        {amountPctChange}%
-      </div>
-      {amount > baseAmount ? (
-        <IconPositivePctChange className="absolute top-[109px] left-[25px] w-5 h-5" />
-      ) : (
-        <IconNegativePctChange className="absolute top-[109px] left-[25px] w-5 h-5" />
-      )}
-      <div
         ref={chartRef}
-        className="absolute top-[20px] left-[213px] rounded w-[152px] h-[125px] overflow-hidden"
+        className="rounded w-[152px] h-[125px] overflow-hidden pt-5"
       ></div>
     </div>
   );
