@@ -425,3 +425,26 @@ export const IconNegativePctChange = ({
     </svg>
   );
 };
+
+export const IconVerticalEllipsisBold = ({
+  width = '4',
+  height = '16',
+  fill = 'none',
+  circleColor = '#010101',
+  className,
+}) => {
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
+      fill={fill}
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <circle cx="2" cy="2" r="2" fill={circleColor} />
+      <circle cx="2" cy="8" r="2" fill={circleColor} />
+      <circle cx="2" cy="14" r="2" fill={circleColor} />
+    </svg>
+  );
+};

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon2UserLinear } from '../ui/icons';
+import { Icon2UserLinear, IconVerticalEllipsisBold } from '../ui/icons';
 
 const MyPropertyCard = ({ property, cardClassNames }) => {
   const investmentPercentage = (
@@ -47,6 +47,12 @@ const MyPropertyCard = ({ property, cardClassNames }) => {
           {property.city}, {property.state} {property.zip}
         </div>
       </div>
+      <button
+        className="cursor-pointer hover:bg-gray-50 hover:rounded-[50%] p-3 bg-[transparent] absolute top-[6px] left-[476px] flex flex-col items-start justify-start gap-[2px]"
+        type="button"
+      >
+        <IconVerticalEllipsisBold />
+      </button>
       <div className="absolute top-[76px] left-[210px] flex items-start gap-[5px] text-neutralgray-700">
         <Icon2UserLinear />
         <div>{property.numPeopleInvested}</div>
