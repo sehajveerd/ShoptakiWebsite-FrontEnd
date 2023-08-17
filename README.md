@@ -101,3 +101,13 @@ This project follows a structured layout to organize the codebase. Here's a brie
 - `eslint-plugin-react`: Specific linting rules for React applications that can be used with ESLint.
 - `husky`: A tool that makes Git hooks easy by allowing you to specify scripts that will run when certain Git events occur.
 - `lint-staged`: A library that runs linters on git staged files and is commonly used to ensure all committed code adheres to your linter rules.
+
+## Information on some files/folders
+
+- `icons.jsx`: This file contains code for all the icons used in the application. The icons are exported as SVG components that can be used in other React components.
+- `/components/ui`: add all the components that will be used across the application here. For example, buttons, inputs, etc. Currently I have added the MultiSelectButtonToggleGroup and SelectDropdown components here.
+
+## Ideas that can be implemented further
+
+- Since we are using GraphQL, we can use the `Apollo-GraphQL` as our GraphQL client for React.
+- Since our application will be used across the world, we can use `react-i18next` for internationalization. This will allow us to implement a dropdown which will allow the user to select the language of their choice.

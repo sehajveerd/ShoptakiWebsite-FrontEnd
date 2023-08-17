@@ -1,3 +1,7 @@
+/**
+ * This file contains code for the Cards that display the investment information in the portfolio page.
+ * This component is common for both the cards, My Investment and Current Value cards
+ */
 import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 import { IconPositivePctChange, IconNegativePctChange } from '../ui/icons';

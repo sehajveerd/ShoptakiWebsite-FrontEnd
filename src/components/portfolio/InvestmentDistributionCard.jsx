@@ -1,3 +1,4 @@
+// This file contains code for a Pie chart that displays the distribution of investment in different property types in the portfolio page.
 import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 

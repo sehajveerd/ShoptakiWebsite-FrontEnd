@@ -1,3 +1,19 @@
+/**
+ * This file contains code for a SelectComponent that displays a dropdown with options to select.
+ * This component can be used anywhere in the app where you need to display a dropdown with options to select.
+ * The props required by this component are:
+ * 1. options: an array of objects that will be displayed as options in the dropdown
+ * 2. field: the field object from Formik
+ * 3. form: the form object from Formik
+ * 4. label: the label for the dropdown
+ * 5. placeholder: the placeholder for the dropdown
+ * 6. containerSizeClasses: the size classes for the dropdown container
+ * 7. buttonSizeClasses: the size classes for the dropdown button
+ * 8. buttonPositionClasses: the position classes for the dropdown button
+ * 9. buttonBorderClasses: the border classes for the dropdown button
+ * 10. optionPositionClasses: the position classes for the dropdown options
+ * 11. error: the error state of the dropdown
+ */
 import React, { Fragment } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { IconDropdownOutline } from '../icons';

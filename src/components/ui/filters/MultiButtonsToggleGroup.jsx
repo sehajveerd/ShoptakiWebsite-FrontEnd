@@ -1,3 +1,11 @@
+/**
+ * This file contains code for a MultiButtonsToggleGroup component that displays a group of buttons that can be toggled on and off.
+ * You can use this component anywhere in the app where you need to display a group of buttons that can be toggled on and off.
+ * The props required by this component are:
+ * 1. filters: an array of strings that will be displayed as buttons
+ * 2. initialFilterValue: the initial value of the filter
+ * 3. onFiltersChange: a function that will be called when the filters are changed
+ */
 import React, { useEffect, useState } from 'react';
 
 const MultiButtonsToggleGroup = ({

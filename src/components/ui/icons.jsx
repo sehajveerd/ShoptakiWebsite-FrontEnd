@@ -1,3 +1,6 @@
+/**
+ * This file contains all the icons as svg components.
+ */
 import React from 'react';
 
 export const IconDropdownOutline = ({

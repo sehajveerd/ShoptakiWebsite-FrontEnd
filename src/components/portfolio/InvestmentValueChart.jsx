@@ -1,3 +1,4 @@
+// This file contains code for a Line chart that displays the investment value over time in the portfolio page.
 import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 
@@ -6,6 +7,7 @@ const InvestmentValueChart = ({ chartData }) => {
   const chartRef = useRef(null);
 
   useEffect(() => {
+    // Using useRef to reference the DOM element for chart rendering
     const myChart = echarts.init(chartRef.current);
 
     const option = {
