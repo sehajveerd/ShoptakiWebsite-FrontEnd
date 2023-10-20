@@ -14,6 +14,12 @@ module.exports = {
         success: '#007c00',
         error: '#b72a2a',
         cornflowerblue: '#419df1',
+        primarywhite: '#fff',
+        whitesmoke: {
+          100: '#f1f1f1',
+          200: '#ebebeb',
+        },
+
         dimgray: {
           100: '#717171',
           200: '#545454',
@@ -64,6 +70,11 @@ module.exports = {
           600: '#484848',
           700: '#010101',
         },
+        darkslategray: {
+          100: '#3f3f3f',
+          200: '#313131',
+          300: '#303030',
+        },
         secondaryblue: {
           50: '#ddefff',
           700: '#064682',
@@ -90,6 +101,7 @@ module.exports = {
         '2xs': '11px',
         '2xs-3': '11.3px',
         sm: '14px',
+        '4xl-6': '23.6px',
       },
     },
     fontSize: {
@@ -110,6 +122,8 @@ module.exports = {
       '9xl': '28px',
       '13xl': '32px',
       '17xl': '36px',
+      '105xl': '124px',
+      inherit: 'inherit',
     },
     screens: {
       lg: {
@@ -117,6 +131,9 @@ module.exports = {
       },
       md: {
         max: '960px',
+      },
+      sm: {
+        max: '420px',
       },
     },
   },
