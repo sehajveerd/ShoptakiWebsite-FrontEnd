@@ -12,6 +12,7 @@ import Support from './pages/support';
 import Trends from './pages/trends';
 import Landing from './pages/landing';
 import Portfolio from './pages/portfolio';
+import Listingproperty from './pages/listingproperty';
 import UserOnboarding from './components/onboarding';
 import NotFound from './components/NotFound';
 
@@ -40,6 +41,7 @@ const App = () => {
         </PrivateRoute>
       ),
     },
+    { path: '/listingpage/:zpid', element: <Listingproperty /> },
     {
       path: '/onboarding/personal-info',
       element: (
