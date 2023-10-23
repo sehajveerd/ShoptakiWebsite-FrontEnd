@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import PreRegister from '../pages/preRegister';
 
 import { useAuth0 } from '@auth0/auth0-react';
 import ProfileDropdown from './ui/ProfileDropdown';
@@ -10,8 +11,8 @@ import { IconSearchOutline } from './ui/icons';
 const Tooltip = ({ text }) => {
   return (
     <div className="relative group inline-block">
-      <div className="invisible group-hover:visible bg-primarywhite text-black text-[8px] rounded p-1 absolute top-[17px] left-1/2 transform -translate-x-1/2">
-        Coming Soon...
+      <div className="invisible group-hover:visible bg-primaryblue-500 text-white text-[8px] rounded p-1 absolute top-[17px] left-1/2 w-[56px] whitespace-nowrap transform -translate-x-1/2">
+        Coming Soon..
       </div>
       <span className="group-hover:underline cursor-pointer">{text}</span>
     </div>
@@ -20,6 +21,10 @@ const Tooltip = ({ text }) => {
 
 const Navbar = () => {
   const { loginWithRedirect, user, isLoading } = useAuth0();
+  const [isModalOpen, setModalOpen] = useState(false);
+  const handlePreRegister = () => {
+    setModalOpen(true);
+  };
   const linkClassNames =
     '[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit] hover:bg-gray-50 hover:text-primaryblue-500';
 
@@ -43,6 +48,19 @@ const Navbar = () => {
             <Link to="/community" className={linkClassNames}>
               <div className="relative font-medium">Community</div>
             </Link>
+            <button
+              className="cursor-pointer ml-auto [border:none] py-2 px-2.5 bg-primaryblue-500 rounded-lg"
+              style={{ marginLeft: 'auto' }}
+              onClick={() =>
+                loginWithRedirect({
+                  redirectUri: `${window.location.origin}/callback`,
+                })
+              }
+            >
+              <div className="relative font-medium font-poppins text-white">
+                Login
+              </div>
+            </button>
             <OurStoryDropdown />
             <button className="cursor-pointer [border:none] p-0 bg-[transparent] relative w-[22px] h-[22px] items-center shrink-0">
               <IconSearchOutline />
@@ -65,17 +83,16 @@ const Navbar = () => {
               </div>
               <div className="flex-grow" />
               <button
-                className="cursor-pointer ml-auto [border:none] py-2 px-2.5 bg-primaryblue-500 rounded-lg"
-                style={{ marginLeft: 'auto' }}
-                onClick={() =>
-                  loginWithRedirect({
-                    redirectUri: `${window.location.origin}/callback`,
-                  })
-                }
+                className="cursor-pointer [border:none] py-2 px-2.5 bg-primaryblue-500 rounded-lg flex flex-row items-center justify-start hover:shadow-[0px_1px_4px_rgba(0,_0,_0,_0.25)]"
+                onClick={handlePreRegister}
               >
-                <div className="relative font-medium font-poppins text-white">
+                <div className="relative text-sm font-semibold font-poppins text-white text-left">
                   Pre-Register
                 </div>
+                <PreRegister
+                  isOpen={isModalOpen}
+                  onClose={() => setModalOpen(false)}
+                />
               </button>
             </div>
           </>

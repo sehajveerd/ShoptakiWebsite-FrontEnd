@@ -93,6 +93,7 @@ const PreRegister = ({ isOpen, onClose }) => {
                   placeholder="Enter phone number"
                   value={phoneValue}
                   onChange={setPhoneValue}
+                  international
                   defaultCountry="US"
                 />
               </div>
