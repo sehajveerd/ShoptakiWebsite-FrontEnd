@@ -98,7 +98,7 @@ const Navbar = () => {
           </>
         )}
       </div>
-      <div className="flex flex-row items-start">
+      <div className="flex flex-row items-start justify-start flex flex-row items-start justify-start">
         <div className="flex flex-row items-center justify-end gap-[24px]">
           {!isLoading && user && <ProfileDropdown />}
         </div>
