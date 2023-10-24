@@ -7,7 +7,7 @@ const PreRegister = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="modal">
+    <div className="modal w-auto h-2/3">
       <div className="modal-content" onClick={e => e.stopPropagation()}>
         <span className="close" onClick={onClose}>
           &times;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // TODO : Include styles for the modal form - import * as styles from "./EmailListForm.module.scss"
 import Label from '../components/Label';
 import jsonp from 'jsonp';
@@ -8,42 +8,127 @@ const EmailListForm = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [industry, setIndustry] = useState('');
+  const [investor, setInvestor] = useState('');
   const [company, setCompany] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState('');
-
-  // const [result, setResult] = useState("")
-
-  // const handleSubmit = e => {
-  //   e.preventDefault()
-
-  //   addToMailchimp(email)
-  //     .then(data => {
-  //       console.log(email)
-  //       alert(data.result)
-  //     })
-  //     .catch(() => {})
-  // }
-
-  // const handleSubmit = async e => {
-  //   e.preventDefault()
-  //   const result = await addToMailchimp(email)
-  // }
+  const [selectedChoices, setSelectedChoices] = useState([]);
 
   // //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   const handleSubmit = event => {
     event.preventDefault();
+    // const selectedPropertyTypes = [
+    //   'Residential',
+    //   'Commercial',
+    //   'Land',
+    //   'Industrial',
+    //   'Other',
+    // ];
+    // const tagIndices = [1, 2, 4, 8, 16];
+
+    // const propertyTypeParams = selectedPropertyTypes
+    //   .filter(type => selectedChoices.includes(type))
+    //   .map(
+    //     type =>
+    //       `group[2194][${
+    //         selectedPropertyTypes.indexOf(type) + 1
+    //       }]=${encodeURIComponent(type)}`
+    //   )
+    //   .join('&');
+
+    // const propertyTypeParams = selectedPropertyTypes
+    //   .filter(type => selectedChoices.includes(type))
+    //   .map(
+    //     index =>
+    //       `group[2194][${index}]=${encodeURIComponent(
+    //         selectedPropertyTypes[tagIndices.indexOf(index)]
+    //       )}`
+    //   )
+    //   .join('&');const selectedPropertyTypes = ['Residential', 'Commercial', 'Land', 'Industrial', 'Other'];
+    // const tagIndices = [1, 2, 4, 8, 16];
+
+    // `group[2194][1]=${encodeURIComponent(
+    //   selectedChoices.includes('Residential') ? 'Residential' : ''
+    // )}&`;
+
+    // IMPORTANT/////////////////////////////////////////////////////
+    // const propertyTypeParams = tagIndices
+    //   .filter(index =>
+    //     selectedChoices.includes(
+    //       selectedPropertyTypes[tagIndices.indexOf(index)]
+    //     )
+    //   )
+    //   .map(
+    //     index =>
+    //       `group[2194][${
+    //         selectedPropertyTypes[tagIndices.indexOf(index)]
+    //       }[${index}]=${encodeURIComponent(
+    //         selectedPropertyTypes[tagIndices.indexOf(index)]
+    //       )}`
+    //   )
+    //   .join('&');
+
+    // const values =
+    //   `FNAME=${encodeURIComponent(name)}&` +
+    //   `EMAIL=${encodeURIComponent(email)}&` +
+    //   `PHONE=${encodeURIComponent(phone)}&` +
+    //   `USER=${encodeURIComponent(investor)}&` +
+    //   `COMPANY=${encodeURIComponent(company)}&` +
+    //   `QUESTION=${encodeURIComponent(question)}&` +
+    //   propertyTypeParams;
+
+    // // The rest of your code...
+
+    console.log('CHECKING SELECTED CHOICES: ', selectedChoices);
     const values =
-      `MERGE1=${encodeURIComponent(name)}&` +
+      `FNAME=${encodeURIComponent(name)}&` +
       `EMAIL=${encodeURIComponent(email)}&` +
       `PHONE=${encodeURIComponent(phone)}&` +
-      `MERGE3=${encodeURIComponent(industry)}&` +
-      `MERGE5=${encodeURIComponent(company)}&` +
-      `MERGE6=${encodeURIComponent(message)}`;
-    // `g-recaptcha-response=${encodeURIComponent(this.state["gToken"])}`
+      `USER=${encodeURIComponent(investor)}&` +
+      `COMPANY=${encodeURIComponent(company)}&` +
+      `MESSAGE=${encodeURIComponent(message)}&` +
+      (selectedChoices.includes('Residential') ? `group[2194][1]=&` : '') +
+      (selectedChoices.includes('Commercial') ? `group[2194][2]=&` : '') +
+      (selectedChoices.includes('Land') ? `group[2194][4]=&` : '') +
+      (selectedChoices.includes('Industrial') ? `group[2194][8]=&` : '') +
+      (selectedChoices.includes('Other') ? `group[2194][16]=` : '');
+    // `${
+    //   (selectedChoices.includes(`Residential`)
+    //     ? encodeURIComponent(`group[2194][1]`)`&`
+    //     : ``) +
+    //   (selectedChoices.includes(`Commercial`)
+    //     ? encodeURIComponent(`group[2194][2]`)`&`
+    //     : ``) +
+    //   (selectedChoices.includes(`Land`)
+    //     ? encodeURIComponent(`group[2194][4]`)`&`
+    //     : ``) +
+    //   (selectedChoices.includes(`Industrial`)
+    //     ? encodeURIComponent(`group[2194][8]`)`&`
+    //     : ``) +
+    //   (selectedChoices.includes(`Other`)
+    //     ? encodeURIComponent(`group[2194][16]`)
+    //     : ``)
+    // }`;
+    // can we use an if-else/switch to assign the value to corresponding group index using a filter on selectedchoice or similar
+    // `group[2194][1]=${encodeURIComponent(
+    //   selectedChoices.includes('Residential') ? 'Residential' : ''
+    // )}&` +
+    // `group[2194][2]=${encodeURIComponent(
+    //   selectedChoices.includes('Commercial') ? 'Commercial' : ''
+    // )}&` +
+    // `group[2194][4]=${encodeURIComponent(
+    //   selectedChoices.includes('Land') ? 'Land' : ''
+    // )}&` +
+    // `group[2194][8]=${encodeURIComponent(
+    //   selectedChoices.includes('Industrial') ? 'Industrial' : ''
+    // )}&` +
+    // `group[2194][16]=${encodeURIComponent(
+    //   selectedChoices.includes('Other') ? 'Other' : ''
+    // )}`;
 
+    // `g-recaptcha-response=${encodeURIComponent(this.state['gToken'])}`;
+    console.log('RESULT: ', values);
     const path = `${`https://imperiallc.us21.list-manage.com/subscribe/post?u=8a3b8f6d93de5e01fc3fe387b&amp;id=f85ccfcfeb&amp;f_id=00e8eae6f0`}&${values}`;
 
     const url = path.replace('/post?', '/post-json?');
@@ -58,15 +143,16 @@ const EmailListForm = () => {
     jsonp(url, { param: 'c' }, (err, data) => {
       if (data.msg.includes('already subscribed')) {
         setStatus('duplicate');
+        alert(data.msg, status);
       } else if (err) {
-        console.log(err);
+        // console.log(err);
         setStatus('error');
       } else if (data.result !== 'success') {
-        setStatus('error.TT', data.msg);
+        setStatus('error', data.msg);
       } else {
         setStatus('success');
       }
-      console.log(status);
+      // console.log(status);
     });
   };
 
@@ -85,8 +171,8 @@ const EmailListForm = () => {
   };
 
   // Handle changes to the select element
-  const handleIndustryChange = event => {
-    setIndustry(event.target.value);
+  const handleInvestorChange = event => {
+    setInvestor(event.target.value);
   };
 
   const handleCompanyChange = event => {
@@ -97,16 +183,70 @@ const EmailListForm = () => {
     setMessage(event.currentTarget.value);
   };
 
+  const handleCheckboxChange = e => {
+    const value = e.target.value;
+    if (e.target.checked) {
+      // Checkbox is checked, add it to the selected choices
+      setSelectedChoices(prevSelected => [...prevSelected, value]);
+      // console.log(
+      //   'EVENT TARGET VALUE: ',
+      //   e.target.value,
+      //   ' & ',
+      //   e.target.checked
+      // );
+      // console.log('TESING FOR MAILCHIMP');
+      // console.log('LIST SO FAR: ', selectedChoices);
+      // console.log(selectedChoices.join(', '));
+      // console.log(investor);
+    } else {
+      // Checkbox is unchecked, remove it from the selected choices
+      setSelectedChoices(prevSelected =>
+        prevSelected.filter(choice => choice !== value)
+      );
+      // console.log(
+      //   'EVENT TARGET VALUE: ',
+      //   e.target.value,
+      //   ' & ',
+      //   e.target.checked
+      // );
+      // console.log('TESING FOR MAILCHIMP');
+      // console.log(selectedChoices.join(', '));
+      // console.log(investor);
+    }
+  };
+
+  useEffect(() => {
+    console.log('Selected Choices:', selectedChoices.join(', '));
+    console.log('Investor Type: ', investor);
+  }, [selectedChoices]);
+
   // if (!isOpen) return null;
   return (
     <form
       onSubmit={handleSubmit}
-      className="modal w-1/2 bg-gray-50 p-4 flex flex-col shadow-sm"
+      className="h-[600px] bg-gray-50 p-4 flex flex-col shadow-sm z-500"
       method="POST"
     >
-      <div className="modal-content">
-        <h2>Subscribe to my email list!</h2>
+      <div className="overflow-auto">
+        <h2>Sign up for future beta access</h2>
         <div className="w-full flex flex-col">
+          <div className="flex flex-col">
+            <Label
+              className="text-black font-poppins text-xs"
+              text="Name"
+              required={true}
+              htmlFor="FNAME"
+            />
+            <input
+              placeholder="Enter your Name"
+              name="name"
+              type="text"
+              required
+              value={name}
+              className="p-2 border-2 border-gray-400"
+              onChange={handleNameChange}
+            />
+          </div>
           <div className="flex flex-col">
             <Label
               className="text-black"
@@ -118,25 +258,10 @@ const EmailListForm = () => {
               placeholder="Email address"
               name="email"
               type="email"
+              required
               value={email}
               className="p-2 border-2 border-gray-400"
               onChange={handleEmailChange}
-            />
-          </div>
-          <div className="flex flex-col">
-            <Label
-              className="text-black font-poppins text-xs"
-              text="Name"
-              required={false}
-              htmlFor="FNAME"
-            />
-            <input
-              placeholder="Enter your Name"
-              name="name"
-              type="text"
-              value={name}
-              className="p-2 border-2 border-gray-400"
-              onChange={handleNameChange}
             />
           </div>
           <div className="flex flex-col">
@@ -159,48 +284,32 @@ const EmailListForm = () => {
           </div>
 
           {/* <div>
-          <Label htmlFor="exampleInputEmail1">
-            Email Address <span className="asterisk">*</span>
-          </Label>
+            <Label htmlFor="phone">
+              Phone Number <span className="asterisk">*</span>
+            </Label>
 
-          <Input
-            type="email"
-            required
-            aria-describedby="emailHelp"
-            value={this.state.email}
-            onChange={({ target }) =>
-              this.setState({ ["email"]: target.value })
-            }
-          />
-        </div> */}
-          {/* <div>
-          <Label htmlFor="phone">
-            Phone Number <span className="asterisk">*</span>
-          </Label>
-
-          <NumberFormat
-            className="phone"
-            format="+## (###) ###-####"
-            mask="_"
-            required
-            value={phone}
-            onValueChange={values => {
-              const { formattedValue, value } = values
-              this.setState({ phone: formattedValue })
-            }}
-          />
-        </div> */}
+            <NumberFormat
+              className="phone"
+              format="+## (###) ###-####"
+              mask="_"
+              required
+              value={phone}
+              onValueChange={values => {
+                const { formattedValue, value } = values
+                this.setState({ phone: formattedValue })
+              }}
+            />
+          </div> */}
 
           <div className="flex flex-col">
-            <Label htmlFor="industry" text="Industry" required={false}>
+            <Label htmlFor="investor" text="Type of Investor" required={true}>
               <span className="asterisk">*</span>
             </Label>
 
             <select
-              name="industry"
-              id="mce-INDUSTRY"
-              // required
-              onChange={handleIndustryChange}
+              name="investor"
+              required
+              onChange={handleInvestorChange}
               className="p-2 border-2 border-gray-400"
             >
               <option value=""></option>
@@ -208,11 +317,6 @@ const EmailListForm = () => {
               <option value="Institutional">Institutional</option>
               <option value="Accredited">Accredited</option>
               <option value="Unaccredited">Unaccredited</option>
-              {/* <option value="Developers">Developers</option>
-              <option value="Medical">Medical</option>
-              <option value="Supplychain">Supplychain</option>
-              <option value="Telecommunication">Telecommunication</option>
-              <option value="Other">Other</option> */}
             </select>
           </div>
 
@@ -231,7 +335,7 @@ const EmailListForm = () => {
           </div>
 
           <div className="flex flex-col">
-            <Label htmlFor="message" text="Message" required={false}>
+            <Label htmlFor="message" text="Message for Us" required={false}>
               <span className="asterisk">*</span>
             </Label>
             <input
@@ -243,6 +347,85 @@ const EmailListForm = () => {
             />
           </div>
 
+          <div className="flex flex-col">
+            <Label
+              htmlFor="mce-group[2194]-2194-0"
+              className="inline-flex items-center"
+              text="Type of Property Interested"
+              required={false}
+            ></Label>
+            {/* <h2>Type of Property Interested:</h2> */}
+            <label
+              className="inline-flex items-center"
+              htmlFor='"mce-group[2194]-2194-0"'
+            >
+              <input
+                type="checkbox"
+                className="form-checkbox text-indigo-600 h-5 w-5"
+                name="group[2194][1]"
+                id="mce-group[2194]-2194-0"
+                value="Residential"
+                onChange={handleCheckboxChange}
+              />
+              <span className="ml-2">Residential</span>
+            </label>
+            <label
+              className="inline-flex items-center"
+              htmlFor="mce-group[2194]-2194-1"
+            >
+              <input
+                type="checkbox"
+                className="form-checkbox text-indigo-600 h-5 w-5"
+                name="group[2194][2]"
+                id="mce-group[2194]-2194-1"
+                value="Commercial"
+                onChange={handleCheckboxChange}
+              />
+              <span className="ml-2">Commercial</span>
+            </label>
+            <label
+              className="inline-flex items-center"
+              htmlFor='"mce-group[2194]-2194-2"'
+            >
+              <input
+                type="checkbox"
+                className="form-checkbox text-indigo-600 h-5 w-5"
+                name="group[2194][4]"
+                id="mce-group[2194]-2194-2"
+                value="Land"
+                onChange={handleCheckboxChange}
+              />
+              <span className="ml-2">Land</span>
+            </label>
+            <label
+              className="inline-flex items-center"
+              htmlFor='"mce-group[2194]-2194-3"'
+            >
+              <input
+                type="checkbox"
+                className="form-checkbox text-indigo-600 h-5 w-5"
+                name="group[2194][8]"
+                id="mce-group[2194]-2194-3"
+                value="Industrial"
+                onChange={handleCheckboxChange}
+              />
+              <span className="ml-2">Industrial</span>
+            </label>
+            <label
+              className="inline-flex items-center"
+              htmlFor='"mce-group[2194]-2194-4"'
+            >
+              <input
+                type="checkbox"
+                className="form-checkbox text-indigo-600 h-5 w-5"
+                name="group[2194][16]"
+                id="mce-group[2194]-2194-4"
+                value="Other"
+                onChange={handleCheckboxChange}
+              />
+              <span className="ml-2">Other</span>
+            </label>
+          </div>
           <button className="p-2 border-2 border-gray-400 bg-red" type="submit">
             <span className="text-md text-white">Subscribe</span>
           </button>
@@ -253,119 +436,3 @@ const EmailListForm = () => {
 };
 
 export default EmailListForm;
-
-// import React from 'react';
-// import { Formik, Form, Field, ErrorMessage } from 'formik';
-// import * as Yup from 'yup';
-// import Label from '../components/Label';
-// import axios from 'axios';
-// import { handler } from '../add-email-subscriber';
-
-// // interface FormValues {
-// //   firstName: string;
-// //   lastName: string;
-// //   email: string;
-// // }
-
-// const SignupSchema = Yup.object().shape({
-//   firstName: Yup.string()
-//     .min(2, 'Too Short!')
-//     .max(50, 'Too Long!')
-//     .required('Required'),
-//   lastName: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!'),
-//   email: Yup.string().email('Invalid email').required('Required'),
-// });
-
-// const SignUpForm = () => {
-//   const submitForm = async (values, formik) => {
-//     console.log(values);
-//     const { firstName, lastName, email } = values;
-//     try {
-//       const payload = {
-//         merge_fields: {
-//           FNAME: firstName,
-//           LNAME: lastName,
-//         },
-//         email_address: email,
-//       };
-
-//       await axios.post(handler, payload);
-//       alert('Contact details added successfully.');
-//       formik.resetForm();
-//     } catch (error) {
-//       alert(error.message);
-//     }
-//   };
-//   return (
-//     <>
-//       <Formik
-//         initialValues={{ firstName: '', lastName: '', email: '' }}
-//         validationSchema={SignupSchema}
-//         onSubmit={submitForm}
-//       >
-//         {formik => (
-//           <Form className="w-1/2 bg-gray-50 p-4 flex flex-col shadow-sm">
-//             <h2 className="text-center font-bold text-black">
-//               Sign up for beta access!
-//             </h2>
-//             <div className="my-2 flex flex-col">
-//               <Label
-//                 className="text-black"
-//                 text="First Name"
-//                 required={true}
-//                 htmlFor="firstName"
-//               />
-//               <Field
-//                 id="firstName"
-//                 className="p-2 border-2 border-gray-400"
-//                 name="firstName"
-//               ></Field>
-//               <ErrorMessage
-//                 component="div"
-//                 className="text-red-700"
-//                 name="firstName"
-//               />
-//             </div>
-
-//             <div className="my-2 flex flex-col">
-//               <Label text="Last Name" htmlFor="lastName" />
-//               <Field
-//                 id="lastName"
-//                 className="p-2 border-2 border-gray-400"
-//                 name="lastName"
-//               ></Field>
-//               <ErrorMessage
-//                 component="div"
-//                 className="text-red-700"
-//                 name="lastName"
-//               />
-//             </div>
-
-//             <div className="my-2 flex flex-col">
-//               <Label text="Email" required={true} htmlFor="email" />
-//               <Field
-//                 id="email"
-//                 className="p-2 border-2 border-gray-400"
-//                 name="email"
-//               ></Field>
-//               <ErrorMessage
-//                 component="div"
-//                 className="text-red-700"
-//                 name="email"
-//               />
-//             </div>
-//             <button
-//               disabled={!formik.isValid || !formik.dirty}
-//               type="submit"
-//               className="disabled:opacity-50 my-2 px-4 py-2 bg-blue-700 text-white transition-all duration-300"
-//             >
-//               Submit
-//             </button>
-//           </Form>
-//         )}
-//       </Formik>
-//     </>
-//   );
-// };
-
-// export default SignUpForm;
