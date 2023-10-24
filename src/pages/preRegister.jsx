@@ -1,24 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
 import 'react-phone-number-input/style.css';
-import PhoneInput from 'react-phone-number-input';
+import EmailListForm from './mailchimp-form';
+// import PhoneInput from 'react-phone-number-input';
 
 const PreRegister = ({ isOpen, onClose }) => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [phoneValue, setPhoneValue] = useState();
+  // const [isSubmitted, setIsSubmitted] = useState(false);
+  // const [phoneValue, setPhoneValue] = useState();
 
-  const handleSubmit = () => {
-    setIsSubmitted(true);
-    setTimeout(() => {
-      onClose();
-      setIsSubmitted(false);
-    }, 2000);
-  };
+  // const handleSubmit = () => {
+  //   setIsSubmitted(true);
+  //   setTimeout(() => {
+  //     onClose();
+  //     setIsSubmitted(false);
+  //   }, 2000);
+  // };
 
   if (!isOpen) return null;
 
   return (
-    <div className="modal" onClick={onClose}>
+    <div className="modal w-auto h-2/3">
       <div className="modal-content" onClick={e => e.stopPropagation()}>
+        <span className="close" onClick={onClose}>
+          &times;
+        </span>
+        <EmailListForm />
+      </div>
+    </div>
+    //
+  );
+};
+
+export default PreRegister;
+
+{
+  /* <div className="modal-content" onClick={e => e.stopPropagation()}>
+
         <span className="close" onClick={onClose}>
           &times;
         </span>
@@ -113,8 +129,5 @@ const PreRegister = ({ isOpen, onClose }) => {
           </div>
         )}
       </div>
-    </div>
-  );
-};
-
-export default PreRegister;
+        </div> */
+}
