@@ -5,8 +5,8 @@ const Label = props => {
   return (
     <>
       <label htmlFor={htmlFor}>
-        <span className="font-bold">{text}</span>
-        {required && <span className="text-red-700">*</span>}
+        <span className="font-bold text-black text-sm">{text}</span>
+        {required && <span className="text-red text-sm">*</span>}
       </label>
     </>
   );

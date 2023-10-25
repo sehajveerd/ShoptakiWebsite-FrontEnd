@@ -368,9 +368,9 @@ const Landing = () => {
                     </h3>
                   </div>
                   <div className="self-stretch relative text-sm text-darkslategray-200">
-                    You will be able to build valuable relationships with savvy
-                    investors, highlight your skills and earn repeat business by
-                    showcasing your expertise right on our platform.
+                    Build relationships and showcase expertise to attract
+                    investors while promoting properties, infrastructure deals,
+                    and raising capital on our platform.
                   </div>
                 </div>
               </div>
@@ -416,11 +416,10 @@ const Landing = () => {
                     </h3>
                   </div>
                   <div className="self-stretch relative text-sm text-darkslategray-200">
-                    You can create a portfolio on our platform to manage
-                    listings and track potential earnings. By showcasing your
-                    projects in our marketplace, you attract countless eager
-                    investors, underwrite each deal and monitor earnings
-                    property contracts.
+                    Showcase your projects on our platform to captivate a myriad
+                    of investors, manage listings, underwrite deals, and gauge
+                    potential earnings. Dive in with no upfront investment,
+                    perfect for novices and experts alike
                   </div>
                 </div>
               </div>

@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PreRegister from '../pages/preRegister';
-
 import { useAuth0 } from '@auth0/auth0-react';
 import ProfileDropdown from './ui/ProfileDropdown';
 import OurStoryDropdown from './ui/OurStoryDropdown';
 import { IconSearchOutline } from './ui/icons';
 // import Contact from './contact.jsx';
 import MobileMenu from './MobileMenu';
-
 const Tooltip = ({ text }) => {
   return (
     <div className="relative group inline-block">
@@ -21,27 +19,23 @@ const Tooltip = ({ text }) => {
     </div>
   );
 };
-
 const Navbar = () => {
   const { loginWithRedirect, user, isLoading } = useAuth0();
   const [isModalOpen, setModalOpen] = useState(false);
   // Create a state variable to manage the visibility of MobileMenu
   const [isMobileMenuVisible, setMobileMenuVisibility] = useState(false);
-
   // Toggle the visibility of the MobileMenu
   const toggleMobileMenu = () => {
     setMobileMenuVisibility(!isMobileMenuVisible);
   };
-
   const handlePreRegister = () => {
     setModalOpen(true);
   };
   const linkClassNames =
     '[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit] hover:bg-gray-50 hover:text-primaryblue-500';
-
   return (
     <div>
-      <div className="self-stretch bg-white flex flex-row py-4 xs:px-5 sm:px-5 px-[100px] items-center justify-between text-left text-sm text-neutralgray-600 font-body-small14 border-b-[1px] border-solid border-gainsboro-100">
+      <div className="self-stretch bg-white flex flex-row py-4 xs:px-2 sm:px-5 px-[100px] items-center justify-between text-left text-sm text-neutralgray-600 font-body-small14 border-b-[1px] border-solid border-gainsboro-100">
         {/* LOGO - start */}
         {/* Make sure that the above padding is set to the all the other components on this page. */}
         <Link to="/">
@@ -111,7 +105,6 @@ const Navbar = () => {
                   />
                 </button>
               </div>
-
               <div className="lg:visible invisible fixed top-0 right-0 p-4">
                 <button
                   className="mobile-menu-button bg-primaryblue-500 text-white py-2 px-4 rounded"
@@ -133,12 +126,10 @@ const Navbar = () => {
                   </svg>
                 </button>
               </div>
-
               {/* Conditionally render the MobileMenu component based on isMobileMenuVisible */}
               {isMobileMenuVisible && <MobileMenu />}
             </>
             // PRIMARY NAVBAR - END
-
             // MOBILE NAVBAR MENU COMES HERE
           )}
         </div>
@@ -151,5 +142,4 @@ const Navbar = () => {
     </div>
   );
 };
-
 export default Navbar;

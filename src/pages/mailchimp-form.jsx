@@ -3,7 +3,7 @@ import Label from '../components/Label';
 import jsonp from 'jsonp';
 import InputMask from 'react-input-mask';
 
-const EmailListForm = () => {
+const EmailListForm = ({ onSubmit }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -36,6 +36,9 @@ const EmailListForm = () => {
     const regex = /^([\w_.\-+])+@([\w-]+\.)+([\w]{2,10})+$/;
     const emailAddress = email;
     !regex.test(emailAddress) ? setStatus('empty') : sendData(url);
+    if (onSubmit) {
+      onSubmit();
+    }
   };
 
   const sendData = url => {
@@ -110,15 +113,12 @@ const EmailListForm = () => {
       method="POST"
     >
       <div className="overflow-auto">
-        <h2>Sign up for future beta access</h2>
+        <h2 className="text-[25px] text-primaryblue-500">
+          Sign up for future beta access
+        </h2>
         <div className="w-full flex flex-col">
           <div className="flex flex-col">
-            <Label
-              className="text-black font-poppins text-xs"
-              text="Name"
-              required={true}
-              htmlFor="FNAME"
-            />
+            <Label text="Name" required={true} htmlFor="FNAME" />
             <input
               placeholder="Enter your Name"
               name="name"
@@ -130,12 +130,7 @@ const EmailListForm = () => {
             />
           </div>
           <div className="flex flex-col">
-            <Label
-              className="text-black"
-              text="Email Address"
-              required={true}
-              htmlFor="EMAIL"
-            />
+            <Label text="Email Address" required={true} htmlFor="EMAIL" />
             <input
               placeholder="Email address"
               name="email"
@@ -147,25 +142,14 @@ const EmailListForm = () => {
             />
           </div>
           <div className="flex flex-col">
-            <Label
-              htmlFor="PHONE"
-              required={true}
-              className="text-black"
-              text="Phone Number"
-            >
+            <Label htmlFor="PHONE" required={true} text="Phone Number">
               <span className="asterisk">*</span>
             </Label>
-            {/* <input
-              type="text"
-              required
-              value={phone}
-              onChange={handlePhoneChange}
-              className="p-2 border-2 border-gray-400"
-            /> 
-          </div>*/}
+
             <InputMask
               mask="+99 999-999-9999" // Adjust the format as needed for your region
               maskChar="_"
+              className="p-2 border-2 border-gray-400"
               placeholder="Enter your phone number"
               value={phone}
               onChange={handlePhoneChange}
@@ -179,11 +163,13 @@ const EmailListForm = () => {
 
             <select
               name="investor"
+              className="p-2 border-2 border-gray-400"
               required
               onChange={handleInvestorChange}
-              className="p-2 border-2 border-gray-400"
             >
-              <option value=""></option>
+              <option value="Select type of Investor">
+                Select type of Investor
+              </option>
               <option value="Individual">Individual</option>
               <option value="Institutional">Institutional</option>
               <option value="Accredited">Accredited</option>
@@ -208,18 +194,17 @@ const EmailListForm = () => {
             <Label htmlFor="message" text="Message for Us" required={false}>
               <span className="asterisk">*</span>
             </Label>
-            <input
-              rows="10"
+            <textarea
+              rows="6"
+              className="p-2 border-2 border-gray-400"
               value={message}
               onChange={handleMessageChange}
-              className="p-2 border-2 border-gray-400"
             />
           </div>
 
-          <div className="flex flex-col">
+          <div className="flex flex-col text-black text-sm">
             <Label
               htmlFor="mce-group[2194]-2194-0"
-              className="inline-flex items-center"
               text="Type of Property Interested"
               required={false}
             ></Label>
@@ -294,8 +279,8 @@ const EmailListForm = () => {
               <span className="ml-2">Other</span>
             </label>
           </div>
-          <button className="p-2 border-2 border-gray-400 bg-red" type="submit">
-            <span className="text-md text-white">Subscribe</span>
+          <button className="p-2 mx-10 rounded-2xs bg-blue-500" type="submit">
+            <span className="text-md text-white">Submit</span>
           </button>
         </div>
       </div>

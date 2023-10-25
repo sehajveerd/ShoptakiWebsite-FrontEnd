@@ -1,29 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'react-phone-number-input/style.css';
 import EmailListForm from './mailchimp-form';
 // import PhoneInput from 'react-phone-number-input';
 
 const PreRegister = ({ isOpen, onClose }) => {
-  // const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   // const [phoneValue, setPhoneValue] = useState();
 
-  // const handleSubmit = () => {
-  //   setIsSubmitted(true);
+  const handleSubmit = () => {
+    setIsSubmitted(true);
+    setTimeout(() => {
+      onClose();
+      setIsSubmitted(false);
+    }, 5000);
+  };
+  // const handleClose = () => {
   //   setTimeout(() => {
   //     onClose();
   //     setIsSubmitted(false);
-  //   }, 2000);
+  //   }, 000);
   // };
 
   if (!isOpen) return null;
 
   return (
-    <div className="modal w-auto h-2/3">
+    <div className="modal w-auto h-2/3" onClick={onClose}>
       <div className="modal-content" onClick={e => e.stopPropagation()}>
         <span className="close" onClick={onClose}>
           &times;
         </span>
-        <EmailListForm />
+        {!isSubmitted ? (
+          <EmailListForm onSubmit={handleSubmit} />
+        ) : (
+          <div className="flex flex-col items-center justify-center relative text-primaryblue-500 font-bold text-[20px]">
+            <h2>Your journey towards insightful investing begins here</h2>
+            <h2>Thank you for your interest!</h2>
+          </div>
+        )}
       </div>
     </div>
     //
