@@ -54,21 +54,21 @@ const Landing = () => {
   };
   return (
     <div className="relative bg-white w-full overflow-auto flex flex-col items-center justify-start gap-[171px] text-left text-17xl text-dimgray-401 font-poppins">
-      <div className="self-stretch bg-gray-400 flex flex-row py-0 pr-0 pl-[100px] items-center justify-between text-dimgray-300">
-        <div className="flex flex-col items-start justify-start gap-[96px]">
+      <div className="self-stretch bg-gray-400 flex flex-row md:flex-col xs:px-2 sm:px-5 pl-[100px] md:px-[50px] sm:pl-[50px] items-center justify-between text-dimgray-300 gap-[110px]">
+        <div className="flex flex-col items-start justify-start gap-[96px] w-full md:w-3/4 sm:w-1/2">
           <div className="flex flex-col items-start justify-start gap-[40px]">
-            <div className="relative font-medium text-[31px] inline-block w-[486px]">
+            <div className="relative font-medium inline-block w-auto lg:text-xl md:text-lg sm:text-base">
               Earn Passive and Active Income through Crowdfunded Real Estate
               Investments
             </div>
-            <div className="relative text-[18px] inline-block w-[524px]">
+            <div className="relative text-lg inline-block lg:text-lg md:text-base sm:text-sm">
               Experience Hassle-Free Real Estate Investing at your Fingertips.
               Manage your portfolio and join related communities
             </div>
           </div>
-          <div className="flex flex-row items-start justify-start gap-[32px]">
+          <div className="flex flex-row lg:flex-col md:flex-col items-start justify-start gap-[32px]">
             <button
-              className="cursor-pointer [border:none] py-2 px-2.5 bg-primaryblue-500 rounded-lg flex flex-row items-center justify-start hover:shadow-[0px_1px_4px_rgba(0,_0,_0,_0.25)]"
+              className="cursor-pointer py-2 px-2.5 bg-primaryblue-500 rounded-lg flex flex-row items-center justify-start hover:shadow-[0px 1px 4px rgba(0,0,0,0.25)]"
               onClick={handlePreRegister}
             >
               <div className="relative text-sm font-semibold font-poppins text-white text-left">
@@ -76,7 +76,7 @@ const Landing = () => {
               </div>
             </button>
             <button
-              className="cursor-pointer [border:none] p-2 bg-[transparent] rounded-lg flex flex-row items-center justify-start hover:shadow-[0px_1px_4px_rgba(0,_0,_0,_0.25)]"
+              className="cursor-pointer p-2 bg-[transparent] rounded-lg flex flex-row items-center justify-start hover:shadow-[0px 1px 4px rgba(0,0,0,0.25)]"
               onClick={() => {
                 const scrollTarget = document.getElementById('scrollTarget');
                 if (scrollTarget) {
@@ -90,9 +90,9 @@ const Landing = () => {
             </button>
           </div>
         </div>
-        <div className="relative w-[704px] h-[607px] overflow-auto shrink-0">
+        <div className="relative flex-grow flex-shrink-0">
           <img
-            className="absolute top-[0px] left-[0px] w-[704px] h-[607px] object-cover"
+            className="max-w-full h-auto object-cover"
             alt="landing page photo"
             src="/landing/launchPhoto.png"
           />
@@ -144,9 +144,9 @@ const Landing = () => {
                 </h1>
               </div>
             </div>
-            <div className="self-stretch flex flex-row items-start justify-between text-left text-base text-darkslategray-100">
-              <div className="self-stretch w-[573px] flex flex-col items-start justify-start">
-                <div className="self-stretch flex flex-col items-start justify-start gap-[32px]">
+            <div className="self-stretch flex flex-row md:flex-col sm:flex-col items-start justify-between text-left text-base text-darkslategray-100 gap-[100px]">
+              <div className="self-stretch w-full md:w-3/4 sm:w-3/4 flex flex-col items-start justify-start">
+                <div className="self-stretch flex flex-col items-start justify-start gap-[32px] xs:px-2 sm:px-5 px-[100px]">
                   <div
                     className="relative self-stretch rounded-2xs bg-primarywhite flex flex-col items-start justify-start py-4 px-5 gap-[10px] border-[1px] border-solid border-whitesmoke-100"
                     onMouseEnter={() => setShowContent1(true)}
@@ -154,7 +154,7 @@ const Landing = () => {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="self-stretch flex flex-row items-center justify-between">
-                      <div className="relative font-medium">
+                      <div className="relative font-medium md:text-base sm:text-xs">
                         Diverse Portfolio
                       </div>
                       <img
@@ -170,13 +170,13 @@ const Landing = () => {
                           : 'self-stretch hidden flex-row items-start justify-center py-0 px-6 text-inherit font-inherit'
                       }
                     >
-                      <div className="flex-1 relative text-[14px] font-poppins">
+                      <div className="flex-1 relative text-sm sm:3xs font-poppins">
                         <p className="m-0">
                           Drive into Sophtera vast investment landscape, from
                           real estate properties and cash flow businesses to
                           infrastructure and development projects.
                         </p>
-                        <ul className="m-0 pl-[21px]">
+                        <ul className="m-0">
                           <li>
                             Select from multifamily units, commercial complexes,
                             startups, renewable energy initiatives, and urban
@@ -312,9 +312,9 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex-1 h-[456px] flex flex-row items-center justify-center py-6 px-10 box-border">
+              <div className="relative flex-grow overflow-hidden flex-shrink-0">
                 <img
-                  className="self-stretch flex-1 relative rounded-3xl max-w-full overflow-hidden max-h-full object-cover mt-[-100px]"
+                  className="self-stretch max-w-full h-auto object-cover rounded-3xl md:hidden"
                   alt=""
                   src="/landing/launchPhoto2.png"
                 />
@@ -417,7 +417,7 @@ const Landing = () => {
                     Showcase your projects on our platform to captivate a myriad
                     of investors, manage listings, underwrite deals, and gauge
                     potential earnings. Dive in with no upfront investment,
-                    perfect for novices and experts alike
+                    perfect for novices and experts alike.
                   </div>
                 </div>
               </div>
@@ -479,7 +479,7 @@ const Landing = () => {
                 Possible Future Properties
               </h1>
             </div>
-            <div className="flex flex-row left-[20px] gap-[50px]">
+            <div className="flex flex-row md:flex-col xs:px-2 sm:px-5 px-[100px] gap-[50px]">
               <div className="self-stretch flex flex-row lex-wrap gap-[21px] items-start justify-start">
                 <div className="relative w-[264px] h-[308px] hover-content-container">
                   <div className="absolute top-[-2px] left-[-2px] rounded-3xs  box-border w-[268px] h-[300px] overflow-hidden flex flex-col items-start justify-start border-[2px] border border-solid border-neutralgray-300">

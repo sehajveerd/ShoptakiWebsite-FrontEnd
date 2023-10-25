@@ -109,7 +109,7 @@ const EmailListForm = ({ onSubmit }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="h-[600px] bg-gray-50 p-4 flex flex-col shadow-sm z-500 text-md xs:text-xs sm:text-sm md:text-xl lg:text-4xl"
+      className="h-[600px] w-[600px] bg-gray-50 p-4 flex flex-col shadow-sm z-500 text-md xs:text-xs sm:text-sm md:text-xl lg:text-4xl"
       method="POST"
     >
       <div className="overflow-auto">
