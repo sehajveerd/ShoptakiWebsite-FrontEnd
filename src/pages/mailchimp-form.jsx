@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-// TODO : Include styles for the modal form - import * as styles from "./EmailListForm.module.scss"
 import Label from '../components/Label';
 import jsonp from 'jsonp';
-// import NumberFormat from "react-number-format"
+import InputMask from 'react-input-mask';
 
 const EmailListForm = () => {
   const [email, setEmail] = useState('');
@@ -14,73 +13,10 @@ const EmailListForm = () => {
   const [status, setStatus] = useState('');
   const [selectedChoices, setSelectedChoices] = useState([]);
 
-  // //////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   const handleSubmit = event => {
     event.preventDefault();
-    // const selectedPropertyTypes = [
-    //   'Residential',
-    //   'Commercial',
-    //   'Land',
-    //   'Industrial',
-    //   'Other',
-    // ];
-    // const tagIndices = [1, 2, 4, 8, 16];
-
-    // const propertyTypeParams = selectedPropertyTypes
-    //   .filter(type => selectedChoices.includes(type))
-    //   .map(
-    //     type =>
-    //       `group[2194][${
-    //         selectedPropertyTypes.indexOf(type) + 1
-    //       }]=${encodeURIComponent(type)}`
-    //   )
-    //   .join('&');
-
-    // const propertyTypeParams = selectedPropertyTypes
-    //   .filter(type => selectedChoices.includes(type))
-    //   .map(
-    //     index =>
-    //       `group[2194][${index}]=${encodeURIComponent(
-    //         selectedPropertyTypes[tagIndices.indexOf(index)]
-    //       )}`
-    //   )
-    //   .join('&');const selectedPropertyTypes = ['Residential', 'Commercial', 'Land', 'Industrial', 'Other'];
-    // const tagIndices = [1, 2, 4, 8, 16];
-
-    // `group[2194][1]=${encodeURIComponent(
-    //   selectedChoices.includes('Residential') ? 'Residential' : ''
-    // )}&`;
-
-    // IMPORTANT/////////////////////////////////////////////////////
-    // const propertyTypeParams = tagIndices
-    //   .filter(index =>
-    //     selectedChoices.includes(
-    //       selectedPropertyTypes[tagIndices.indexOf(index)]
-    //     )
-    //   )
-    //   .map(
-    //     index =>
-    //       `group[2194][${
-    //         selectedPropertyTypes[tagIndices.indexOf(index)]
-    //       }[${index}]=${encodeURIComponent(
-    //         selectedPropertyTypes[tagIndices.indexOf(index)]
-    //       )}`
-    //   )
-    //   .join('&');
-
-    // const values =
-    //   `FNAME=${encodeURIComponent(name)}&` +
-    //   `EMAIL=${encodeURIComponent(email)}&` +
-    //   `PHONE=${encodeURIComponent(phone)}&` +
-    //   `USER=${encodeURIComponent(investor)}&` +
-    //   `COMPANY=${encodeURIComponent(company)}&` +
-    //   `QUESTION=${encodeURIComponent(question)}&` +
-    //   propertyTypeParams;
-
-    // // The rest of your code...
-
-    console.log('CHECKING SELECTED CHOICES: ', selectedChoices);
     const values =
       `FNAME=${encodeURIComponent(name)}&` +
       `EMAIL=${encodeURIComponent(email)}&` +
@@ -88,48 +24,13 @@ const EmailListForm = () => {
       `USER=${encodeURIComponent(investor)}&` +
       `COMPANY=${encodeURIComponent(company)}&` +
       `MESSAGE=${encodeURIComponent(message)}&` +
-      (selectedChoices.includes('Residential') ? `group[2194][1]=&` : '') +
-      (selectedChoices.includes('Commercial') ? `group[2194][2]=&` : '') +
-      (selectedChoices.includes('Land') ? `group[2194][4]=&` : '') +
-      (selectedChoices.includes('Industrial') ? `group[2194][8]=&` : '') +
-      (selectedChoices.includes('Other') ? `group[2194][16]=` : '');
-    // `${
-    //   (selectedChoices.includes(`Residential`)
-    //     ? encodeURIComponent(`group[2194][1]`)`&`
-    //     : ``) +
-    //   (selectedChoices.includes(`Commercial`)
-    //     ? encodeURIComponent(`group[2194][2]`)`&`
-    //     : ``) +
-    //   (selectedChoices.includes(`Land`)
-    //     ? encodeURIComponent(`group[2194][4]`)`&`
-    //     : ``) +
-    //   (selectedChoices.includes(`Industrial`)
-    //     ? encodeURIComponent(`group[2194][8]`)`&`
-    //     : ``) +
-    //   (selectedChoices.includes(`Other`)
-    //     ? encodeURIComponent(`group[2194][16]`)
-    //     : ``)
-    // }`;
-    // can we use an if-else/switch to assign the value to corresponding group index using a filter on selectedchoice or similar
-    // `group[2194][1]=${encodeURIComponent(
-    //   selectedChoices.includes('Residential') ? 'Residential' : ''
-    // )}&` +
-    // `group[2194][2]=${encodeURIComponent(
-    //   selectedChoices.includes('Commercial') ? 'Commercial' : ''
-    // )}&` +
-    // `group[2194][4]=${encodeURIComponent(
-    //   selectedChoices.includes('Land') ? 'Land' : ''
-    // )}&` +
-    // `group[2194][8]=${encodeURIComponent(
-    //   selectedChoices.includes('Industrial') ? 'Industrial' : ''
-    // )}&` +
-    // `group[2194][16]=${encodeURIComponent(
-    //   selectedChoices.includes('Other') ? 'Other' : ''
-    // )}`;
-
-    // `g-recaptcha-response=${encodeURIComponent(this.state['gToken'])}`;
+      (selectedChoices.includes('Residential') ? `group[2194][1]=true&` : '') +
+      (selectedChoices.includes('Commercial') ? `group[2194][2]=true&` : '') +
+      (selectedChoices.includes('Land') ? `group[2194][4]=true&` : '') +
+      (selectedChoices.includes('Industrial') ? `group[2194][8]=true&` : '') +
+      (selectedChoices.includes('Other') ? `group[2194][16]=true` : '');
     console.log('RESULT: ', values);
-    const path = `${`https://imperiallc.us21.list-manage.com/subscribe/post?u=8a3b8f6d93de5e01fc3fe387b&amp;id=f85ccfcfeb&amp;f_id=00e8eae6f0`}&${values}`;
+    const path = `${process.env.REACT_APP_MAILCHIMP_URL}&${values}`;
 
     const url = path.replace('/post?', '/post-json?');
     const regex = /^([\w_.\-+])+@([\w-]+\.)+([\w]{2,10})+$/;
@@ -188,30 +89,11 @@ const EmailListForm = () => {
     if (e.target.checked) {
       // Checkbox is checked, add it to the selected choices
       setSelectedChoices(prevSelected => [...prevSelected, value]);
-      // console.log(
-      //   'EVENT TARGET VALUE: ',
-      //   e.target.value,
-      //   ' & ',
-      //   e.target.checked
-      // );
-      // console.log('TESING FOR MAILCHIMP');
-      // console.log('LIST SO FAR: ', selectedChoices);
-      // console.log(selectedChoices.join(', '));
-      // console.log(investor);
     } else {
       // Checkbox is unchecked, remove it from the selected choices
       setSelectedChoices(prevSelected =>
         prevSelected.filter(choice => choice !== value)
       );
-      // console.log(
-      //   'EVENT TARGET VALUE: ',
-      //   e.target.value,
-      //   ' & ',
-      //   e.target.checked
-      // );
-      // console.log('TESING FOR MAILCHIMP');
-      // console.log(selectedChoices.join(', '));
-      // console.log(investor);
     }
   };
 
@@ -224,7 +106,7 @@ const EmailListForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="h-[600px] bg-gray-50 p-4 flex flex-col shadow-sm z-500"
+      className="h-[600px] bg-gray-50 p-4 flex flex-col shadow-sm z-500 text-md xs:text-xs sm:text-sm md:text-xl lg:text-4xl"
       method="POST"
     >
       <div className="overflow-auto">
@@ -273,33 +155,22 @@ const EmailListForm = () => {
             >
               <span className="asterisk">*</span>
             </Label>
-
-            <input
+            {/* <input
               type="text"
               required
               value={phone}
               onChange={handlePhoneChange}
               className="p-2 border-2 border-gray-400"
+            /> 
+          </div>*/}
+            <InputMask
+              mask="+99 999-999-9999" // Adjust the format as needed for your region
+              maskChar="_"
+              placeholder="Enter your phone number"
+              value={phone}
+              onChange={handlePhoneChange}
             />
           </div>
-
-          {/* <div>
-            <Label htmlFor="phone">
-              Phone Number <span className="asterisk">*</span>
-            </Label>
-
-            <NumberFormat
-              className="phone"
-              format="+## (###) ###-####"
-              mask="_"
-              required
-              value={phone}
-              onValueChange={values => {
-                const { formattedValue, value } = values
-                this.setState({ phone: formattedValue })
-              }}
-            />
-          </div> */}
 
           <div className="flex flex-col">
             <Label htmlFor="investor" text="Type of Investor" required={true}>
@@ -326,7 +197,6 @@ const EmailListForm = () => {
             </Label>
             <input
               type="text"
-              // required
               aria-describedby="companyName"
               value={company}
               onChange={handleCompanyChange}
@@ -340,7 +210,6 @@ const EmailListForm = () => {
             </Label>
             <input
               rows="10"
-              // required
               value={message}
               onChange={handleMessageChange}
               className="p-2 border-2 border-gray-400"
@@ -354,7 +223,6 @@ const EmailListForm = () => {
               text="Type of Property Interested"
               required={false}
             ></Label>
-            {/* <h2>Type of Property Interested:</h2> */}
             <label
               className="inline-flex items-center"
               htmlFor='"mce-group[2194]-2194-0"'

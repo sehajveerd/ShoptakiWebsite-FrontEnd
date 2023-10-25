@@ -8,7 +8,7 @@ function SamplePrevArrow(props) {
   return (
     <div onClick={onClick}>
       <img
-        className="relative w-6 h-6"
+        className="relative w-6 h-6 p-2"
         alt="Left Arrow"
         src="/landing/LeftArrow.png"
       />
@@ -21,7 +21,7 @@ function SampleNextArrow(props) {
   return (
     <div onClick={onClick}>
       <img
-        className="relative w-6 h-6"
+        className="relative w-6 h-6 p-2"
         alt="Right Arrow"
         src="/landing/RightArrow.png"
       />
@@ -105,13 +105,15 @@ const Landing = () => {
       >
         <Slider
           {...settings}
-          className="w-full h-auto flex items-center justify-center"
+          className="min-w-[300px] w-full h-auto flex items-center justify-center"
         >
-          <div className="flex flex-col items-center justify-center">
-            <div className="text-black text-[32px] text-center font-semibold">
+          <div className="flex flex-col p-6 bg-white items-center justify-center">
+            <div className="text-black text-center font-semibold xs:text-sm sm:text-md md:text-lg text-2xl">
               Our Mission
             </div>
-            <div className="text-black text-[15px] text-center w-[899px] mx-auto font-poppins">
+            {/* "w-full text-2xl text-blue-500 leading-1.5 mb-8 inline-block
+            md:max-w-[max-width-on-md] md:mt-4 md:leading-1.8 md:text-lg" */}
+            <div className="text-black text-center xs:w-full sm:w-100 md:w-100 w-2/3 h-auto mx-auto font-poppins xs:text-xs sm:text-sm md:text-sm text-lg">
               To democratize real estate investing by providing a global
               individuals to participate in diverse real estate opportunities,
               realize financial goals, and contribute to the growth of
@@ -119,11 +121,11 @@ const Landing = () => {
             </div>
           </div>
 
-          <div className="flex flex-col items-center justify-center">
-            <div className="text-black text-[32px] font-semibold text-center">
+          <div className="flex flex-col p-6 bg-white items-center justify-center">
+            <div className="text-black font-semibold text-center xs:text-sm sm:text-md md:text-lg text-2xl">
               Our Vision
             </div>
-            <div className="text-black text-[15px] text-center w-[899px] mx-auto font-poppins">
+            <div className="text-black text-center w-[899px] mx-auto font-poppins xs:text-xs sm:text-sm md:text-sm text-lg">
               We envision a world where everyone, regardless of their location
               or financial status, can access and benefit from real estate
               investment opportunities. By harnessing the power of AI and
@@ -766,7 +768,7 @@ const Landing = () => {
         </div>
       </div>
       <div className="self-stretch font-poppins">
-        <footer className="self-stretch bg-gray-800 h-[50px] shrink-0 flex flex-row items-center justify-between py-0 px-8 box-border text-left text-sm text-primarywhite">
+        <footer className="self-stretch bg-gray-800 h-[50px] shrink-0 flex md:flex-row sm:flex-col items-center justify-between py-0 px-8 box-border text-left text-sm text-primarywhite">
           <div className="relative leading-[20px] inline-block w-[204px] shrink-0">
             Copyright 2023 - Sophtera
           </div>
