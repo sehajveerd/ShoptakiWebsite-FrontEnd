@@ -101,7 +101,7 @@ const Landing = () => {
       <PreRegister isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
       <div
         id="scrollTarget"
-        className="self-stretch flex flex-col items-center justify-center py-0 px-[100px] gap-[100px] text-[24.57px] text-dimgray-200 font-inter"
+        className="self-stretch flex flex-col items-center justify-center py-0 xs:px-2 sm:px-5 px-[100px] gap-[100px] text-[24.57px] text-dimgray-200 font-inter"
       >
         <Slider
           {...settings}
@@ -321,16 +321,16 @@ const Landing = () => {
               </div>
             </div>
           </div>
-          <div className="self-stretch flex flex-col items-center justify-start gap-[80px] mt-[-40px]">
-            <div className="w-[569px] flex flex-row items-center justify-center">
+          <div className="self-stretch flex flex-col items-center justify-start gap-[80px] mt-[-40px] ">
+            <div className="md:text-xl max-w-[569px] flex flex-row items-center justify-center">
               <h1 className="m-0 flex-1 relative text-inherit font-semibold font-inherit">
                 Your Gateway to Exclusive Real Estate Opportunities
               </h1>
             </div>
-            <div className="self-stretch flex flex-row items-start justify-between text-left text-xl text-gray-400 md:flex-col">
-              <div className="rounded-3xs bg-gray-200 w-[344px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border">
+            <div className="self-stretch grid grid-rows-2 grid-cols-3 lg:grid-rows-3 lg:grid-cols-2 md:grid-rows-6 md:grid-cols-1 items-start justify-between text-left sm:text-xs text-xl text-gray-400 md:flex-col">
+              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[250px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
-                  <div className="flex flex-col items-start justify-start gap-[16px]">
+                  <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
                       <div className="rounded-[11.25px] bg-primarywhite flex flex-row items-start justify-start p-2">
                         <img
@@ -340,7 +340,7 @@ const Landing = () => {
                         />
                       </div>
                     </div>
-                    <h3 className="m-0 relative text-gray-700 font-medium font-poppins">
+                    <h3 className="m-0 self-stretch relative text-gray-700 font-medium font-poppins">
                       Investors
                     </h3>
                   </div>
@@ -351,7 +351,7 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 w-[344px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border">
+              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[250px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
@@ -374,7 +374,7 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 w-[344px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border">
+              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[250px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
@@ -397,9 +397,7 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="self-stretch flex flex-row items-start justify-between text-left text-xl text-gray-400 md:flex-col">
-              <div className="rounded-3xs bg-gray-200 w-[344px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border">
+              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[250px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
@@ -423,7 +421,7 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 w-[344px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border">
+              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[250px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
@@ -446,7 +444,7 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 w-[344px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border">
+              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[250px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
@@ -471,6 +469,7 @@ const Landing = () => {
                 </div>
               </div>
             </div>
+            <div className="self-stretch flex flex-row items-start justify-between text-left text-xl text-gray-400 md:flex-col"></div>
           </div>
         </div>
         <div className="self-stretch flex flex-col items-center justify-center py-0 px-[100px] text-center text-13xl text-neutralgray-600 font-h1-small36">
@@ -658,13 +657,13 @@ const Landing = () => {
           </div>
         </div>
       </div>
-      <div className="self-stretch bg-gray-300 flex flex-col items-center justify-start py-14 px-[100px] gap-[80px] text-left text-13xl text-neutralgray-600">
+      <div className="self-stretch bg-gray-300 flex flex-col items-center justify-start py-14 xs:px-2 sm:px-5 px-[100px] gap-[80px] text-left text-13xl text-neutralgray-600">
         <div className="flex flex-row items-center justify-center">
           <h1 className="m-0 relative text-inherit font-semibold font-inherit">
             How it Works
           </h1>
         </div>
-        <div className="self-stretch flex flex-row items-start justify-between text-xl text-gray-400">
+        <div className="self-stretch flex flex-row lg:flex-col md:items-center lg:items-center items-start justify-between text-xl text-gray-400">
           <div className="rounded-3xs bg-primary-white w-[344px] overflow-hidden shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border">
             <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
               <div className="flex flex-row items-start justify-start relative gap-[136px]">
