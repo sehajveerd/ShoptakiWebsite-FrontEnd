@@ -125,7 +125,7 @@ const Landing = () => {
             <div className="text-black font-semibold text-center xs:text-sm sm:text-md md:text-lg text-2xl">
               Our Vision
             </div>
-            <div className="text-black text-center w-[899px] mx-auto font-poppins xs:text-xs sm:text-sm md:text-sm text-lg">
+            <div className="text-black text-center xs:w-full sm:w-100 md:w-100 w-2/3 mx-auto font-poppins xs:text-xs sm:text-sm md:text-sm text-lg">
               We envision a world where everyone, regardless of their location
               or financial status, can access and benefit from real estate
               investment opportunities. By harnessing the power of AI and
