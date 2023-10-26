@@ -29,7 +29,6 @@ const EmailListForm = ({ onSubmit }) => {
       (selectedChoices.includes('Land') ? `group[2194][4]=true&` : '') +
       (selectedChoices.includes('Industrial') ? `group[2194][8]=true&` : '') +
       (selectedChoices.includes('Other') ? `group[2194][16]=true` : '');
-    console.log('RESULT: ', values);
     const path = `${process.env.REACT_APP_MAILCHIMP_URL}&${values}`;
 
     const url = path.replace('/post?', '/post-json?');

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import PreRegister from '../pages/preRegister';
+// import PreRegister from '../pages/preRegister';
 import { useAuth0 } from '@auth0/auth0-react';
 import ProfileDropdown from './ui/ProfileDropdown';
 import OurStoryDropdown from './ui/OurStoryDropdown';
@@ -21,16 +21,16 @@ const Tooltip = ({ text }) => {
 };
 const Navbar = () => {
   const { loginWithRedirect, user, isLoading } = useAuth0();
-  const [isModalOpen, setModalOpen] = useState(false);
+  // const [isModalOpen, setModalOpen] = useState(false);
   // Create a state variable to manage the visibility of MobileMenu
   const [isMobileMenuVisible, setMobileMenuVisibility] = useState(false);
   // Toggle the visibility of the MobileMenu
   const toggleMobileMenu = () => {
     setMobileMenuVisibility(!isMobileMenuVisible);
   };
-  const handlePreRegister = () => {
-    setModalOpen(true);
-  };
+  // const handlePreRegister = () => {
+  //   setModalOpen(true);
+  // };
   const linkClassNames =
     '[text-decoration:none] flex flex-col p-2.5 items-start justify-start text-[inherit] hover:bg-gray-50 hover:text-primaryblue-500';
   return (
@@ -91,7 +91,7 @@ const Navbar = () => {
                 <div className="relative font-medium items-center">
                   <Tooltip text="Support"></Tooltip>
                 </div>
-                <div className="flex-grow" />
+                {/* <div className="flex-grow" />
                 <button
                   className="lg:hidden cursor-pointer [border:none] py-2 px-2.5 bg-primaryblue-500 rounded-lg flex flex-row items-center justify-right hover:shadow-[0px_1px_4px_rgba(0,_0,_0,_0.25)]"
                   onClick={handlePreRegister}
@@ -103,7 +103,7 @@ const Navbar = () => {
                     isOpen={isModalOpen}
                     onClose={() => setModalOpen(false)}
                   />
-                </button>
+                </button> */}
               </div>
               <div className="lg:visible invisible fixed top-0 right-0 p-4">
                 <button

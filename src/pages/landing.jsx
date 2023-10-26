@@ -136,17 +136,17 @@ const Landing = () => {
           </div>
         </Slider>
         <div className="self-stretch flex flex-col transition-all items-start justify-start gap-[96px] text-center text-13xl text-neutralgray-600 font-poppins">
-          <div className="self-stretch flex flex-col items-start justify-start gap-[40px] mt-20">
+          <div className="self-stretch flex flex-col items-start justify-start gap-[10px] mt-20 md:items-center">
             <div className="w-[573px] flex flex-col items-end justify-start">
-              <div className="self-stretch flex flex-row items-center justify-center">
+              <div className="self-stretch flex flex-row text-9xl md:text-xl sm:text-base items-center justify-start py-14 mx-auto">
                 <h1 className="m-0 flex-1 relative text-inherit font-semibold font-inherit">
                   What Sets Us Apart
                 </h1>
               </div>
             </div>
-            <div className="self-stretch flex flex-row md:flex-col sm:flex-col items-start justify-between text-left text-base text-darkslategray-100 gap-[100px]">
-              <div className="self-stretch w-full md:w-3/4 sm:w-3/4 flex flex-col items-start justify-start">
-                <div className="self-stretch flex flex-col items-start justify-start gap-[32px] xs:px-2 sm:px-5 px-[100px]">
+            <div className="self-stretch flex flex-row md:flex-col sm:flex-col items-start justify-between md:items-center text-left text-base text-darkslategray-100 gap-[100px]">
+              <div className="self-stretch w-[573px] md:w-3/4 sm:w-3/4 flex flex-col items-start justify-start">
+                <div className="self-stretch flex flex-col items-start justify-start gap-[32px]">
                   <div
                     className="relative self-stretch rounded-2xs bg-primarywhite flex flex-col items-start justify-start py-4 px-5 gap-[10px] border-[1px] border-solid border-whitesmoke-100"
                     onMouseEnter={() => setShowContent1(true)}
@@ -194,7 +194,7 @@ const Landing = () => {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="self-stretch flex flex-row items-center justify-between">
-                      <div className="relative font-medium">
+                      <div className="relative font-medium md:text-base sm:text-xs">
                         Flexible Investment
                       </div>
                       <img
@@ -234,7 +234,7 @@ const Landing = () => {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="self-stretch flex flex-row items-center justify-between">
-                      <div className="relative font-medium">
+                      <div className="relative font-medium md:text-base sm:text-xs">
                         AI Driven Decisions
                       </div>
                       <img
@@ -269,13 +269,13 @@ const Landing = () => {
                     </div>
                   </div>
                   <div
-                    className="relative self-stretch rounded-2xs bg-primarywhite flex flex-col items-start justify-start py-4 px-5 gap-[10px] border-[1px] border-solid border-whitesmoke-100"
+                    className="relative self-stretch rounded-2xs bg-primarywhite flex flex-col items-start justify-start py-4 px-5 gap-[10px] border-[1px] border-solid border-whitesmoke-100 overflow-hidden"
                     onMouseEnter={() => setShowContent4(true)}
                     onMouseLeave={() => setShowContent4(false)}
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="self-stretch flex flex-row items-center justify-between">
-                      <div className="relative font-medium">
+                      <div className="relative font-medium md:text-base sm:text-xs">
                         Worldwide Access
                       </div>
                       <img
@@ -287,11 +287,11 @@ const Landing = () => {
                     <div
                       className={
                         showContent4
-                          ? 'self-stretch flex-row items-start justify-center py-0 px-6 text-inherit font-inherit'
+                          ? 'self-stretch flex-row items-start justify-center py-0 px-6 text-inherit font-inherit break words'
                           : 'self-stretch hidden flex-row items-start justify-center py-0 px-6 text-inherit font-inherit'
                       }
                     >
-                      <div className="flex-1 relative text-[14px] font-poppins">
+                      <div className="flex-1 relative text-[14px] font-poppins w-full md:w-[400px] break-words">
                         <p className="m-0">
                           Embark on a global investment journey with Sophtera,
                           accessing untapped markets and opportunities beyond
@@ -312,9 +312,9 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="relative flex-grow overflow-hidden flex-shrink-0">
+              <div className="flex-1 h-[456px] flex flex-row items-center justify-center py-6 px-10 box-border md:hidden lg:hidden">
                 <img
-                  className="self-stretch max-w-full h-auto object-cover rounded-3xl md:hidden"
+                  className="self-stretch flex-1 relative rounded-3xl max-w-full overflow-hidden max-h-full object-cover mt-[-100px]"
                   alt=""
                   src="/landing/launchPhoto2.png"
                 />
@@ -474,7 +474,7 @@ const Landing = () => {
         </div>
         <div className="self-stretch flex flex-col items-center justify-center py-0 px-[100px] text-center text-13xl text-neutralgray-600 font-h1-small36">
           <div className="self-stretch flex flex-col items-center justify-center gap-[40px]">
-            <div className="self-stretch flex flex-row items-center justify-center">
+            <div className="self-stretch flex flex-row items-center justify-center md:text-xl sm:text-base">
               <h1 className="m-0 flex-1 relative text-inherit font-semibold font-inherit">
                 Possible Future Properties
               </h1>
