@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'react-phone-number-input/style.css';
 import EmailListForm from './mailchimp-form';
 // import PhoneInput from 'react-phone-number-input';
@@ -6,6 +6,14 @@ import EmailListForm from './mailchimp-form';
 const PreRegister = ({ isOpen, onClose }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   // const [phoneValue, setPhoneValue] = useState();
+
+  useEffect(() => {
+    if (isOpen) {
+      document.title = 'Pre-Register | Sophtera';
+    } else {
+      document.title = 'Sophtera';
+    }
+  }, [isOpen]);
 
   const handleSubmit = () => {
     setIsSubmitted(true);

@@ -115,9 +115,9 @@ const Landing = () => {
             md:max-w-[max-width-on-md] md:mt-4 md:leading-1.8 md:text-lg" */}
             <div className="text-black text-center xs:w-full sm:w-100 md:w-100 w-2/3 h-auto mx-auto font-poppins xs:text-xs sm:text-sm md:text-sm text-lg">
               To democratize real estate investing by providing a global
-              individuals to participate in diverse real estate opportunities,
-              realize financial goals, and contribute to the growth of
-              communities worldwide.
+              platform for individuals to participate in diverse real estate
+              opportunities, obtain financial goals, and contribute to the
+              growth of communities worldwide.
             </div>
           </div>
 
@@ -128,10 +128,10 @@ const Landing = () => {
             <div className="text-black text-center xs:w-full sm:w-100 md:w-100 w-2/3 mx-auto font-poppins xs:text-xs sm:text-sm md:text-sm text-lg">
               We envision a world where everyone, regardless of their location
               or financial status, can access and benefit from real estate
-              investment opportunities. By harnessing the power of AI and
-              cutting-edge technology, we aim to create an inclusive and
-              transparent ecosystem that fosters collaboration, innovation, and
-              sustainable growth.
+              investment opportunities with a click of a button. By harnessing
+              the power of AI and cutting-edge technology, we aim to create an
+              inclusive and transparent ecosystem that fosters collaboration,
+              innovation, and sustainable growth.
             </div>
           </div>
         </Slider>
@@ -172,16 +172,17 @@ const Landing = () => {
                     >
                       <div className="flex-1 relative text-sm sm:3xs font-poppins">
                         <p className="m-0">
-                          Drive into Sophtera vast investment landscape, from
-                          real estate properties and cash flow businesses to
-                          infrastructure and development projects.
+                          Drive into Sophtera vast investment landscape and
+                          ecosystem. From real estate properties, cash flowing
+                          businesses to infrastructure and new development
+                          projects.
                         </p>
                         <ul className="m-0">
                           <li>
-                            Select from multifamily units, commercial complexes,
-                            startups, renewable energy initiatives, and urban
-                            development ventures, crafting a diverse and
-                            forward-thinking portfolio.
+                            Select from multifamily units, commercial real
+                            estate, startups, renewable energy initiatives,
+                            urban development ventures, to crafting a diverse
+                            and forward-thinking portfolio.
                           </li>
                         </ul>
                       </div>
@@ -212,8 +213,8 @@ const Landing = () => {
                     >
                       <div className="flex-1 relative text-[14px] font-poppins">
                         <p className="m-0">
-                          Sophtera empowers you to dictate your investment be it
-                          be it active or passive.
+                          Sophtera empowers you to dictate your investment, be
+                          it active or passive investing.
                         </p>
                         <ul className="m-0 pl-[21px]">
                           <li>
@@ -345,9 +346,9 @@ const Landing = () => {
                     </h3>
                   </div>
                   <div className="self-stretch relative text-sm text-darkslategray-200">
-                    Build your portfolio, manage your purchases and view your
+                    Build your portfolio, manage your purchases, and view your
                     profit and losses across all of your investments from our
-                    convenient new dashboard.
+                    convenient dashboard.
                   </div>
                 </div>
               </div>
@@ -368,9 +369,9 @@ const Landing = () => {
                     </h3>
                   </div>
                   <div className="self-stretch relative text-sm text-darkslategray-200">
-                    Build relationships and showcase expertise to attract
-                    investors while promoting properties, infrastructure deals,
-                    and raising capital on our platform.
+                    Build relationships and network with other professionals.
+                    Showcase your expertise to attract investors while promoting
+                    your properties and raising capital on our platform.
                   </div>
                 </div>
               </div>
@@ -716,7 +717,7 @@ const Landing = () => {
               <div className="self-stretch relative text-sm text-darkslategray-200">
                 Decide on your investment approach, be it active or passive.
                 Connect with our vibrant community, engage in discussions, and
-                and harness both community and AI perspectives to foster your
+                harness both community and AI perspectives to foster your
                 investments success.
               </div>
             </div>
@@ -743,9 +744,10 @@ const Landing = () => {
                 </div>
               </div>
               <div className="self-stretch relative text-sm text-darkslategray-200">
-                Receive regular updates on your investment returns. Choose to
-                diversify your portfolio, or plan your next financial move with
-                your guidance. Explore smart investing to amplify your growth.
+                Explore smart investing to amplify and scale your portfolio.
+                Choose to diversify your portfolio, plan your next financial
+                move with our platforms guidance, as well as receiving regular
+                updates on your investment and returns.
               </div>
             </div>
           </div>
