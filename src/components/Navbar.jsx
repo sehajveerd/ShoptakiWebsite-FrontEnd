@@ -57,7 +57,7 @@ const Navbar = () => {
               <Link to="/community" className={linkClassNames}>
                 <div className="relative font-medium">Community</div>
               </Link>
-              <button
+              {/* <button
                 className="cursor-pointer ml-auto [border:none] py-2 px-2.5 bg-primaryblue-500 rounded-lg"
                 style={{ marginLeft: 'auto' }}
                 onClick={() =>
@@ -69,7 +69,7 @@ const Navbar = () => {
                 <div className="relative font-medium font-poppins text-white">
                   Login
                 </div>
-              </button>
+              </button> */}
               <OurStoryDropdown />
               <button className="cursor-pointer [border:none] p-0 bg-[transparent] relative w-[22px] h-[22px] items-center shrink-0">
                 <IconSearchOutline />
@@ -91,6 +91,19 @@ const Navbar = () => {
                 <div className="relative font-medium items-center">
                   <Tooltip text="Support"></Tooltip>
                 </div>
+                <button
+                  className="cursor-pointer ml-auto [border:none] py-2 px-2.5 bg-primaryblue-500 rounded-lg"
+                  style={{ marginLeft: 'auto' }}
+                  onClick={() =>
+                    loginWithRedirect({
+                      redirectUri: `${window.location.origin}/callback`,
+                    })
+                  }
+                >
+                  <div className="relative font-medium font-poppins text-white">
+                    Login
+                  </div>
+                </button>
                 {/* <div className="flex-grow" />
                 <button
                   className="lg:hidden cursor-pointer [border:none] py-2 px-2.5 bg-primaryblue-500 rounded-lg flex flex-row items-center justify-right hover:shadow-[0px_1px_4px_rgba(0,_0,_0,_0.25)]"
