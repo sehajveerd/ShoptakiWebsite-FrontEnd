@@ -5,13 +5,51 @@ import InvestmentInfoCard from '../components/portfolio/InvestmentInfoCard';
 import InvestmentValueChart from '../components/portfolio/InvestmentValueChart';
 import MultiButtonsToggleGroup from '../components/ui/filters/MultiButtonsToggleGroup';
 import MyPropertyCard from '../components/portfolio/MyPropertyCard';
+import MyCard from '../components/portfolio/MarketPlaceCard';
+import LinearProgress from '@mui/material/LinearProgress';
 
 import { myInvestedPropertiesTemp } from '../constants';
-
+// import GET_DATA_QUERY from '../../src/dataquery.graphql';
+import { gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 const Portfolio = () => {
   /**
    * TODO: fetch the data required for all the cards using a single query and pass them to each card as props
    */
+  const GET_DATA_QUERY = gql`
+    query GetPropertiesByTerms(
+      $address: String
+      $boundary: BoundaryInput
+      $filters: FilterInput
+    ) {
+      getPropertiesByTerms(
+        address: $address
+        boundary: $boundary
+        filters: $filters
+      ) {
+        id
+        street
+        city
+        stateId
+        zipcode
+        homeStatus
+        homeType
+        bed
+        bath
+        latitude
+        longitude
+        imageURI
+        unit
+        price
+        livingArea
+        zestimate
+        rentZestimate
+        zpid
+        daysOnZillow
+      }
+    }
+  `;
+
   // TEMP: this will be extracted from the fetched data. The keys of the objects in the list can be different. If different then update in the InvestmentValueChart component as well
   const investmentValueChart = [
     { title: 'May', value: '45523' },
@@ -58,6 +96,44 @@ const Portfolio = () => {
       );
     });
   };
+
+  /** - VSW
+   * TODO:Capture the user's filter selections or input as JavaScript variables within your application in desired format
+   * These variables should correspond to the variables in your GraphQL query.
+   * The Query Variables are optional.
+   * Pass these JavaScript variables as query variables when the GraphQL query.
+   */
+  const { loading, error, data } = useQuery(GET_DATA_QUERY, {
+    variables: {
+      address: 'Ellis at Central Station',
+      boundary: {
+        southwest: { lat: 30, lng: -125 },
+        northeast: { lat: 80, lng: 180 },
+      },
+      // },
+      // filters: {
+      //   noOfBedrooms: 2,
+      // },
+    },
+  });
+
+  // const { loading, error, data } = useQuery(GET_DATA_QUERY);  //GetAllProperties
+
+  if (loading) {
+    return <LinearProgress className="mt-1000" />;
+  }
+
+  if (error) {
+    console.error('GraphQL Error:', error);
+    return <p>Error: {error.message}</p>;
+  }
+
+  if (data) {
+    console.log('GraphQL Data:', data.getPropertiesByTerms[0]['zpid']);
+    // console.log('DATATYPE', Array.isArray(data));
+  }
+
+  // const streetValue = data.getPropertiesByTerms[0].street;
 
   return (
     <div
@@ -125,6 +201,26 @@ const Portfolio = () => {
                 property={property}
                 cardClassNames=""
               />
+            );
+          })}
+        </div>
+        <div className="mx-6 my-4 flex flex-wrap items-start justify-start gap-4">
+          <p>TESTING GRAPHQL CONNECTION</p>
+        </div>
+        <div className="mx-6 my-4 flex flex-wrap items-start justify-start gap-4">
+          {/* {Array.isArray(data)} */}
+          {data.getPropertiesByTerms.map(propertyByTerms => {
+            return (
+              <MyCard
+                key={propertyByTerms.id}
+                property={propertyByTerms}
+                cardClassNames=""
+              />
+              // <MyCard
+              //   key={data.getPropertiesByTerms[0].id}
+              //   property={data.getPropertiesByTerms[0]}
+              //   cardClassNames=""
+              // />
             );
           })}
         </div>
