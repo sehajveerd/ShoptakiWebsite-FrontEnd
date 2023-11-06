@@ -292,7 +292,7 @@ const Landing = () => {
                           : 'self-stretch hidden flex-row items-start justify-center py-0 px-6 text-inherit font-inherit'
                       }
                     >
-                      <div className="flex-1 relative text-[14px] font-poppins w-full md:w-[400px] break-words">
+                      <div className="flex-1 relative text-[14px] font-poppins">
                         <p className="m-0">
                           Embark on a global investment journey with Sophtera,
                           accessing untapped markets and opportunities beyond
