@@ -328,7 +328,7 @@ const Landing = () => {
                 Your Gateway to Exclusive Real Estate Opportunities
               </h1>
             </div>
-            <div className="self-stretch sm:px-[30px] grid grid-rows-2 grid-cols-3 lg:grid-rows-3 lg:grid-cols-2 md:grid-rows-6 md:grid-cols-1 items-start justify-between text-left sm:text-xs text-xl text-gray-400 md:flex-col">
+            <div className="self-stretch grid grid-rows-2 grid-cols-3 lg:grid-rows-3 lg:grid-cols-2 md:grid-rows-6 md:grid-cols-1 items-start justify-between text-left sm:text-xs text-xl text-gray-400 md:flex-col">
               <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[300px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
@@ -473,20 +473,20 @@ const Landing = () => {
             <div className="self-stretch flex flex-row items-start justify-between text-left text-xl text-gray-400 md:flex-col"></div>
           </div>
         </div>
-        <div className="self-stretch flex flex-col items-center justify-center py-0 px-[100px] text-center text-13xl text-neutralgray-600 font-h1-small36">
+        <div className="self-stretch flex flex-col items-center justify-center text-center text-13xl text-neutralgray-600 font-h1-small36">
           <div className="self-stretch flex flex-col items-center justify-center gap-[40px]">
             <div className="self-stretch flex flex-row items-center justify-center md:text-xl sm:text-base">
               <h1 className="m-0 flex-1 relative text-inherit font-semibold font-inherit">
                 Possible Future Properties
               </h1>
             </div>
-            <div className="flex flex-row md:flex-col xs:px-2 sm:px-5 px-[100px] gap-[50px]">
-              <div className="self-stretch flex flex-row lex-wrap gap-[21px] items-start justify-start">
+            <div className="grid grid-cols-4 grid-rows-1 lg:grid-rows-2 lg:grid-cols-2 md:grid-rows-4 md:grid-cols-1 gap-[50px] sm:items-center sm:justify-start">
+              <div className="self-stretch gap-[21px] items-center justify-center">
                 <div className="relative w-[264px] h-[308px] hover-content-container">
-                  <div className="absolute top-[-2px] left-[-2px] rounded-3xs  box-border w-[268px] h-[300px] overflow-hidden flex flex-col items-start justify-start border-[2px] border border-solid border-neutralgray-300">
+                  <div className="rounded-3xs box-border w-[268px] h-[300px] overflow-hidden flex flex-col border-2 border-solid border-neutralgray-300 bg-white">
                     <img
-                      className="self-stretch relative max-w-full overflow-hidden h-[183px] shrink-0 object-cover z-[0]"
-                      alt=""
+                      className="self-stretch relative w-full h-2/3 object-cover z-0"
+                      alt="UK Property"
                       src="/landing/UKpicture.png"
                     />
                     <img
@@ -515,26 +515,23 @@ const Landing = () => {
                         </span>
                       </div>
                     </div>
-                  </div>
-                  <div className="absolute top-[70.03%] left-[-2.16%] text-base w-[270px] font-semibold text-primary-black">
-                    Camden, London
-                  </div>
-                  <div className="absolute h-[5.34%] w-[39.5%] top-[82.01%] left-[28.41%] text-smi text-neutral-gray600 inline-block">
-                    United Kingdom
+                    <div className="p-3 text-base mx-auto">
+                      <p className="font-semibold">Camden, London</p>
+                      <p className="text-sm">United Kingdom</p>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <div className="self-stretch flex flex-row flex-wrap gap-[21px] items-start justify-start">
+              <div className="flex flex-row flex-wrap gap-[21px] items-start justify-start">
                 <div className="relative w-[264px] h-[308px] hover-content-container">
-                  <div className="absolute top-[-2px] left-[-2px] rounded-3xs  box-border w-[268px] h-[300px] overflow-hidden flex flex-col items-start justify-start border-[2px] border border-solid border-neutralgray-300">
+                  <div className="rounded-3xs box-border w-[268px] h-[300px] overflow-hidden flex flex-col border-2 border-solid border-neutralgray-300 bg-white">
                     <img
-                      className="self-stretch relative max-w-full overflow-hidden h-[183px] shrink-0 object-cover z-[0]"
-                      alt=""
-                      src="/landing/CaliPicture.png"
+                      className="self-stretch relative w-full h-2/3 object-cover z-0"
+                      alt="USA Property"
+                      src="/landing/Calipicture.png"
                     />
                     <img
-                      className="absolute top-[7px] left-[242px] w-6 h-6 z-[2]"
+                      className="absolute top-[7px] left-[238px] w-6 h-6 z-[2]"
                       alt=""
                       src="/landing/heart.png"
                     />
@@ -559,25 +556,25 @@ const Landing = () => {
                         </span>
                       </div>
                     </div>
-                  </div>
-                  <div className="absolute top-[70.03%] left-[0.86%] text-base w-[270px] font-semibold text-primary-black">
-                    Pacific Heights, San Fransisco
-                  </div>
-                  <div className="absolute h-[5.34%] w-[39.5%] top-[82.01%] left-[28.41%] text-smi text-neutral-gray600 inline-block">
-                    California, USA
+                    <div className="p-3 text-base mx-auto">
+                      <p className="font-semibold">
+                        Pacific Heights, San Fransisco
+                      </p>
+                      <p className="text-sm">California, USA</p>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="self-stretch flex flex-row flex-wrap gap-[21px] items-start justify-start">
+              <div className="flex flex-row flex-wrap gap-[21px] items-start justify-start">
                 <div className="relative w-[264px] h-[308px] hover-content-container">
-                  <div className="absolute top-[-2px] left-[-2px] rounded-3xs  box-border w-[268px] h-[300px] overflow-hidden flex flex-col items-start justify-start border-[2px] border border-solid border-neutralgray-300">
+                  <div className="rounded-3xs box-border w-[268px] h-[300px] overflow-hidden flex flex-col border-2 border-solid border-neutralgray-300 bg-white">
                     <img
-                      className="self-stretch relative max-w-full overflow-hidden h-[183px] shrink-0 object-cover z-[0]"
-                      alt=""
-                      src="/landing/GermanyPicture.png"
+                      className="self-stretch relative w-full h-2/3 object-cover z-0"
+                      alt="Germany Property"
+                      src="/landing/Germanypicture.png"
                     />
                     <img
-                      className="absolute my-0 mx-[!important] top-[7px] left-[242px] w-6 h-6 z-[2]"
+                      className="absolute top-[7px] left-[238px] w-6 h-6 z-[2]"
                       alt=""
                       src="/landing/heart.png"
                     />
@@ -602,25 +599,23 @@ const Landing = () => {
                         </span>
                       </div>
                     </div>
-                  </div>
-                  <div className="absolute top-[70.03%] left-[23.86%] text-base font-semibold text-primary-black">
-                    Bornheim, Frankfurt
-                  </div>
-                  <div className="absolute h-[5.34%] w-[39.5%] top-[82.01%] left-[28.41%] text-smi text-neutral-gray600 inline-block">
-                    Germany
+                    <div className="p-3 text-base mx-auto">
+                      <p className="font-semibold">Bornheim, Frankfurt</p>
+                      <p className="text-sm">Germany</p>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="self-stretch flex flex-row flex-wrap gap-[21px] items-start justify-start">
+              <div className="flex flex-row flex-wrap gap-[21px] items-start justify-start">
                 <div className="relative w-[264px] h-[308px] hover-content-container">
-                  <div className="absolute top-[-2px] left-[-2px] rounded-3xs  box-border w-[268px] h-[300px] overflow-hidden flex flex-col items-start justify-start border-[2px] border border-solid border-neutralgray-300">
+                  <div className="rounded-3xs box-border w-[268px] h-[300px] overflow-hidden flex flex-col border-2 border-solid border-neutralgray-300 bg-white">
                     <img
-                      className="self-stretch relative max-w-full overflow-hidden h-[183px] shrink-0 object-cover z-[0]"
-                      alt=""
-                      src="/landing/NewZealandPicture.png"
+                      className="self-stretch relative w-full h-2/3 object-cover z-0"
+                      alt="New Zealand Property"
+                      src="/landing/NewZealandpicture.png"
                     />
                     <img
-                      className="absolute my-0 mx-[!important] top-[7px] left-[242px] w-6 h-6 z-[2]"
+                      className="absolute top-[7px] left-[238px] w-6 h-6 z-[2]"
                       alt=""
                       src="/landing/heart.png"
                     />
@@ -645,12 +640,10 @@ const Landing = () => {
                         </span>
                       </div>
                     </div>
-                  </div>
-                  <div className="absolute top-[70.03%] left-[16.86%] text-base font-semibold text-primary-black">
-                    Mangawhai, Northland
-                  </div>
-                  <div className="absolute h-[5.34%] w-[39.5%] top-[82.01%] left-[28.41%] text-smi text-neutral-gray600 inline-block">
-                    New Zealand
+                    <div className="p-3 text-base mx-auto">
+                      <p className="font-semibold">Mangawhai, Northland</p>
+                      <p className="text-sm">New Zealand</p>
+                    </div>
                   </div>
                 </div>
               </div>
