@@ -53,8 +53,8 @@ const Landing = () => {
     // autoplaySpeed: 3000,
   };
   return (
-    <div className="relative bg-white w-full overflow-auto flex flex-col items-center justify-start gap-[171px] text-left text-17xl text-dimgray-401 font-poppins">
-      <div className="self-stretch bg-gray-400 flex flex-row md:flex-col xs:px-2 sm:px-5 pl-[100px] md:px-[50px] sm:pl-[50px] items-center justify-between text-dimgray-300 gap-[110px]">
+    <div className="relative bg-white w-full overflow-x-hidden flex flex-col items-center justify-start gap-[171px] text-left text-17xl text-dimgray-401 font-poppins">
+      <div className="self-stretch bg-gray-400 flex flex-row md:flex-col xs:px-2 sm:px-5 pl-[100px] md:pl-[40px] sm:pl-[20px] md:px-[50px] sm:pl-[50px] items-center justify-between text-dimgray-300 gap-[110px]">
         <div className="flex flex-col items-start justify-start gap-[96px] w-full md:w-3/4 sm:w-1/2">
           <div className="flex flex-col items-start justify-start gap-[40px]">
             <div className="relative font-medium inline-block w-auto lg:text-xl md:text-lg sm:text-base">
@@ -92,7 +92,7 @@ const Landing = () => {
         </div>
         <div className="relative flex-grow flex-shrink-0">
           <img
-            className="max-w-full h-auto object-cover"
+            className="max-w-full h-auto object-cover ml-auto"
             alt="landing page photo"
             src="/landing/launchPhoto.png"
           />
@@ -105,7 +105,7 @@ const Landing = () => {
       >
         <Slider
           {...settings}
-          className="min-w-[300px] w-full h-auto flex items-center justify-center"
+          className="w-full h-auto flex items-center justify-center"
         >
           <div className="flex flex-col p-6 bg-white items-center justify-center">
             <div className="text-black text-center font-semibold xs:text-sm sm:text-md md:text-lg text-2xl">
@@ -113,7 +113,7 @@ const Landing = () => {
             </div>
             {/* "w-full text-2xl text-blue-500 leading-1.5 mb-8 inline-block
             md:max-w-[max-width-on-md] md:mt-4 md:leading-1.8 md:text-lg" */}
-            <div className="text-black text-center xs:w-full sm:w-100 md:w-100 w-2/3 h-auto mx-auto font-poppins xs:text-xs sm:text-sm md:text-sm text-lg">
+            <div className="text-black text-center xs:w-full sm:w-3/4 md:w-2/3 lg:w-1/2 mx-auto font-poppins xs:text-xs sm:text-sm md:text-sm text-lg">
               To democratize real estate investing by providing a global
               platform for individuals to participate in diverse real estate
               opportunities, obtain financial goals, and contribute to the
@@ -125,7 +125,7 @@ const Landing = () => {
             <div className="text-black font-semibold text-center xs:text-sm sm:text-md md:text-lg text-2xl">
               Our Vision
             </div>
-            <div className="text-black text-center xs:w-full sm:w-100 md:w-100 w-2/3 mx-auto font-poppins xs:text-xs sm:text-sm md:text-sm text-lg">
+            <div className="text-black text-center xs:w-full sm:w-3/4 md:w-2/3 lg:w-1/2 mx-auto font-poppins xs:text-xs sm:text-sm md:text-sm text-lg">
               We envision a world where everyone, regardless of their location
               or financial status, can access and benefit from real estate
               investment opportunities with a click of a button. By harnessing
@@ -322,14 +322,14 @@ const Landing = () => {
               </div>
             </div>
           </div>
-          <div className="self-stretch flex flex-col items-center justify-start gap-[80px] mt-[-40px] ">
+          <div className="self-stretch flex flex-col items-center justify-center gap-[80px] mt-[-40px] ">
             <div className="md:text-xl max-w-[569px] flex flex-row items-center justify-center">
               <h1 className="m-0 flex-1 relative text-inherit font-semibold font-inherit">
                 Your Gateway to Exclusive Real Estate Opportunities
               </h1>
             </div>
-            <div className="self-stretch grid grid-rows-2 grid-cols-3 lg:grid-rows-3 lg:grid-cols-2 md:grid-rows-6 md:grid-cols-1 items-start justify-between text-left sm:text-xs text-xl text-gray-400 md:flex-col">
-              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[250px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
+            <div className="self-stretch sm:px-[30px] grid grid-rows-2 grid-cols-3 lg:grid-rows-3 lg:grid-cols-2 md:grid-rows-6 md:grid-cols-1 items-start justify-between text-left sm:text-xs text-xl text-gray-400 md:flex-col">
+              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[300px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
@@ -352,7 +352,7 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[250px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
+              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[300px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
@@ -375,7 +375,7 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[250px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
+              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[300px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
@@ -398,7 +398,7 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[250px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
+              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[330px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
@@ -422,7 +422,7 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[250px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
+              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[300px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
@@ -445,7 +445,7 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[250px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
+              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[330px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
