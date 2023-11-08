@@ -3,7 +3,7 @@ import { Tab } from '@mui/base/Tab';
 import { TabsList } from '@mui/base/TabsList';
 import { TabPanel } from '@mui/base/TabPanel';
 import { Tabs } from '@mui/base/Tabs';
-// import LineChart from './metricscharts/RentalMonthlyRevenue';
+import MonthlyRevenue from './metricscharts/MonthlyRevenueChart';
 
 const CustomTabPanel = () => {
   return (
@@ -80,7 +80,7 @@ const CustomTabPanel = () => {
           prices, market trends, and popular locations, empowering you to make
           informed decisions in the rental market.
         </div>
-        {/* <LineChart /> */}
+        <MonthlyRevenue />
       </TabPanel>
       <TabPanel value={2}>Second page</TabPanel>
       <TabPanel value={3}>Third page</TabPanel>
