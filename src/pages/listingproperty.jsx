@@ -6,6 +6,7 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import PropertyDetailsTextComp from '../components/ui/propertydetails/PropertyDetailsTextComp';
 import LinearProgress from '@mui/material/CircularProgress';
+import CustomTabPanel from '../components/MetricsTabs';
 // import Slider from 'react-slick';
 
 // import { useNavigate } from 'react-router-dom';
@@ -252,6 +253,7 @@ const Listingproperty = () => {
           estate investment
         </p>
       </div>
+      <CustomTabPanel />
     </div>
   );
 };
