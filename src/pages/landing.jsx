@@ -54,14 +54,14 @@ const Landing = () => {
   };
   return (
     <div className="relative bg-white w-full overflow-x-hidden flex flex-col items-center justify-start gap-[171px] text-left text-17xl text-dimgray-401 font-poppins">
-      <div className="self-stretch bg-gray-400 flex flex-row md:flex-col xs:px-2 sm:px-5 pl-[100px] md:pl-[40px] sm:pl-[20px] md:px-[50px] sm:pl-[50px] items-center justify-between text-dimgray-300 gap-[110px]">
-        <div className="flex flex-col items-start justify-start gap-[96px] w-full md:w-3/4 sm:w-1/2">
+      <div className="self-stretch bg-gray-400 flex flex-row md:flex-col xs:px-2 sm:px-5 pl-[100px] md:pl-[40px] sm:pl-[20px] md:px-[50px] items-center justify-between text-dimgray-300 gap-[110px]">
+        <div className="flex flex-col items-start justify-start gap-[96px] w-full md:w-3/4">
           <div className="flex flex-col items-start justify-start gap-[40px]">
-            <div className="relative font-medium inline-block w-auto lg:text-xl md:text-lg sm:text-base">
+            <div className="relative font-medium inline-block w-auto lg:text-xl md:text-lg sm:text-base xs:text-sm">
               Earn Passive and Active Income through Crowdfunded Real Estate
               Investments
             </div>
-            <div className="relative text-lg inline-block lg:text-lg md:text-base sm:text-sm">
+            <div className="relative text-lg inline-block lg:text-lg md:text-base sm:text-sm xs:text-2xs">
               Experience Hassle-Free Real Estate Investing at your Fingertips.
               Manage your portfolio and join related communities
             </div>
@@ -145,7 +145,7 @@ const Landing = () => {
               </div>
             </div>
             <div className="self-stretch flex flex-row md:flex-col sm:flex-col items-start justify-between md:items-center text-left text-base text-darkslategray-100 gap-[100px]">
-              <div className="self-stretch w-[573px] md:w-3/4 sm:w-3/4 flex flex-col items-start justify-start">
+              <div className="self-stretch w-[573px] lg:w-full md:w-full sm:w-full flex flex-col items-start justify-start">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[32px]">
                   <div
                     className="relative self-stretch rounded-2xs bg-primarywhite flex flex-col items-start justify-start py-4 px-5 gap-[10px] border-[1px] border-solid border-whitesmoke-100"
@@ -154,7 +154,7 @@ const Landing = () => {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="self-stretch flex flex-row items-center justify-between">
-                      <div className="relative font-medium md:text-base sm:text-xs">
+                      <div className="relative font-medium md:text-base sm:text-sm">
                         Diverse Portfolio
                       </div>
                       <img
@@ -170,7 +170,7 @@ const Landing = () => {
                           : 'self-stretch hidden flex-row items-start justify-center py-0 px-6 text-inherit font-inherit'
                       }
                     >
-                      <div className="flex-1 relative text-sm sm:3xs font-poppins">
+                      <div className="flex-1 relative text-sm sm:text-xs font-poppins">
                         <p className="m-0">
                           Drive into Sophtera vast investment landscape and
                           ecosystem. From real estate properties, cash flowing
@@ -195,7 +195,7 @@ const Landing = () => {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="self-stretch flex flex-row items-center justify-between">
-                      <div className="relative font-medium md:text-base sm:text-xs">
+                      <div className="relative font-medium md:text-base sm:text-sm">
                         Flexible Investment
                       </div>
                       <img
@@ -211,7 +211,7 @@ const Landing = () => {
                           : 'self-stretch hidden flex-row items-start justify-center py-0 px-6 text-inherit font-inherit'
                       }
                     >
-                      <div className="flex-1 relative text-[14px] font-poppins">
+                      <div className="flex-1 relative text-sm sm:text-xs font-poppins">
                         <p className="m-0">
                           Sophtera empowers you to dictate your investment, be
                           it active or passive investing.
@@ -235,7 +235,7 @@ const Landing = () => {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="self-stretch flex flex-row items-center justify-between">
-                      <div className="relative font-medium md:text-base sm:text-xs">
+                      <div className="relative font-medium md:text-base sm:text-sm">
                         AI Driven Decisions
                       </div>
                       <img
@@ -251,7 +251,7 @@ const Landing = () => {
                           : 'self-stretch hidden flex-row items-start justify-center py-0 px-6 text-inherit font-inherit'
                       }
                     >
-                      <div className="flex-1 relative text-[14px] font-poppins">
+                      <div className="flex-1 relative text-sm sm:text-xs font-poppins">
                         <p className="m-0">
                           Experience the cutting edge advantage of AI-driven
                           decisions with Sophtera, transforming the way you
@@ -276,7 +276,7 @@ const Landing = () => {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="self-stretch flex flex-row items-center justify-between">
-                      <div className="relative font-medium md:text-base sm:text-xs">
+                      <div className="relative font-medium md:text-base sm:text-sm">
                         Worldwide Access
                       </div>
                       <img
@@ -292,7 +292,7 @@ const Landing = () => {
                           : 'self-stretch hidden flex-row items-start justify-center py-0 px-6 text-inherit font-inherit'
                       }
                     >
-                      <div className="flex-1 relative text-[14px] font-poppins">
+                      <div className="flex-1 relative text-sm sm:text-xs font-poppins">
                         <p className="m-0">
                           Embark on a global investment journey with Sophtera,
                           accessing untapped markets and opportunities beyond
