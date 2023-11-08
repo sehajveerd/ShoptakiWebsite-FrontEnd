@@ -138,7 +138,7 @@ const Landing = () => {
         <div className="self-stretch flex flex-col transition-all items-start justify-start gap-[96px] text-center text-13xl text-neutralgray-600 font-poppins">
           <div className="self-stretch flex flex-col items-start justify-start gap-[10px] mt-20 md:items-center">
             <div className="w-[573px] flex flex-col items-end justify-start">
-              <div className="self-stretch flex flex-row text-9xl md:text-xl sm:text-base items-center justify-start py-14 mx-auto">
+              <div className="self-stretch flex flex-row text-13xl sm:text-7xl-8 items-center justify-start py-14 mx-auto">
                 <h1 className="m-0 flex-1 relative text-inherit font-semibold font-inherit">
                   What Sets Us Apart
                 </h1>
@@ -323,8 +323,8 @@ const Landing = () => {
             </div>
           </div>
           <div className="self-stretch flex flex-col items-center justify-center gap-[80px] mt-[-40px] ">
-            <div className="md:text-xl max-w-[569px] flex flex-row items-center justify-center">
-              <h1 className="m-0 flex-1 relative text-inherit font-semibold font-inherit">
+            <div className="md:text-13xl max-w-[569px] flex flex-row items-center justify-center">
+              <h1 className="m-0 flex-1 relative text-inherit font-semibold font-inherit sm:text-5xl">
                 Your Gateway to Exclusive Real Estate Opportunities
               </h1>
             </div>
@@ -475,7 +475,7 @@ const Landing = () => {
         </div>
         <div className="self-stretch flex flex-col items-center justify-center text-center text-13xl text-neutralgray-600 font-h1-small36">
           <div className="self-stretch flex flex-col items-center justify-center gap-[40px]">
-            <div className="self-stretch flex flex-row items-center justify-center md:text-xl sm:text-base">
+            <div className="self-stretch flex flex-row items-center justify-center md:text-13xl sm:text-7xl-8">
               <h1 className="m-0 flex-1 relative text-inherit font-semibold font-inherit">
                 Possible Future Properties
               </h1>
@@ -653,7 +653,7 @@ const Landing = () => {
       </div>
       <div className="self-stretch bg-gray-300 flex flex-col items-center justify-start py-14 xs:px-2 sm:px-5 px-[100px] gap-[80px] text-left text-13xl text-neutralgray-600">
         <div className="flex flex-row items-center justify-center">
-          <h1 className="m-0 relative text-inherit font-semibold font-inherit">
+          <h1 className="m-0 relative text-inherit font-semibold font-inherit sm:text-7xl-8">
             How it Works
           </h1>
         </div>
