@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Label from '../components/Label';
 import jsonp from 'jsonp';
-import InputMask from 'react-input-mask';
+import { PhoneInput } from 'react-international-phone';
+import 'react-international-phone/style.css';
+// import PhoneInput from 'react-phone-number-input';
+// import 'react-phone-number-input/style.css';
 
 const EmailListForm = ({ onSubmit }) => {
   const [email, setEmail] = useState('');
@@ -69,8 +72,8 @@ const EmailListForm = ({ onSubmit }) => {
     setName(event.currentTarget.value);
   };
 
-  const handlePhoneChange = event => {
-    setPhone(event.currentTarget.value);
+  const handlePhoneChange = value => {
+    setPhone(value);
   };
 
   // Handle changes to the select element
@@ -144,15 +147,21 @@ const EmailListForm = ({ onSubmit }) => {
             <Label htmlFor="PHONE" required={true} text="Phone Number">
               <span className="asterisk">*</span>
             </Label>
+            <PhoneInput
+              defaultcountry={'us'}
+              placeholder="Enter your phone number"
+              value={phone}
+              onChange={value => handlePhoneChange(value)}
+            />
 
-            <InputMask
-              mask="+99 999-999-9999" // Adjust the format as needed for your region
+            {/* <InputMask
+              mask="+99-999-999-9999" // Adjust the format as needed for your region
               maskChar="_"
               className="p-2 border-2 border-gray-400"
               placeholder="Enter your phone number"
               value={phone}
               onChange={handlePhoneChange}
-            />
+            /> */}
           </div>
 
           <div className="flex flex-col">
