@@ -80,6 +80,25 @@ const CustomTabPanel = () => {
           prices, market trends, and popular locations, empowering you to make
           informed decisions in the rental market.
         </div>
+        {/* TODO: Get the Required data for the charts and the calculations from the backend */}
+        {/* TODO: Get the Average, Minimum, Maximum Calculated based on the data queried from the backend */}
+        <div className="flex flex-row w-full justify-between">
+          <p className="text-zinc-700 text-base font-medium font-poppins">
+            Monthly Revenue
+          </p>
+          <p className="text-sm font-poppins text-zinc-700 font-normal">
+            Average:
+            <span className="text-primaryblue-500 mx-auto">$13,000</span>
+          </p>
+          <p className="text-sm font-poppins text-zinc-700 font-normal">
+            Minimum:
+            <span className="text-primaryblue-500 mx-auto">$9,500</span>
+          </p>
+          <p className="text-sm font-poppins text-zinc-700 font-normal">
+            Maximum:
+            <span className="text-primaryblue-500 mx-auto">$17,000</span>
+          </p>
+        </div>
         <MonthlyRevenue />
       </TabPanel>
       <TabPanel value={2}>Second page</TabPanel>
