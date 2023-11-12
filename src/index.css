@@ -71,22 +71,3 @@ body {
 .hover-content-container:hover .overlay-content {
   opacity: 1;
 }
-
-.react-international-phone-input-container {
-  display: flex;
-}
-
-/* .react-international-phone-input {
-  padding: 8px;
-  border-width: 2px;
-  --tw-border-opacity: 1;
-  border-color: rgb(251 251 251 / var(--tw-border-opacity));
-} */
-
-.react-international-phone-input {
-  /* padding: 8px;
-  border-width: 2px;
-  --tw-border-opacity: 1;
-  border-color: rgb(251 251 251 / var(--tw-border-opacity)); */
-  overflow: hidden;
-}
