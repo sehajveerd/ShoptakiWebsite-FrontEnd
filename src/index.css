@@ -69,3 +69,8 @@ body {
 .hover-content-container:hover .overlay-content {
   opacity: 1;
 }
+
+.map-container {
+  height: 100%;
+  width: 100%;
+}

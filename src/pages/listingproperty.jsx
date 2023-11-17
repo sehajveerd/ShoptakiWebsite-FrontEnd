@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import PropertyDetailsTextComp from '../components/ui/propertydetails/PropertyDetailsTextComp';
@@ -13,6 +13,12 @@ import CustomTabPanel from '../components/MetricsTabs';
 
 const Listingproperty = () => {
   const { zpid } = useParams();
+
+  const navigate = useNavigate();
+
+  // const goBack = () => {
+  //   history.goBack(); // Navigates back to the previous page
+  // };
 
   // TODO: Add  a gql query to add filters based on sizes and format(webp/jpg)
   // console.log('ZPID :', zpid);
@@ -26,20 +32,22 @@ const Listingproperty = () => {
     }
   `;
 
-  // const GET_PROPERTY_DETAILS = gql`
-  //   query GetPropertyByZpid($zpid: Int) {
-  //     getPropertyByZpid(zpid: $zpid) {
-  //       id
-  //       zpid
-  //       bed
-  //       bath
-  //       livingArea
-  //       homeType
-  //       homeStatus
-  //       description
-  //     }
-  //   }
-  // `;
+  const GET_PROPERTY_DETAILS = gql`
+    query GetPropertyByZpid($zpid: Int) {
+      getPropertyByZpid(zpid: $zpid) {
+        id
+        zpid
+        bed
+        bath
+        livingArea
+        homeType
+        homeStatus
+        description
+        latitude
+        longitude
+      }
+    }
+  `;
 
   // getting all the imageURIs for a particular property
   // const { data } = useQuery(GET_IMG_URL, {
@@ -59,6 +67,14 @@ const Listingproperty = () => {
   // Use the useQuery hook to execute the query
   const { data, loading, error } = useQuery(GET_IMG_URL, {
     variables: { filters: { zpid: zpid, size: 384, format: 'webp' } }, // Convert zpid to an integer if needed
+  });
+
+  const {
+    data: details,
+    loading: details_loading,
+    error: details_error,
+  } = useQuery(GET_PROPERTY_DETAILS, {
+    variables: { zpid: parseInt(zpid) }, // Convert zpid to an integer if needed
   });
 
   if (loading) {
@@ -103,56 +119,86 @@ const Listingproperty = () => {
   }
 
   // console.log('IMAGE DATA ', propertyImages);
-  console.log('First Group of Images: ', firstImageGroup[0]);
-  console.log('Rest Images: ', restImageGroups);
-  restImageGroups.forEach(group => console.log('Heres the group: ', group));
+  // console.log('First Group of Images: ', firstImageGroup[0]);
+  // console.log('Rest Images: ', restImageGroups);
+  // restImageGroups.forEach(group => console.log('Heres the group: ', group));
   // console.log('IMAGE GROUPS', imageGroups[0][0].id);
   // }
 
-  // const { details, details_loading, details_error } = useQuery(
-  //   GET_PROPERTY_DETAILS,
-  //   {
-  //     variables: { zpid: parseInt(zpid) }, // Convert zpid to an integer if needed
-  //   }
-  // );
+  // console.log('Cross checking zpid value: ', typeof Number(zpid));
 
-  // if (details_loading) {
-  //   console.log('STILL LOADING');
-  //   return <p> LOADING</p>;
-  // }
+  if (details_loading) {
+    console.log('STILL LOADING');
+    return <p> LOADING</p>;
+  }
 
-  // if (details_error) {
-  //   console.error('Error fetching property images:', details_error);
-  //   return <p>Error loading property details.</p>;
-  // }
+  if (details_error) {
+    console.error('Error fetching property images:', details_error);
+    return <p>Error loading property details.</p>;
+  }
 
-  // details
-  //   ? console.log('Property Details : ', details[0])
-  //   : console.log('NO DATA FOUND');
+  // console.log('DETAILS:    ', details);
 
-  // This is just sample data, need to get the actual data from backend.
+  details
+    ? console.log('Property Details : ', details['getPropertyByZpid'][0])
+    : console.log('NO DATA FOUND');
+
+  const property_details = details['getPropertyByZpid'][0];
+
+  // This is just sample data, need to get the actual data from backend. - DONE
+  // TODO: Need to get the new data, when we start using a paid 3rd party API
   const detailsData = [
-    { title: 'Beds', subtitle: '3 Beds' },
-    { title: 'Baths', subtitle: '2 Baths' },
-    { title: 'Area', subtitle: '1500 sq. ft.' },
-    { title: 'Lot Status', subtitle: 'Vacant' },
-    { title: 'Type', subtitle: 'Single family home' },
+    { title: 'Beds', subtitle: `${property_details['bed']} Beds` },
+    { title: 'Baths', subtitle: `${property_details['bath']} Baths` },
+    { title: 'Area', subtitle: `${property_details['livingArea']} sq. ft.` },
+    { title: 'Lot Status', subtitle: `${property_details['homeStatus']}` },
+    { title: 'Type', subtitle: `${property_details['homeType']}` },
     // Add more data objects here as needed
   ];
 
   return (
-    <div className="h-[1234px] overflow-scroll mx-auto max-w-6xl">
-      <div className="fixed top-[75px] left-auto w-full bg-white p-3 z-10 flex-row">
-        <button className="mx-auto">B</button>
+    <div className="px-100 overflow-scroll mx-auto max-w-6xl">
+      <div className="fixed bg-white z-50 w-[1166px] h-[72px] justify-between items-center inline-flex flex-row">
+        <div className="justify-center items-center gap-4 flex">
+          <div className="w-6 h-6 relative">
+            <div className="w-6 h-6 left-0 top-0 absolute">
+              <button
+                className="p-0 bg-transparent"
+                onClick={() => navigate(-1)}
+              >
+                <img src="/arrow-left.svg" alt="Back" />
+              </button>
+            </div>
+          </div>
+          <div className="text-black text-base font-medium font-['Poppins']">
+            Beacon Street
+          </div>
+        </div>
+        {/**
+         * TODO: Know why is the 3 dots svg on the rightside of this element. And add it.
+         **/}
+      </div>
+      {/* <div className="flex flex-row fixed top-[80px] bg-white z-10 items-center">
+        <button className="w-8 h-8">
+          <img src="/arrow-left.svg" alt="Back" />
+        </button>
+        <h3 className="text-black text-base font-normal font-['Poppins'] p-2">
+          Beacon Street
+        </h3>
+      </div> */}
+      {/* <div className="flex flex-row fixed top-[150px] w-full bg-white p-3 z-10">
+        <button className="mx-auto">
+          <img src="/arrow-left.svg" alt="Back" />
+        </button>
         <h3 className="text-black text-base font-normal font-['Poppins']">
           Beacon Street
         </h3>
-      </div>
+      </div> */}
       {/* Need to position the carousel after about 64px from the top. */}
       <Carousel
         showThumbs={false}
         showStatus={false}
-        className="mt-16 max-w-6xl min-w-full"
+        className="mt-[75px] max-w-6xl min-w-full"
       >
         <div className="w-full max-w-6xl h-[407px] mx-auto grid grid-cols-4 grid-rows-2 gap-2">
           {firstImageGroup[0].map((image, index) => (
@@ -253,7 +299,12 @@ const Listingproperty = () => {
           estate investment
         </p>
       </div>
-      <CustomTabPanel />
+      <div className="px-100 pb-20">
+        <CustomTabPanel
+          latitude={property_details['latitude']}
+          longitude={property_details['longitude']}
+        />
+      </div>
     </div>
   );
 };
