@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import 'react-phone-number-input/style.css';
 import EmailListForm from './mailchimp-form';
-// import PhoneInput from 'react-phone-number-input';
 
 const PreRegister = ({ isOpen, onClose }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);

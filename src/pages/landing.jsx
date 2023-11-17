@@ -53,15 +53,15 @@ const Landing = () => {
     // autoplaySpeed: 3000,
   };
   return (
-    <div className="relative bg-white w-full overflow-auto flex flex-col items-center justify-start gap-[171px] text-left text-17xl text-dimgray-401 font-poppins">
-      <div className="self-stretch bg-gray-400 flex flex-row md:flex-col xs:px-2 sm:px-5 pl-[100px] md:px-[50px] sm:pl-[50px] items-center justify-between text-dimgray-300 gap-[110px]">
-        <div className="flex flex-col items-start justify-start gap-[96px] w-full md:w-3/4 sm:w-1/2">
+    <div className="relative bg-white w-full overflow-x-hidden flex flex-col items-center justify-start gap-[171px] text-left text-17xl text-dimgray-401 font-poppins">
+      <div className="self-stretch bg-gray-400 flex flex-row md:flex-col xs:px-2 sm:px-5 pl-[100px] md:pl-[40px] sm:pl-[20px] md:px-[50px] items-center justify-between text-dimgray-300 gap-[110px]">
+        <div className="flex flex-col items-start justify-start gap-[96px] w-full md:w-3/4">
           <div className="flex flex-col items-start justify-start gap-[40px]">
-            <div className="relative font-medium inline-block w-auto lg:text-xl md:text-lg sm:text-base">
+            <div className="relative font-medium inline-block w-auto lg:text-xl md:text-lg sm:text-base xs:text-sm">
               Earn Passive and Active Income through Crowdfunded Real Estate
               Investments
             </div>
-            <div className="relative text-lg inline-block lg:text-lg md:text-base sm:text-sm">
+            <div className="relative text-lg inline-block lg:text-lg md:text-base sm:text-sm xs:text-2xs">
               Experience Hassle-Free Real Estate Investing at your Fingertips.
               Manage your portfolio and join related communities
             </div>
@@ -92,7 +92,7 @@ const Landing = () => {
         </div>
         <div className="relative flex-grow flex-shrink-0">
           <img
-            className="max-w-full h-auto object-cover"
+            className="max-w-full h-auto object-cover ml-auto"
             alt="landing page photo"
             src="/landing/launchPhoto.png"
           />
@@ -105,15 +105,15 @@ const Landing = () => {
       >
         <Slider
           {...settings}
-          className="min-w-[300px] w-full h-auto flex items-center justify-center"
+          className="w-full h-auto flex items-center justify-center"
         >
-          <div className="flex flex-col p-6 bg-white items-center justify-center">
+          <div className="flex flex-col bg-white items-center justify-center">
             <div className="text-black text-center font-semibold xs:text-sm sm:text-md md:text-lg text-2xl">
               Our Mission
             </div>
             {/* "w-full text-2xl text-blue-500 leading-1.5 mb-8 inline-block
             md:max-w-[max-width-on-md] md:mt-4 md:leading-1.8 md:text-lg" */}
-            <div className="text-black text-center xs:w-full sm:w-100 md:w-100 w-2/3 h-auto mx-auto font-poppins xs:text-xs sm:text-sm md:text-sm text-lg">
+            <div className="text-black text-center xs:w-full sm:w-3/4 md:w-2/3 lg:w-1/2 mx-auto font-poppins xs:text-xs sm:text-sm md:text-sm text-lg">
               To democratize real estate investing by providing a global
               platform for individuals to participate in diverse real estate
               opportunities, obtain financial goals, and contribute to the
@@ -121,11 +121,11 @@ const Landing = () => {
             </div>
           </div>
 
-          <div className="flex flex-col p-6 bg-white items-center justify-center">
+          <div className="flex flex-col bg-white items-center justify-center">
             <div className="text-black font-semibold text-center xs:text-sm sm:text-md md:text-lg text-2xl">
               Our Vision
             </div>
-            <div className="text-black text-center xs:w-full sm:w-100 md:w-100 w-2/3 mx-auto font-poppins xs:text-xs sm:text-sm md:text-sm text-lg">
+            <div className="text-black text-center xs:w-full sm:w-3/4 md:w-2/3 lg:w-1/2 mx-auto font-poppins xs:text-xs sm:text-sm md:text-sm text-lg">
               We envision a world where everyone, regardless of their location
               or financial status, can access and benefit from real estate
               investment opportunities with a click of a button. By harnessing
@@ -138,14 +138,14 @@ const Landing = () => {
         <div className="self-stretch flex flex-col transition-all items-start justify-start gap-[96px] text-center text-13xl text-neutralgray-600 font-poppins">
           <div className="self-stretch flex flex-col items-start justify-start gap-[10px] mt-20 md:items-center">
             <div className="w-[573px] flex flex-col items-end justify-start">
-              <div className="self-stretch flex flex-row text-9xl md:text-xl sm:text-base items-center justify-start py-14 mx-auto">
+              <div className="self-stretch flex flex-row text-13xl sm:text-7xl-8 items-center justify-start py-14 mx-auto">
                 <h1 className="m-0 flex-1 relative text-inherit font-semibold font-inherit">
                   What Sets Us Apart
                 </h1>
               </div>
             </div>
             <div className="self-stretch flex flex-row md:flex-col sm:flex-col items-start justify-between md:items-center text-left text-base text-darkslategray-100 gap-[100px]">
-              <div className="self-stretch w-[573px] md:w-3/4 sm:w-3/4 flex flex-col items-start justify-start">
+              <div className="self-stretch w-[573px] lg:w-full md:w-full sm:w-full flex flex-col items-start justify-start">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[32px]">
                   <div
                     className="relative self-stretch rounded-2xs bg-primarywhite flex flex-col items-start justify-start py-4 px-5 gap-[10px] border-[1px] border-solid border-whitesmoke-100"
@@ -154,7 +154,7 @@ const Landing = () => {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="self-stretch flex flex-row items-center justify-between">
-                      <div className="relative font-medium md:text-base sm:text-xs">
+                      <div className="relative font-medium md:text-base sm:text-sm">
                         Diverse Portfolio
                       </div>
                       <img
@@ -170,7 +170,7 @@ const Landing = () => {
                           : 'self-stretch hidden flex-row items-start justify-center py-0 px-6 text-inherit font-inherit'
                       }
                     >
-                      <div className="flex-1 relative text-sm sm:3xs font-poppins">
+                      <div className="flex-1 relative text-sm sm:text-xs font-poppins">
                         <p className="m-0">
                           Drive into Sophtera vast investment landscape and
                           ecosystem. From real estate properties, cash flowing
@@ -195,7 +195,7 @@ const Landing = () => {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="self-stretch flex flex-row items-center justify-between">
-                      <div className="relative font-medium md:text-base sm:text-xs">
+                      <div className="relative font-medium md:text-base sm:text-sm">
                         Flexible Investment
                       </div>
                       <img
@@ -211,7 +211,7 @@ const Landing = () => {
                           : 'self-stretch hidden flex-row items-start justify-center py-0 px-6 text-inherit font-inherit'
                       }
                     >
-                      <div className="flex-1 relative text-[14px] font-poppins">
+                      <div className="flex-1 relative text-sm sm:text-xs font-poppins">
                         <p className="m-0">
                           Sophtera empowers you to dictate your investment, be
                           it active or passive investing.
@@ -235,7 +235,7 @@ const Landing = () => {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="self-stretch flex flex-row items-center justify-between">
-                      <div className="relative font-medium md:text-base sm:text-xs">
+                      <div className="relative font-medium md:text-base sm:text-sm">
                         AI Driven Decisions
                       </div>
                       <img
@@ -251,7 +251,7 @@ const Landing = () => {
                           : 'self-stretch hidden flex-row items-start justify-center py-0 px-6 text-inherit font-inherit'
                       }
                     >
-                      <div className="flex-1 relative text-[14px] font-poppins">
+                      <div className="flex-1 relative text-sm sm:text-xs font-poppins">
                         <p className="m-0">
                           Experience the cutting edge advantage of AI-driven
                           decisions with Sophtera, transforming the way you
@@ -276,7 +276,7 @@ const Landing = () => {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="self-stretch flex flex-row items-center justify-between">
-                      <div className="relative font-medium md:text-base sm:text-xs">
+                      <div className="relative font-medium md:text-base sm:text-sm">
                         Worldwide Access
                       </div>
                       <img
@@ -292,7 +292,7 @@ const Landing = () => {
                           : 'self-stretch hidden flex-row items-start justify-center py-0 px-6 text-inherit font-inherit'
                       }
                     >
-                      <div className="flex-1 relative text-[14px] font-poppins w-full md:w-[400px] break-words">
+                      <div className="flex-1 relative text-sm sm:text-xs font-poppins">
                         <p className="m-0">
                           Embark on a global investment journey with Sophtera,
                           accessing untapped markets and opportunities beyond
@@ -322,14 +322,14 @@ const Landing = () => {
               </div>
             </div>
           </div>
-          <div className="self-stretch flex flex-col items-center justify-start gap-[80px] mt-[-40px] ">
-            <div className="md:text-xl max-w-[569px] flex flex-row items-center justify-center">
-              <h1 className="m-0 flex-1 relative text-inherit font-semibold font-inherit">
+          <div className="self-stretch flex flex-col items-center justify-center gap-[80px] mt-[-40px] ">
+            <div className="md:text-13xl max-w-[569px] flex flex-row items-center justify-center">
+              <h1 className="m-0 flex-1 relative text-inherit font-semibold font-inherit sm:text-5xl">
                 Your Gateway to Exclusive Real Estate Opportunities
               </h1>
             </div>
-            <div className="self-stretch grid grid-rows-2 grid-cols-3 lg:grid-rows-3 lg:grid-cols-2 md:grid-rows-6 md:grid-cols-1 items-start justify-between text-left sm:text-xs text-xl text-gray-400 md:flex-col">
-              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[250px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
+            <div className="self-stretch grid grid-rows-2 grid-cols-3 lg:grid-rows-3 lg:grid-cols-2 md:grid-rows-6 md:grid-cols-1 items-start justify-between text-left sm:items-center sm:justify-center md:items-center md:justify-center sm:text-xs text-xl text-gray-400 md:flex-col">
+              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[300px] overflow-auto shrink-0 flex flex-col items-start justify-start sm:items-center sm:justify-center md:items-center md:justify-center py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
@@ -352,7 +352,7 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[250px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
+              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[300px] overflow-auto shrink-0 flex flex-col items-start justify-start sm:items-center sm:justify-center md:items-center md:justify-center py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
@@ -375,7 +375,7 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[250px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
+              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[300px] overflow-auto shrink-0 flex flex-col items-start justify-start sm:items-center sm:justify-center md:items-center md:justify-center py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
@@ -398,7 +398,7 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[250px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
+              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[330px] overflow-auto shrink-0 flex flex-col items-start justify-start sm:items-center sm:justify-center md:items-center md:justify-center py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
@@ -422,7 +422,7 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[250px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
+              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[300px] overflow-auto shrink-0 flex flex-col items-start justify-start sm:items-center sm:justify-center md:items-center md:justify-center py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
@@ -445,7 +445,7 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[250px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
+              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[330px] overflow-auto shrink-0 flex flex-col items-start justify-start sm:items-center sm:justify-center md:items-center md:justify-center py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
@@ -473,20 +473,20 @@ const Landing = () => {
             <div className="self-stretch flex flex-row items-start justify-between text-left text-xl text-gray-400 md:flex-col"></div>
           </div>
         </div>
-        <div className="self-stretch flex flex-col items-center justify-center py-0 px-[100px] text-center text-13xl text-neutralgray-600 font-h1-small36">
+        <div className="self-stretch flex flex-col items-center justify-center text-center text-13xl text-neutralgray-600 font-h1-small36">
           <div className="self-stretch flex flex-col items-center justify-center gap-[40px]">
-            <div className="self-stretch flex flex-row items-center justify-center md:text-xl sm:text-base">
+            <div className="self-stretch flex flex-row items-center justify-center md:text-13xl sm:text-7xl-8">
               <h1 className="m-0 flex-1 relative text-inherit font-semibold font-inherit">
                 Possible Future Properties
               </h1>
             </div>
-            <div className="flex flex-row md:flex-col xs:px-2 sm:px-5 px-[100px] gap-[50px]">
-              <div className="self-stretch flex flex-row lex-wrap gap-[21px] items-start justify-start">
+            <div className="grid grid-cols-4 grid-rows-1 lg:grid-rows-2 lg:grid-cols-2 md:grid-rows-4 md:grid-cols-1 gap-[50px] sm:items-center sm:justify-start">
+              <div className="self-stretch gap-[21px] items-center justify-center">
                 <div className="relative w-[264px] h-[308px] hover-content-container">
-                  <div className="absolute top-[-2px] left-[-2px] rounded-3xs  box-border w-[268px] h-[300px] overflow-hidden flex flex-col items-start justify-start border-[2px] border border-solid border-neutralgray-300">
+                  <div className="rounded-3xs box-border w-[268px] h-[300px] overflow-hidden flex flex-col border-2 border-solid border-neutralgray-300 bg-white">
                     <img
-                      className="self-stretch relative max-w-full overflow-hidden h-[183px] shrink-0 object-cover z-[0]"
-                      alt=""
+                      className="self-stretch relative w-full h-2/3 object-cover z-0"
+                      alt="UK Property"
                       src="/landing/UKpicture.png"
                     />
                     <img
@@ -515,26 +515,23 @@ const Landing = () => {
                         </span>
                       </div>
                     </div>
-                  </div>
-                  <div className="absolute top-[70.03%] left-[-2.16%] text-base w-[270px] font-semibold text-primary-black">
-                    Camden, London
-                  </div>
-                  <div className="absolute h-[5.34%] w-[39.5%] top-[82.01%] left-[28.41%] text-smi text-neutral-gray600 inline-block">
-                    United Kingdom
+                    <div className="p-3 text-base mx-auto">
+                      <p className="font-semibold">Camden, London</p>
+                      <p className="text-sm">United Kingdom</p>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <div className="self-stretch flex flex-row flex-wrap gap-[21px] items-start justify-start">
+              <div className="flex flex-row flex-wrap gap-[21px] items-start justify-start">
                 <div className="relative w-[264px] h-[308px] hover-content-container">
-                  <div className="absolute top-[-2px] left-[-2px] rounded-3xs  box-border w-[268px] h-[300px] overflow-hidden flex flex-col items-start justify-start border-[2px] border border-solid border-neutralgray-300">
+                  <div className="rounded-3xs box-border w-[268px] h-[300px] overflow-hidden flex flex-col border-2 border-solid border-neutralgray-300 bg-white">
                     <img
-                      className="self-stretch relative max-w-full overflow-hidden h-[183px] shrink-0 object-cover z-[0]"
-                      alt=""
-                      src="/landing/CaliPicture.png"
+                      className="self-stretch relative w-full h-2/3 object-cover z-0"
+                      alt="USA Property"
+                      src="/landing/Calipicture.png"
                     />
                     <img
-                      className="absolute top-[7px] left-[242px] w-6 h-6 z-[2]"
+                      className="absolute top-[7px] left-[238px] w-6 h-6 z-[2]"
                       alt=""
                       src="/landing/heart.png"
                     />
@@ -559,25 +556,25 @@ const Landing = () => {
                         </span>
                       </div>
                     </div>
-                  </div>
-                  <div className="absolute top-[70.03%] left-[0.86%] text-base w-[270px] font-semibold text-primary-black">
-                    Pacific Heights, San Fransisco
-                  </div>
-                  <div className="absolute h-[5.34%] w-[39.5%] top-[82.01%] left-[28.41%] text-smi text-neutral-gray600 inline-block">
-                    California, USA
+                    <div className="p-3 text-base mx-auto">
+                      <p className="font-semibold">
+                        Pacific Heights, San Fransisco
+                      </p>
+                      <p className="text-sm">California, USA</p>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="self-stretch flex flex-row flex-wrap gap-[21px] items-start justify-start">
+              <div className="flex flex-row flex-wrap gap-[21px] items-start justify-start">
                 <div className="relative w-[264px] h-[308px] hover-content-container">
-                  <div className="absolute top-[-2px] left-[-2px] rounded-3xs  box-border w-[268px] h-[300px] overflow-hidden flex flex-col items-start justify-start border-[2px] border border-solid border-neutralgray-300">
+                  <div className="rounded-3xs box-border w-[268px] h-[300px] overflow-hidden flex flex-col border-2 border-solid border-neutralgray-300 bg-white">
                     <img
-                      className="self-stretch relative max-w-full overflow-hidden h-[183px] shrink-0 object-cover z-[0]"
-                      alt=""
-                      src="/landing/GermanyPicture.png"
+                      className="self-stretch relative w-full h-2/3 object-cover z-0"
+                      alt="Germany Property"
+                      src="/landing/Germanypicture.png"
                     />
                     <img
-                      className="absolute my-0 mx-[!important] top-[7px] left-[242px] w-6 h-6 z-[2]"
+                      className="absolute top-[7px] left-[238px] w-6 h-6 z-[2]"
                       alt=""
                       src="/landing/heart.png"
                     />
@@ -602,25 +599,23 @@ const Landing = () => {
                         </span>
                       </div>
                     </div>
-                  </div>
-                  <div className="absolute top-[70.03%] left-[23.86%] text-base font-semibold text-primary-black">
-                    Bornheim, Frankfurt
-                  </div>
-                  <div className="absolute h-[5.34%] w-[39.5%] top-[82.01%] left-[28.41%] text-smi text-neutral-gray600 inline-block">
-                    Germany
+                    <div className="p-3 text-base mx-auto">
+                      <p className="font-semibold">Bornheim, Frankfurt</p>
+                      <p className="text-sm">Germany</p>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="self-stretch flex flex-row flex-wrap gap-[21px] items-start justify-start">
+              <div className="flex flex-row flex-wrap gap-[21px] items-start justify-start">
                 <div className="relative w-[264px] h-[308px] hover-content-container">
-                  <div className="absolute top-[-2px] left-[-2px] rounded-3xs  box-border w-[268px] h-[300px] overflow-hidden flex flex-col items-start justify-start border-[2px] border border-solid border-neutralgray-300">
+                  <div className="rounded-3xs box-border w-[268px] h-[300px] overflow-hidden flex flex-col border-2 border-solid border-neutralgray-300 bg-white">
                     <img
-                      className="self-stretch relative max-w-full overflow-hidden h-[183px] shrink-0 object-cover z-[0]"
-                      alt=""
-                      src="/landing/NewZealandPicture.png"
+                      className="self-stretch relative w-full h-2/3 object-cover z-0"
+                      alt="New Zealand Property"
+                      src="/landing/NewZealandpicture.png"
                     />
                     <img
-                      className="absolute my-0 mx-[!important] top-[7px] left-[242px] w-6 h-6 z-[2]"
+                      className="absolute top-[7px] left-[238px] w-6 h-6 z-[2]"
                       alt=""
                       src="/landing/heart.png"
                     />
@@ -645,12 +640,10 @@ const Landing = () => {
                         </span>
                       </div>
                     </div>
-                  </div>
-                  <div className="absolute top-[70.03%] left-[16.86%] text-base font-semibold text-primary-black">
-                    Mangawhai, Northland
-                  </div>
-                  <div className="absolute h-[5.34%] w-[39.5%] top-[82.01%] left-[28.41%] text-smi text-neutral-gray600 inline-block">
-                    New Zealand
+                    <div className="p-3 text-base mx-auto">
+                      <p className="font-semibold">Mangawhai, Northland</p>
+                      <p className="text-sm">New Zealand</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -660,7 +653,7 @@ const Landing = () => {
       </div>
       <div className="self-stretch bg-gray-300 flex flex-col items-center justify-start py-14 xs:px-2 sm:px-5 px-[100px] gap-[80px] text-left text-13xl text-neutralgray-600">
         <div className="flex flex-row items-center justify-center">
-          <h1 className="m-0 relative text-inherit font-semibold font-inherit">
+          <h1 className="m-0 relative text-inherit font-semibold font-inherit sm:text-7xl-8">
             How it Works
           </h1>
         </div>
