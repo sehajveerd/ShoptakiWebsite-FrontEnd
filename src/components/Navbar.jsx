@@ -91,7 +91,7 @@ const Navbar = () => {
                 <div className="relative font-medium items-center">
                   <Tooltip text="Support"></Tooltip>
                 </div>
-                {/* <button
+                <button
                   className="cursor-pointer ml-auto [border:none] py-2 px-2.5 bg-primaryblue-500 rounded-lg"
                   style={{ marginLeft: 'auto' }}
                   onClick={() =>
@@ -103,7 +103,7 @@ const Navbar = () => {
                   <div className="relative font-medium font-poppins text-white">
                     Login
                   </div>
-                </button> */}
+                </button>
                 {/* <div className="flex-grow" />
                 <button
                   className="lg:hidden cursor-pointer [border:none] py-2 px-2.5 bg-primaryblue-500 rounded-lg flex flex-row items-center justify-right hover:shadow-[0px_1px_4px_rgba(0,_0,_0,_0.25)]"
