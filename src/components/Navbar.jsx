@@ -57,7 +57,7 @@ const Navbar = () => {
               <Link to="/community" className={linkClassNames}>
                 <div className="relative font-medium">Community</div>
               </Link>
-              <button
+              {/* <button
                 className="cursor-pointer ml-auto [border:none] py-2 px-2.5 bg-primaryblue-500 rounded-lg"
                 style={{ marginLeft: 'auto' }}
                 onClick={() =>
@@ -69,7 +69,7 @@ const Navbar = () => {
                 <div className="relative font-medium font-poppins text-white">
                   Login
                 </div>
-              </button>
+              </button> */}
               <OurStoryDropdown />
               <button className="cursor-pointer [border:none] p-0 bg-[transparent] relative w-[22px] h-[22px] items-center shrink-0">
                 <IconSearchOutline />
