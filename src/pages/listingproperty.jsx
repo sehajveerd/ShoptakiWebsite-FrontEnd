@@ -1,6 +1,9 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/jsx-no-comment-textnodes */
+/* eslint-disable react/no-unescaped-entities */
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -14,7 +17,6 @@ import '../index.css';
 
 const Listingproperty = () => {
   const { zpid } = useParams();
-
   const navigate = useNavigate();
   const raisedAmount = '$94,000';
   const targetAmount = '$100,000';
@@ -23,6 +25,23 @@ const Listingproperty = () => {
   const timeLeft = '1 Week lefe';
   const minDeposit = '$1,000';
   const riskRating = 56;
+  const [isExpanded, setIsExpanded] = useState(false);
+  const toggleText = () => setIsExpanded(!isExpanded);
+  const fullText = `
+      We are thrilled to share the exciting news of the official launch of our latest real estate project, "The Beacon Residences." This endeavor represents a significant milestone in our journey together...
+      To get an in-depth understanding of the project, we invite you to explore the attached PDF brochure. This comprehensive document provides insights into the property, available units, and the vision we have for "The Beacon Residences."
+      Stay connected with us as we embark on this remarkable journey. We will be sharing exclusive insights and regular updates to ensure you're part of every exciting development.
+      Thank you for being a vital part of our community, and we look forward to this new chapter with great anticipation.
+  `;
+
+  const maxShortTextLength = 250; // Adjust the maximum length as needed
+  const shortText =
+    fullText.length <= maxShortTextLength
+      ? fullText
+      : `${fullText.slice(0, maxShortTextLength)}...`;
+
+  console.log(shortText);
+
   useEffect(() => {
     const progressBar = document.querySelector('.div-11 .progress-bar');
     if (progressBar) {
@@ -408,12 +427,75 @@ const Listingproperty = () => {
           </div>
         </div>
       </div>
-
-      <div className="px-100 pb-20">
-        <CustomTabPanel
-          latitude={property_details['latitude']}
-          longitude={property_details['longitude']}
-        />
+      <div className="flex items-start relative w-full mt-4">
+        <div className="flex-shrink-0" style={{ flexShrink: 0.6 }}>
+          <CustomTabPanel
+            latitude={property_details['latitude']}
+            longitude={property_details['longitude']}
+          />
+        </div>
+        <div className="flex flex-col absolute top-0 left-2/3 w-1/3 mr-8">
+          <div className="border border-solid border-neutralgray-200 p-10  w-2/3 mt-4">
+            <div className="items-center flex justify-between gap-2.5">
+              <img
+                loading="lazy"
+                src="/listing/Announcement.png"
+                className="aspect-square object-cover w-5 shrink-0"
+              />
+              <div className="text-neutral-500 text-base font-medium leading-6 lowercase self-stretch grow whitespace-nowrap">
+                🚨 Announcements
+              </div>
+              <button
+                className="text-3xl text-gray-700 font-bold bg-transparent mb-3"
+                style={{ width: '10px', height: '10px' }}
+                onClick={toggleText}
+              >
+                +
+              </button>
+            </div>
+            <div className="flex justify-between gap-4 mt-9">
+              <img
+                loading="lazy"
+                src="/listing/ProfilePhoto.png"
+                className="aspect-square object-cover object-center w-8 h-8 rounded-full"
+              />
+              <div className="items-stretch self-stretch flex grow basis-[0%] flex-col">
+                <div className="items-stretch flex justify-between gap-2">
+                  <div className="text-zinc-700 text-base font-semibold leading-6">
+                    Steph
+                  </div>
+                  <div className="text-neutral-500 text-sm font-medium leading-5 whitespace-nowrap self-start">
+                    06/01/2023 1:55 PM
+                  </div>
+                </div>
+                <div className="overflow-hidden text-zinc-700 text-ellipsis text-sm font-medium leading-6 mt-4">
+                  <span className="font-medium">🚀 </span>
+                  <span className="font-bold">
+                    Project Launch Announcement
+                    <br />
+                  </span>
+                  <span className="font-medium">
+                    <br />
+                    Dear valued community members,
+                    <br />
+                    <br />
+                    {isExpanded ? fullText : `${shortText}`}
+                    <button onClick={toggleText} className="text-sky-700">
+                      {isExpanded ? 'Read Less' : 'Read More'}
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              className="mt-6 mb-5 px-5 py-3 rounded-lg bg-sky-700 text-white text-center cursor-pointer"
+              // eslint-disable-next-line no-undef
+              onClick={toggleText}
+            >
+              Go to community
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
