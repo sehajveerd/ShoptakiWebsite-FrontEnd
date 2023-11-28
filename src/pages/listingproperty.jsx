@@ -3,7 +3,11 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
+=======
+import React, { useEffect } from 'react';
+>>>>>>> 712f3aa (InvestPartChanges)
 import { useParams, useNavigate } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -25,6 +29,7 @@ const Listingproperty = () => {
   const timeLeft = '1 Week lefe';
   const minDeposit = '$1,000';
   const riskRating = 56;
+<<<<<<< HEAD
   const [isExpanded, setIsExpanded] = useState(false);
   const toggleText = () => setIsExpanded(!isExpanded);
   const fullText = `
@@ -42,6 +47,8 @@ const Listingproperty = () => {
 
   console.log(shortText);
 
+=======
+>>>>>>> 712f3aa (InvestPartChanges)
   useEffect(() => {
     const progressBar = document.querySelector('.div-11 .progress-bar');
     if (progressBar) {
@@ -427,6 +434,7 @@ const Listingproperty = () => {
           </div>
         </div>
       </div>
+<<<<<<< HEAD
       <div className="flex items-start relative w-full mt-4">
         <div className="flex-shrink-0" style={{ flexShrink: 0.6 }}>
           <CustomTabPanel
@@ -496,6 +504,14 @@ const Listingproperty = () => {
             </div>
           </div>
         </div>
+=======
+
+      <div className="px-100 pb-20">
+        <CustomTabPanel
+          latitude={property_details['latitude']}
+          longitude={property_details['longitude']}
+        />
+>>>>>>> 712f3aa (InvestPartChanges)
       </div>
     </div>
   );
