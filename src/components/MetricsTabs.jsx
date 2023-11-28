@@ -8,7 +8,10 @@ import RiskMeter from './metricscharts/RiskMeter';
 import Metric from './listingproperty/metric';
 import { styled } from 'styled-components';
 // import LinearScale from './metricscharts/LinearMeter';
+import LinearProgressWithLabel from './listingproperty/riskfactor';
+import CashFlow from './listingproperty/cashflow';
 import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api'; //Map Functionality - uncomment to view the map on frontend
+import PerformanceStats from './listingproperty/financialPerformanceStats';
 
 const MetricsContainer = styled.div`
   border-top: 1px solid var(--neutral-gray-200, #e8e8e8);
@@ -118,8 +121,56 @@ const CustomTabPanel = props => {
         </>
       </TabPanel>
       <TabPanel value={2}>
-        <RiskMeter />
-        {/* <LinearScale /> */}
+        {/**
+         * TODO: Get the Below Data from the API in the required format and map the values to the below components.
+         */}
+        <div className="flex flex-row w-3/5">
+          <RiskMeter speed="70" />
+          <div className="flex flex-col w-1/2 bg-transparent">
+            <LinearProgressWithLabel label="Location" value="50" />
+            <LinearProgressWithLabel label="Market" value="70" />
+            <LinearProgressWithLabel label="Property" value="30" />
+            <LinearProgressWithLabel label="Finance" value="80" />
+          </div>
+        </div>
+        <div className="w-3/5">
+          <div className="text-zinc-700 text-base font-medium font-poppins">
+            Medium Risk
+          </div>
+          <p className="text-zinc-700 text-sm font-normal font-poppins">
+            The Beacon property has received a risk rating of 56 out of 100.
+            This rating indicates a moderate level of risk associated with the
+            property, suggesting potential market fluctuations and some factors
+            that may require attention or monitoring.
+          </p>
+          <CashFlow />
+          <div className="flex flex-col gap-20">
+            <PerformanceStats
+              title="GRM(Gross Rental Multiplier)"
+              metricValue="5.00"
+              metricReview="Excellent Investment"
+              firstLabel="Purchase Price"
+              firstValue="$100,000"
+              secondLabel="Gross Rental Income"
+              secondValue="/ $20,000/Year"
+              resultLabel="GRM"
+              resultValue="5.00"
+              description="The Gross Rent Multiplier (GRM) is calculated by dividing the purchase price of the property by its gross rental income. In this case, the GRM is 5.00, indicating that it would take approximately 5 years for the gross rental income to cover the purchase price of the property."
+            />
+            <PerformanceStats
+              title="DCR(Debt Coverage Ratio)"
+              metricValue="1.67"
+              metricReview="Excellent Investment"
+              firstLabel="Net Operative Income(NOI)"
+              firstValue="$50,000/Year"
+              secondLabel="GRM"
+              secondValue="/ $30,000/Year"
+              resultLabel="DCR"
+              resultValue="1.67"
+              description="With a DCR of 1.67, The Beacon property generates enough income to cover its debt obligations, indicating a healthy financial position."
+            />
+          </div>
+        </div>
       </TabPanel>
       <TabPanel className="w-3/5 h-[350px]" value={3}>
         <div className="text-base font-poppins text-zinc-700">
