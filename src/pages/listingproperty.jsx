@@ -1,20 +1,14 @@
-/* eslint-disable no-undef */
-/* eslint-disable react/jsx-no-comment-textnodes */
-/* eslint-disable react/no-unescaped-entities */
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
-<<<<<<< HEAD
-import React, { useEffect, useState } from 'react';
-=======
-import React, { useEffect } from 'react';
->>>>>>> 712f3aa (InvestPartChanges)
+import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import PropertyDetailsTextComp from '../components/ui/propertydetails/PropertyDetailsTextComp';
 import LinearProgress from '@mui/material/CircularProgress';
 import CustomTabPanel from '../components/MetricsTabs';
-import '../index.css';
+import Investcard from '../components/listingproperty/investcard';
+import AnnouncementCard from '../components/listingproperty/announcementCard';
 // import Slider from 'react-slick';
 
 // import { useNavigate } from 'react-router-dom';
@@ -22,40 +16,6 @@ import '../index.css';
 const Listingproperty = () => {
   const { zpid } = useParams();
   const navigate = useNavigate();
-  const raisedAmount = '$94,000';
-  const targetAmount = '$100,000';
-  const percentage = 25;
-  const investors = 234;
-  const timeLeft = '1 Week lefe';
-  const minDeposit = '$1,000';
-  const riskRating = 56;
-<<<<<<< HEAD
-  const [isExpanded, setIsExpanded] = useState(false);
-  const toggleText = () => setIsExpanded(!isExpanded);
-  const fullText = `
-      We are thrilled to share the exciting news of the official launch of our latest real estate project, "The Beacon Residences." This endeavor represents a significant milestone in our journey together...
-      To get an in-depth understanding of the project, we invite you to explore the attached PDF brochure. This comprehensive document provides insights into the property, available units, and the vision we have for "The Beacon Residences."
-      Stay connected with us as we embark on this remarkable journey. We will be sharing exclusive insights and regular updates to ensure you're part of every exciting development.
-      Thank you for being a vital part of our community, and we look forward to this new chapter with great anticipation.
-  `;
-
-  const maxShortTextLength = 250; // Adjust the maximum length as needed
-  const shortText =
-    fullText.length <= maxShortTextLength
-      ? fullText
-      : `${fullText.slice(0, maxShortTextLength)}...`;
-
-  console.log(shortText);
-
-=======
->>>>>>> 712f3aa (InvestPartChanges)
-  useEffect(() => {
-    const progressBar = document.querySelector('.div-11 .progress-bar');
-    if (progressBar) {
-      progressBar.style.width = `${percentage}%`;
-    }
-  }, [percentage]);
-
   // const goBack = () => {
   //   history.goBack(); // Navigates back to the previous page
   // };
@@ -195,11 +155,6 @@ const Listingproperty = () => {
     { title: 'Type', subtitle: `${property_details['homeType']}` },
     // Add more data objects here as needed
   ];
-  const invest = () => {
-    // Logic for the invest action
-    console.log('Invest button clicked');
-  };
-
   return (
     <div className="px-100 overflow-scroll mx-auto max-w-6xl">
       <div className="fixed bg-white z-50 w-[1166px] h-[72px] justify-between items-center inline-flex flex-row">
@@ -344,174 +299,42 @@ const Listingproperty = () => {
             exceptional opportunity for real estate investment
           </p>
         </div>
-
         <div className="flex flex-col w-1/3 items-end  ml-8">
-          <div className="border border-solid border-neutralgray-200 p-6  w-3/4">
-            {/* Raised Amount and Target */}
-            <div className="text-left w-full">
-              <span className="font-bold text-3xl text-primary-blue-500">
-                {raisedAmount}
-              </span>
-              <span className="text-base text-black">
-                &nbsp; raised of {targetAmount}
-              </span>
-            </div>
-
-            {/* Progress Bar and Percentage */}
-            <div className="flex items-center w-[90%] mb-2 mt-8 mr-10">
-              <div className="text-neutralgray-700 font-body-small14 mb-1 text-right">
-                {percentage}%
-              </div>
-              <div className="bg-blue-200 h-3 rounded-full w-full mx-2">
-                <div
-                  className="bg-primary-blue-500 h-3 rounded-full"
-                  style={{ width: `${percentage}%` }}
-                ></div>
-              </div>
-            </div>
-
-            {/* Investors, Time Left, Min. Deposit in a Column */}
-            <div className="flex flex-col mt-2 w-full ml-auto justify-center">
-              <div className="flex items-start self-stretch">
-                {/* Left Section  */}
-                <div className="flex flex-col bg-white self-stretch gap-2 items-center w-2/3 mt-2 h-full ml=auto">
-                  <div className="flex bg-white self-stretch gap-8 items-center mt-2">
-                    <img
-                      loading="lazy"
-                      src="/listing/investors.png"
-                      className="aspect-w-1 aspect-h-1 object-contain object-center w-6 overflow-hidden"
-                    />
-                    <div className="text-zinc-700 whitespace-nowrap font-normal text-base self-stretch">
-                      <span>{investors}</span> Investors
-                    </div>
-                  </div>
-
-                  {/* Time Left Section */}
-                  <div className="flex bg-white self-stretch gap-8 items-center mt-2">
-                    <img
-                      loading="lazy"
-                      src="/listing/money.png"
-                      className="aspect-w-1 aspect-h-1 object-contain object-center w-6 overflow-hidden"
-                    />
-                    <div className="text-zinc-700 whitespace-nowrap font-normal text-base self-stretch">
-                      <span>{timeLeft}</span>
-                    </div>
-                  </div>
-
-                  {/* Min. Deposit Section */}
-                  <div className="flex bg-white self-stretch gap-8 items-center mt-2">
-                    <img
-                      loading="lazy"
-                      src="/listing/time.png"
-                      className="aspect-w-1 aspect-h-1 object-contain object-center w-6 overflow-hidden"
-                    />
-                    <div className="text-zinc-700 whitespace-nowrap font-normal text-base self-stretch">
-                      Min. Deposit: <span>{minDeposit}</span>
-                    </div>
-                  </div>
-                </div>
-                {/* Right Section */}
-                <div className="flex flex-col items-center justify-center ml-2 mt-2 w-1/3 h-full self-stretch">
-                  <div className="text-neutralgray-600 stretch whitespace-nowrap text-sm font-normal font-poppins sm:whitespace-normal">
-                    Risk Rating
-                  </div>
-                  <div className="text-neutralgray-600 self-center whitespace-nowrap text-32 font-semibold font-poppins mt-5 sm:whitespace-normal">
-                    <span>{riskRating}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Invest Button */}
-            <button
-              onClick={invest}
-              className="justify-center items-center self-center rounded bg-primaryblue-500 flex mx-auto mt-5 ml-3 pt-10px pb-10px px-10 w-[85%]"
-            >
-              <div className="text-white font-semibold text-sm bg-transparent w-full p-0 border-none cursor-pointer mr-10px shadow-none hover:bg-transparent">
-                Invest
-              </div>
-            </button>
-          </div>
+          <Investcard
+            raisedAmount="$94,000"
+            targetAmount="$100,000"
+            percentage="25"
+            investors="234"
+            timeLeft="1 Week left"
+            minDeposit="$1,000"
+            riskRating="56"
+          />
         </div>
       </div>
-<<<<<<< HEAD
       <div className="flex items-start relative w-full mt-4">
-        <div className="flex-shrink-0" style={{ flexShrink: 0.6 }}>
+        <div className="px-100 pb-20 w-full ">
           <CustomTabPanel
             latitude={property_details['latitude']}
             longitude={property_details['longitude']}
           />
         </div>
         <div className="flex flex-col absolute top-0 left-2/3 w-1/3 mr-8">
-          <div className="border border-solid border-neutralgray-200 p-10  w-2/3 mt-4">
-            <div className="items-center flex justify-between gap-2.5">
-              <img
-                loading="lazy"
-                src="/listing/Announcement.png"
-                className="aspect-square object-cover w-5 shrink-0"
-              />
-              <div className="text-neutral-500 text-base font-medium leading-6 lowercase self-stretch grow whitespace-nowrap">
-                🚨 Announcements
-              </div>
-              <button
-                className="text-3xl text-gray-700 font-bold bg-transparent mb-3"
-                style={{ width: '10px', height: '10px' }}
-                onClick={toggleText}
-              >
-                +
-              </button>
-            </div>
-            <div className="flex justify-between gap-4 mt-9">
-              <img
-                loading="lazy"
-                src="/listing/ProfilePhoto.png"
-                className="aspect-square object-cover object-center w-8 h-8 rounded-full"
-              />
-              <div className="items-stretch self-stretch flex grow basis-[0%] flex-col">
-                <div className="items-stretch flex justify-between gap-2">
-                  <div className="text-zinc-700 text-base font-semibold leading-6">
-                    Steph
-                  </div>
-                  <div className="text-neutral-500 text-sm font-medium leading-5 whitespace-nowrap self-start">
-                    06/01/2023 1:55 PM
-                  </div>
-                </div>
-                <div className="overflow-hidden text-zinc-700 text-ellipsis text-sm font-medium leading-6 mt-4">
-                  <span className="font-medium">🚀 </span>
-                  <span className="font-bold">
-                    Project Launch Announcement
-                    <br />
-                  </span>
-                  <span className="font-medium">
-                    <br />
-                    Dear valued community members,
-                    <br />
-                    <br />
-                    {isExpanded ? fullText : `${shortText}`}
-                    <button onClick={toggleText} className="text-sky-700">
-                      {isExpanded ? 'Read Less' : 'Read More'}
-                    </button>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              className="mt-6 mb-5 px-5 py-3 rounded-lg bg-sky-700 text-white text-center cursor-pointer"
-              // eslint-disable-next-line no-undef
-              onClick={toggleText}
-            >
-              Go to community
-            </div>
-          </div>
+          <AnnouncementCard
+            commenttype={'🚨 Announcements'}
+            MemberName={'Steph'}
+            commenttime={'06/01/2023 1:55 PM'}
+            title={'🚀 Project Launch Announcement'}
+            maxShortTextLength={250}
+            fullText={`
+              Dear valued community members,
+              
+              We are thrilled to share the exciting news of the official launch of our latest real estate project, The Beacon Residences. This endeavor represents a significant milestone in our journey together,
+              To get an in-depth understanding of the project, we invite you to explore the attached PDF brochure. This comprehensive document provides insights into the property, available units, and the vision we have for The Beacon Residences.
+              Stay connected with us as we embark on this remarkable journey. We will be sharing exclusive insights and regular updates to ensure you are part of every exciting development.
+              Thank you for being a vital part of our community, and we look forward to this new chapter with great anticipation.
+            `}
+          />
         </div>
-=======
-
-      <div className="px-100 pb-20">
-        <CustomTabPanel
-          latitude={property_details['latitude']}
-          longitude={property_details['longitude']}
-        />
->>>>>>> 712f3aa (InvestPartChanges)
       </div>
     </div>
   );
