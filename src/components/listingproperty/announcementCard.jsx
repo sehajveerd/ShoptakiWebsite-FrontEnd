@@ -18,7 +18,7 @@ const AnnouncementCard = ({
 
   console.log(shortText);
   return (
-    <div className="border border-solid border-neutralgray-200 p-10  w-2/3 mt-4">
+    <div className="border border-solid border-neutralgray-200 p-8 ml-2 w-2/3 font-poppins">
       <div className="items-center flex justify-between gap-2.5">
         <img
           loading="lazy"
@@ -67,7 +67,7 @@ const AnnouncementCard = ({
         </div>
       </div>
       <div
-        className="mt-6 mb-5 px-5 py-3 rounded-lg bg-sky-700 text-white text-center cursor-pointer"
+        className="mt-6 mb-5 px-5 py-3 rounded-lg bg-sky-700 text-white text-center text-sm cursor-pointer"
         // eslint-disable-next-line no-undef
         onClick={toggleText}
       >

@@ -268,7 +268,7 @@ const Listingproperty = () => {
       {/* //create a const propertydetails component taking two */}
       {/* {<PropertyDetailsTextComp title="Beds" subtitle="3 Beds" />} */}
 
-      <div className="flex items-start w-full">
+      <div className="flex items-start w-full gap-24 h-auto">
         <div className="w-3/5">
           <div className="flex-row flex justify-start items-start gap-10 mt-14">
             {detailsData.map((data, index) => (
@@ -279,7 +279,7 @@ const Listingproperty = () => {
               />
             ))}
           </div>
-          <div className="text-zinc-700 text-base font-normal font-['Poppins'] text-left">
+          <div className="text-zinc-700 text-small font-normal font-['Poppins'] text-left w-full">
             <p>
               Welcome to &quot;The Beacon&quot;! This charming vacant
               single-family home is a hidden gem offering 3 bedrooms, 1 bath,
@@ -299,7 +299,7 @@ const Listingproperty = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col w-1/3 items-end  ml-8  mt-14">
+        <div className="flex flex-col w-1/3 items-end mt-14">
           <Investcard
             raisedAmount="$94,000"
             targetAmount="$100,000"
@@ -312,13 +312,13 @@ const Listingproperty = () => {
         </div>
       </div>
       <div className="flex items-start relative w-full mt-4">
-        <div className="px-100 pb-20 w-full ">
+        <div className="px-100 pb-20 w-3/5 ">
           <CustomTabPanel
             latitude={property_details['latitude']}
             longitude={property_details['longitude']}
           />
         </div>
-        <div className="flex flex-col absolute top-0 left-2/3 w-1/3 mr-8">
+        <div className="flex flex-col absolute top-0 left-2/3 w-2/5">
           <AnnouncementCard
             commenttype={'🚨 Announcements'}
             MemberName={'Steph'}
