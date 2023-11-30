@@ -274,32 +274,34 @@ const Listingproperty = () => {
         </div> */}
       {/* //create a const propertydetails component taking two */}
       {/* {<PropertyDetailsTextComp title="Beds" subtitle="3 Beds" />} */}
-      <div className="flex-row flex justify-start items-start gap-10 mt-14">
-        {detailsData.map((data, index) => (
-          <PropertyDetailsTextComp
-            key={index}
-            title={data.title}
-            subtitle={data.subtitle}
-          />
-        ))}
-      </div>
 
       <div className="flex items-start w-full">
-        <div className="w-3/5 text-zinc-700 text-base font-normal font-['Poppins'] text-left">
-          <p>
-            Welcome to &quot;The Beacon&quot;! This charming vacant
-            single-family home is a hidden gem offering 3 bedrooms, 1 bath, and
-            approximately 1500 square feet of living space. With an open floor
-            plan, abundant natural light, and a well-appointed kitchen, this
-            property provides a comfortable and stylish living experience. The
-            generously sized bedrooms offer versatility for various needs, and
-            the tastefully designed bathroom provides a relaxing retreat.
-            Conveniently located near amenities and with easy access to major
-            transportation routes, &quot;The Beacon&quot; presents an
-            exceptional opportunity for real estate investment
-          </p>
+        <div className="w-3/5">
+          <div className="flex-row flex justify-start items-start gap-10 mt-14">
+            {detailsData.map((data, index) => (
+              <PropertyDetailsTextComp
+                key={index}
+                title={data.title}
+                subtitle={data.subtitle}
+              />
+            ))}
+          </div>
+          <div className="text-zinc-700 text-base font-normal font-['Poppins'] text-left">
+            <p>
+              Welcome to &quot;The Beacon&quot;! This charming vacant
+              single-family home is a hidden gem offering 3 bedrooms, 1 bath,
+              and approximately 1500 square feet of living space. With an open
+              floor plan, abundant natural light, and a well-appointed kitchen,
+              this property provides a comfortable and stylish living
+              experience. The generously sized bedrooms offer versatility for
+              various needs, and the tastefully designed bathroom provides a
+              relaxing retreat. Conveniently located near amenities and with
+              easy access to major transportation routes, &quot;The Beacon&quot;
+              presents an exceptional opportunity for real estate investment
+            </p>
+          </div>
         </div>
-        <div className="flex flex-col w-1/3 items-end  ml-8">
+        <div className="flex flex-col w-1/3 items-end  ml-8  mt-14">
           <Investcard
             raisedAmount="$94,000"
             targetAmount="$100,000"
