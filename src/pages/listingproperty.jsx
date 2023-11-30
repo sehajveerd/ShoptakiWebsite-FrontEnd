@@ -7,6 +7,8 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import PropertyDetailsTextComp from '../components/ui/propertydetails/PropertyDetailsTextComp';
 import LinearProgress from '@mui/material/CircularProgress';
 import CustomTabPanel from '../components/MetricsTabs';
+import Investcard from '../components/listingproperty/investcard';
+import AnnouncementCard from '../components/listingproperty/announcementCard';
 // import Slider from 'react-slick';
 
 // import { useNavigate } from 'react-router-dom';
@@ -146,7 +148,6 @@ const Listingproperty = () => {
     { title: 'Type', subtitle: `${property_details['homeType']}` },
     // Add more data objects here as needed
   ];
-
   return (
     <div className="px-100 overflow-scroll mx-auto max-w-6xl">
       <div className="fixed bg-white z-50 w-[1166px] h-[72px] justify-between items-center inline-flex flex-row">
@@ -266,39 +267,74 @@ const Listingproperty = () => {
         </div> */}
       {/* //create a const propertydetails component taking two */}
       {/* {<PropertyDetailsTextComp title="Beds" subtitle="3 Beds" />} */}
-      <div className="flex-row flex justify-start items-start gap-10 mt-14">
-        {detailsData.map((data, index) => (
-          <PropertyDetailsTextComp
-            key={index}
-            title={data.title}
-            subtitle={data.subtitle}
-          />
-        ))}
-      </div>
 
-      <div className="w-3/5 text-zinc-700 text-base font-normal font-['Poppins'] text-left">
-        <p>
-          Welcome to &quot;The Beacon&quot;! This charming vacant single-family
-          home is a hidden gem offering 3 bedrooms, 1 bath, and approximately
-          1500 square feet of living space. With an open floor plan, abundant
-          natural light, and a well-appointed kitchen, this property provides a
-          comfortable and stylish living experience.
-        </p>
-        <p>
-          The generously sized bedrooms offer versatility for various needs, and
-          the tastefully designed bathroom provides a relaxing retreat.{' '}
-        </p>
-        <p>
-          Conveniently located near amenities and with easy access to major
-          transportation routes, &quot;The Beacon&quot; presents an exceptional
-          opportunity for real estate investment
-        </p>
+      <div className="flex items-start w-full">
+        <div className="w-3/5">
+          <div className="flex-row flex justify-start items-start gap-10 mt-14">
+            {detailsData.map((data, index) => (
+              <PropertyDetailsTextComp
+                key={index}
+                title={data.title}
+                subtitle={data.subtitle}
+              />
+            ))}
+          </div>
+          <div className="text-zinc-700 text-base font-normal font-['Poppins'] text-left">
+            <p>
+              Welcome to &quot;The Beacon&quot;! This charming vacant
+              single-family home is a hidden gem offering 3 bedrooms, 1 bath,
+              and approximately 1500 square feet of living space. With an open
+              floor plan, abundant natural light, and a well-appointed kitchen,
+              this property provides a comfortable and stylish living
+              experience.
+            </p>
+            <p>
+              The generously sized bedrooms offer versatility for various needs,
+              and the tastefully designed bathroom provides a relaxing retreat.{' '}
+            </p>
+            <p>
+              Conveniently located near amenities and with easy access to major
+              transportation routes, &quot;The Beacon&quot; presents an
+              exceptional opportunity for real estate investment
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col w-1/3 items-end  ml-8  mt-14">
+          <Investcard
+            raisedAmount="$94,000"
+            targetAmount="$100,000"
+            percentage="25"
+            investors="234"
+            timeLeft="1 Week left"
+            minDeposit="$1,000"
+            riskRating="56"
+          />
+        </div>
       </div>
-      <div className="px-100 pb-20">
-        <CustomTabPanel
-          latitude={property_details['latitude']}
-          longitude={property_details['longitude']}
-        />
+      <div className="flex items-start relative w-full mt-4">
+        <div className="px-100 pb-20 w-full ">
+          <CustomTabPanel
+            latitude={property_details['latitude']}
+            longitude={property_details['longitude']}
+          />
+        </div>
+        <div className="flex flex-col absolute top-0 left-2/3 w-1/3 mr-8">
+          <AnnouncementCard
+            commenttype={'🚨 Announcements'}
+            MemberName={'Steph'}
+            commenttime={'06/01/2023 1:55 PM'}
+            title={'🚀 Project Launch Announcement'}
+            maxShortTextLength={250}
+            fullText={`
+              Dear valued community members,
+              
+              We are thrilled to share the exciting news of the official launch of our latest real estate project, The Beacon Residences. This endeavor represents a significant milestone in our journey together,
+              To get an in-depth understanding of the project, we invite you to explore the attached PDF brochure. This comprehensive document provides insights into the property, available units, and the vision we have for The Beacon Residences.
+              Stay connected with us as we embark on this remarkable journey. We will be sharing exclusive insights and regular updates to ensure you are part of every exciting development.
+              Thank you for being a vital part of our community, and we look forward to this new chapter with great anticipation.
+            `}
+          />
+        </div>
       </div>
     </div>
   );
