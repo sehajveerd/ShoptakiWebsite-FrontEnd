@@ -1,8 +1,7 @@
 import React from 'react';
 import PriceorIncomeValue from './pricevalue';
 import { styled } from 'styled-components';
-// import LinearScale from '../metricscharts/LinearMeter';
-// import LinearProgressWithLabel from './riskfactor';
+import LinearMeter from '../metricscharts/LinearMeter';
 
 const Title = styled.div`
   border-bottom: 1px dashed var(--neutral-gray-200, #000000);
@@ -12,23 +11,6 @@ const Title = styled.div`
   font-weight: 500;
   font-family: Poppins;
 `;
-
-const ColorMeter = styled.div`
-  margin-top: 40px;
-  width: 67%;
-  height: 4px;
-  background: linear-gradient(
-    to right,
-    #99f78a 25%,
-    #d0ff15 25% 50%,
-    #ffe714 50% 75%,
-    #ff0606 75% 100%
-  );
-`;
-// const Meter = styled.div`
-//   justify-content: center;
-//   align-items: center;
-// `;
 
 const PerformanceStats = ({
   title,
@@ -41,7 +23,10 @@ const PerformanceStats = ({
   resultLabel,
   resultValue,
   description,
+  ticksarray,
+  colors,
 }) => {
+  console.log(parseFloat(metricValue));
   return (
     <div>
       <Title className="mt-6 justify-start items-center inline-flex">
@@ -56,10 +41,12 @@ const PerformanceStats = ({
             {metricReview}
           </div>
         </div>
-        <div className="w-2/3 justify-center items-center">
-          <ColorMeter />
-          {/* <LinearScale /> */}
-          {/* <LinearProgressWithLabel value={100} /> */}
+        <div className="w-2/3 justify-center items-center relative">
+          <LinearMeter
+            value={parseFloat(metricValue)}
+            ticksarray={ticksarray}
+            colors={colors}
+          />
         </div>
       </div>
       <PriceorIncomeValue label={firstLabel} value={firstValue} />
