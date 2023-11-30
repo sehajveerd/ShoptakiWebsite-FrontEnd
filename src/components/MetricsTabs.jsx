@@ -25,7 +25,7 @@ const CustomTabPanel = props => {
   const center = { lat: props.latitude, lng: props.longitude };
   return (
     <Tabs defaultValue={1}>
-      <TabsList className="w-3/5 mb-4 bg-white flex font-poppins items-start justify-center content-between min-w-tabs-list">
+      <TabsList className="w-full mb-4 bg-white flex font-poppins items-start justify-center content-between min-w-tabs-list">
         <Tab
           slotProps={{
             root: ({ selected, disabled }) => ({
@@ -91,7 +91,7 @@ const CustomTabPanel = props => {
           Other Insights
         </Tab>
       </TabsList>
-      <TabPanel className="w-3/5" value={1}>
+      <TabPanel className="w-full" value={1}>
         <>
           <div className="text-sm font-poppins text-neutral-500">
             Explore comprehensive rental data for The Beacon, including average
@@ -120,7 +120,7 @@ const CustomTabPanel = props => {
         {/**
          * TODO: Get the Below Data from the API in the required format and map the values to the below components.
          */}
-        <div className="flex flex-row w-3/5">
+        <div className="flex flex-row w-full">
           <RiskMeter speed="70" />
           <div className="flex flex-col w-1/2 bg-transparent">
             <LinearProgressWithLabel label="Location" value="50" />
@@ -129,7 +129,7 @@ const CustomTabPanel = props => {
             <LinearProgressWithLabel label="Finance" value="80" />
           </div>
         </div>
-        <div className="w-3/5">
+        <div className="w-full">
           <div className="text-zinc-700 text-base font-medium font-poppins">
             Medium Risk
           </div>
@@ -175,7 +175,7 @@ const CustomTabPanel = props => {
           </div>
         </div>
       </TabPanel>
-      <TabPanel className="w-3/5 h-[350px]" value={3}>
+      <TabPanel className="w-full h-[350px]" value={3}>
         <div className="text-base font-poppins text-zinc-700">
           <p>
             The location offers a prime downtown area with high demand, a stable
@@ -272,7 +272,7 @@ const CustomTabPanel = props => {
         </MetricsContainer>
       </TabPanel>
       <TabPanel value={4}>
-        <MetricsContainer className="w-3/5">
+        <MetricsContainer className="w-full">
           <div className="flex flex-row items-center px-16 py-6 border-t border-b border-black justify-between">
             <Metric metricname="NOI" metricvalue="5.2%" />
             <Metric metricname="Cap Rate" metricvalue="5.2%" />
