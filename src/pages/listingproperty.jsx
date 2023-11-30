@@ -13,15 +13,7 @@ import CustomTabPanel from '../components/MetricsTabs';
 
 const Listingproperty = () => {
   const { zpid } = useParams();
-
   const navigate = useNavigate();
-
-  // const goBack = () => {
-  //   history.goBack(); // Navigates back to the previous page
-  // };
-
-  // TODO: Add  a gql query to add filters based on sizes and format(webp/jpg)
-  // console.log('ZPID :', zpid);
   const GET_IMG_URL = gql`
     query GetPropertyImagesBySizeFormat($filters: ImgFilterInput) {
       getPropertyImagesBySizeFormat(filters: $filters) {
@@ -145,8 +137,7 @@ const Listingproperty = () => {
 
   const property_details = details['getPropertyByZpid'][0];
 
-  // This is just sample data, need to get the actual data from backend. - DONE
-  // TODO: Need to get the new data, when we start using a paid 3rd party API
+  // TODO: Need to get the new data, when we start using a paid API
   const detailsData = [
     { title: 'Beds', subtitle: `${property_details['bed']} Beds` },
     { title: 'Baths', subtitle: `${property_details['bath']} Baths` },
@@ -291,12 +282,16 @@ const Listingproperty = () => {
           home is a hidden gem offering 3 bedrooms, 1 bath, and approximately
           1500 square feet of living space. With an open floor plan, abundant
           natural light, and a well-appointed kitchen, this property provides a
-          comfortable and stylish living experience. The generously sized
-          bedrooms offer versatility for various needs, and the tastefully
-          designed bathroom provides a relaxing retreat. Conveniently located
-          near amenities and with easy access to major transportation routes,
-          &quot;The Beacon&quot; presents an exceptional opportunity for real
-          estate investment
+          comfortable and stylish living experience.
+        </p>
+        <p>
+          The generously sized bedrooms offer versatility for various needs, and
+          the tastefully designed bathroom provides a relaxing retreat.{' '}
+        </p>
+        <p>
+          Conveniently located near amenities and with easy access to major
+          transportation routes, &quot;The Beacon&quot; presents an exceptional
+          opportunity for real estate investment
         </p>
       </div>
       <div className="px-100 pb-20">
