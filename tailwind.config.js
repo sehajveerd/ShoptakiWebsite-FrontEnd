@@ -128,6 +128,7 @@ module.exports = {
       '9xl': '28px',
       '13xl': '32px',
       '17xl': '36px',
+      '18xl': '43px',
       '105xl': '124px',
       inherit: 'inherit',
       32: '2rem',
