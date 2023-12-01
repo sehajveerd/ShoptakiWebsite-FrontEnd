@@ -7,10 +7,9 @@ import MonthlyRevenue from './metricscharts/MonthlyRevenueChart';
 import RiskMeter from './metricscharts/RiskMeter';
 import Metric from './listingproperty/metric';
 import { styled } from 'styled-components';
-// import LinearScale from './metricscharts/LinearMeter';
 import LinearProgressWithLabel from './listingproperty/riskfactor';
 import CashFlow from './listingproperty/cashflow';
-import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api'; //Map Functionality - uncomment to view the map on frontend
+import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
 import PerformanceStats from './listingproperty/financialPerformanceStats';
 
 const MetricsContainer = styled.div`
@@ -19,17 +18,14 @@ const MetricsContainer = styled.div`
 `;
 
 const CustomTabPanel = props => {
-  //Map functionality - uncomment to view the map on frontend
-  // const CustomTabPanel = () => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   });
-  console.log(isLoaded); //Map functionality - uncomment to view the map on frontend
 
-  const center = { lat: props.latitude, lng: props.longitude }; //Map functionality - uncomment to view the map on frontend
+  const center = { lat: props.latitude, lng: props.longitude };
   return (
     <Tabs defaultValue={1}>
-      <TabsList className="w-3/5 mb-4 bg-white flex font-poppins items-start justify-center content-between min-w-tabs-list">
+      <TabsList className="w-full mb-4 bg-white flex font-poppins items-start justify-center content-between min-w-tabs-list">
         <Tab
           slotProps={{
             root: ({ selected, disabled }) => ({
@@ -95,7 +91,7 @@ const CustomTabPanel = props => {
           Other Insights
         </Tab>
       </TabsList>
-      <TabPanel className="w-3/5" value={1}>
+      <TabPanel className="w-full" value={1}>
         <>
           <div className="text-sm font-poppins text-neutral-500">
             Explore comprehensive rental data for The Beacon, including average
@@ -124,7 +120,7 @@ const CustomTabPanel = props => {
         {/**
          * TODO: Get the Below Data from the API in the required format and map the values to the below components.
          */}
-        <div className="flex flex-row w-3/5">
+        <div className="flex flex-row w-full">
           <RiskMeter speed="70" />
           <div className="flex flex-col w-1/2 bg-transparent">
             <LinearProgressWithLabel label="Location" value="50" />
@@ -133,7 +129,7 @@ const CustomTabPanel = props => {
             <LinearProgressWithLabel label="Finance" value="80" />
           </div>
         </div>
-        <div className="w-3/5">
+        <div className="w-full">
           <div className="text-zinc-700 text-base font-medium font-poppins">
             Medium Risk
           </div>
@@ -144,9 +140,12 @@ const CustomTabPanel = props => {
             that may require attention or monitoring.
           </p>
           <CashFlow />
+          {/**
+           * TODO: Get the metrics, labels and their values based on backend data. And map them to the props below.
+           **/}
           <div className="flex flex-col gap-20">
             <PerformanceStats
-              title="GRM(Gross Rental Multiplier)"
+              title="GRM(Gross Rent Multiplier)"
               metricValue="5.00"
               metricReview="Excellent Investment"
               firstLabel="Purchase Price"
@@ -156,6 +155,8 @@ const CustomTabPanel = props => {
               resultLabel="GRM"
               resultValue="5.00"
               description="The Gross Rent Multiplier (GRM) is calculated by dividing the purchase price of the property by its gross rental income. In this case, the GRM is 5.00, indicating that it would take approximately 5 years for the gross rental income to cover the purchase price of the property."
+              ticksarray={[0, 5, 10, 15, 20]}
+              colors={['#99F78A', '#D0FF15', '#FFE714', '#FF0606']}
             />
             <PerformanceStats
               title="DCR(Debt Coverage Ratio)"
@@ -168,11 +169,13 @@ const CustomTabPanel = props => {
               resultLabel="DCR"
               resultValue="1.67"
               description="With a DCR of 1.67, The Beacon property generates enough income to cover its debt obligations, indicating a healthy financial position."
+              ticksarray={[0, 0.5, 1.0, 1.5, 2]}
+              colors={['#FF0606', '#FFE714', '#D0FF15', '#99F78A']}
             />
           </div>
         </div>
       </TabPanel>
-      <TabPanel className="w-3/5 h-[350px]" value={3}>
+      <TabPanel className="w-full h-[350px]" value={3}>
         <div className="text-base font-poppins text-zinc-700">
           <p>
             The location offers a prime downtown area with high demand, a stable
@@ -269,23 +272,23 @@ const CustomTabPanel = props => {
         </MetricsContainer>
       </TabPanel>
       <TabPanel value={4}>
-        <MetricsContainer className="w-3/5">
+        <MetricsContainer className="w-full">
           <div className="flex flex-row items-center px-16 py-6 border-t border-b border-black justify-between">
             <Metric metricname="NOI" metricvalue="5.2%" />
             <Metric metricname="Cap Rate" metricvalue="5.2%" />
             <Metric metricname="Cash on Cash" metricvalue="5.2%" />
             <Metric metricname="IRR" metricvalue="5.2%" />
           </div>
-          <div className="flex flex-row items-center px-16 py-6 border-t border-b border-black justify-between">
+          <div className="flex flex-row items-center px-16 py-6 border-t border-b border-black justify-around">
             <Metric metricname="LTV" metricvalue="5.2%" />
             <Metric metricname="Loan Term" metricvalue="5.2%" />
             <Metric metricname="Unemployment Rate" metricvalue="5.2%" />
           </div>
-          <div className="flex flex-row items-center px-16 py-6 border-t border-b border-black justify-between">
+          <div className="flex flex-row items-center px-16 py-6 border-t border-b border-black justify-around">
             <Metric metricname="Interest Rate" metricvalue="5.2%" />
             <Metric metricname="Unemployment Rate" metricvalue="5.2%" />
           </div>
-          <div className="flex flex-row items-center px-16 py-6 border-t border-b border-black justify-between">
+          <div className="flex flex-row items-center px-16 py-6 border-t border-b border-black justify-around">
             <Metric metricname="Tax Rate" metricvalue="5.2%" />
             <Metric
               metricname="Investor-Friendly Policies"

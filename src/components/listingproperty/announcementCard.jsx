@@ -18,25 +18,25 @@ const AnnouncementCard = ({
 
   console.log(shortText);
   return (
-    <div className="border border-solid border-neutralgray-200 p-10  w-2/3 mt-4">
-      <div className="items-center flex justify-between gap-2.5">
+    <div className="border border-solid border-neutralgray-200 py-5 px-6 w-full font-poppins">
+      <div className="p-3xs md:px-5xl items-center flex justify-between gap-2.5">
         <img
           loading="lazy"
           src="/listing/Announcement.png"
           className="aspect-square object-cover w-5 shrink-0"
         />
-        <div className="text-neutralgray-400 text-base font-medium leading-6 self-stretch grow whitespace-nowrap">
+        <div className="text-neutralgray-400 text-base font-base leading-6 self-stretch grow whitespace-nowrap lowercase">
           {commenttype}
         </div>
         <button
-          className="text-3xl text-neutralgray-400 bg-transparent mb-3"
-          style={{ width: '10px', height: '10px' }}
+          className="text-3xl text-neutralgray-400 bg-transparent"
+          style={{ width: '24px', height: '24px' }}
           onClick={toggleText}
         >
           +
         </button>
       </div>
-      <div className="flex justify-between gap-4 mt-9">
+      <div className="flex justify-between gap-4 mt-6">
         <img
           loading="lazy"
           src="/listing/ProfilePhoto.png"
@@ -44,7 +44,7 @@ const AnnouncementCard = ({
         />
         <div className="items-stretch self-stretch flex grow basis-[0%] flex-col">
           <div className="items-stretch flex justify-between gap-2">
-            <div className="text-neutralgray-600 text-base font-semibold leading-6">
+            <div className="text-neutral-gray-600 font-poppins text-base font-semibold">
               {MemberName}
             </div>
             <div className="text-neutral-500 text-sm font-medium leading-5">
@@ -56,7 +56,7 @@ const AnnouncementCard = ({
               {title}
               <br />
             </span>
-            <span className="font-medium">
+            <span className="font-sm">
               <br />
               {isExpanded ? fullText : `${shortText}`}
               <button onClick={toggleText} className="text-sky-700">
@@ -67,7 +67,7 @@ const AnnouncementCard = ({
         </div>
       </div>
       <div
-        className="mt-6 mb-5 px-5 py-3 rounded-lg bg-sky-700 text-white text-center cursor-pointer"
+        className="h-16xl px-5 py-3 rounded-lg bg-primaryblue-500 text-white text-center text-medium cursor-pointer mt-6"
         // eslint-disable-next-line no-undef
         onClick={toggleText}
       >

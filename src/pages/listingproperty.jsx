@@ -16,12 +16,6 @@ import AnnouncementCard from '../components/listingproperty/announcementCard';
 const Listingproperty = () => {
   const { zpid } = useParams();
   const navigate = useNavigate();
-  // const goBack = () => {
-  //   history.goBack(); // Navigates back to the previous page
-  // };
-
-  // TODO: Add  a gql query to add filters based on sizes and format(webp/jpg)
-  // console.log('ZPID :', zpid);
   const GET_IMG_URL = gql`
     query GetPropertyImagesBySizeFormat($filters: ImgFilterInput) {
       getPropertyImagesBySizeFormat(filters: $filters) {
@@ -145,8 +139,7 @@ const Listingproperty = () => {
 
   const property_details = details['getPropertyByZpid'][0];
 
-  // This is just sample data, need to get the actual data from backend. - DONE
-  // TODO: Need to get the new data, when we start using a paid 3rd party API
+  // TODO: Need to get the new data, when we start using a paid API
   const detailsData = [
     { title: 'Beds', subtitle: `${property_details['bed']} Beds` },
     { title: 'Baths', subtitle: `${property_details['bath']} Baths` },
@@ -156,7 +149,7 @@ const Listingproperty = () => {
     // Add more data objects here as needed
   ];
   return (
-    <div className="px-100 overflow-scroll mx-auto max-w-6xl">
+    <div className="px-40 overflow-scroll mx-auto max-w-6xl">
       <div className="fixed bg-white z-50 w-[1166px] h-[72px] justify-between items-center inline-flex flex-row">
         <div className="justify-center items-center gap-4 flex">
           <div className="w-6 h-6 relative">
@@ -275,7 +268,7 @@ const Listingproperty = () => {
       {/* //create a const propertydetails component taking two */}
       {/* {<PropertyDetailsTextComp title="Beds" subtitle="3 Beds" />} */}
 
-      <div className="flex items-start w-full">
+      <div className="flex items-start w-full gap-24 h-auto">
         <div className="w-3/5">
           <div className="flex-row flex justify-start items-start gap-10 mt-14">
             {detailsData.map((data, index) => (
@@ -286,22 +279,27 @@ const Listingproperty = () => {
               />
             ))}
           </div>
-          <div className="text-zinc-700 text-base font-normal font-['Poppins'] text-left">
+          <div className="text-zinc-700 text-small font-normal font-['Poppins'] text-left w-full mt-10">
             <p>
               Welcome to &quot;The Beacon&quot;! This charming vacant
               single-family home is a hidden gem offering 3 bedrooms, 1 bath,
               and approximately 1500 square feet of living space. With an open
               floor plan, abundant natural light, and a well-appointed kitchen,
               this property provides a comfortable and stylish living
-              experience. The generously sized bedrooms offer versatility for
-              various needs, and the tastefully designed bathroom provides a
-              relaxing retreat. Conveniently located near amenities and with
-              easy access to major transportation routes, &quot;The Beacon&quot;
-              presents an exceptional opportunity for real estate investment
+              experience.
+            </p>
+            <p>
+              The generously sized bedrooms offer versatility for various needs,
+              and the tastefully designed bathroom provides a relaxing retreat.{' '}
+            </p>
+            <p>
+              Conveniently located near amenities and with easy access to major
+              transportation routes, &quot;The Beacon&quot; presents an
+              exceptional opportunity for real estate investment
             </p>
           </div>
         </div>
-        <div className="flex flex-col w-1/3 items-end  ml-8  mt-14">
+        <div className="flex flex-col w-1/3 items-end mt-14">
           <Investcard
             raisedAmount="$94,000"
             targetAmount="$100,000"
@@ -313,14 +311,14 @@ const Listingproperty = () => {
           />
         </div>
       </div>
-      <div className="flex items-start relative w-full mt-4">
-        <div className="px-100 pb-20 w-full ">
+      <div className="flex items-start w-full gap-24 h-auto mt-20">
+        <div className="px-100 pb-20 w-3/5">
           <CustomTabPanel
             latitude={property_details['latitude']}
             longitude={property_details['longitude']}
           />
         </div>
-        <div className="flex flex-col absolute top-0 left-2/3 w-1/3 mr-8">
+        <div className="flex w-1/3 items-end">
           <AnnouncementCard
             commenttype={'🚨 Announcements'}
             MemberName={'Steph'}
