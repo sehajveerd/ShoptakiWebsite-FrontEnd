@@ -1,40 +1,94 @@
-// import { useRef, useEffect } from 'react';
 import React from 'react';
-// import * as d3 from 'd3';
-// import * as V from 'victory';
-import LinearProgress from '@mui/material/LinearProgress';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 
-const LinearScale = () => {
-  // const riskData = [
-  //   { x: 1, y: riskLevel },
-  //   { x: 2, y: 100 - riskLevel },
-  // ];
+const LinearMeter = ({ value, ticksarray, colors }) => {
+  const meterStyle = {
+    width: '100%',
+    height: '5px',
+    marginTop: '50px',
+    backgroundColor: 'lightgray',
+    position: 'relative',
+    justifyContent: 'center',
+  };
+
+  const pointerStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: `${(value / ticksarray[ticksarray.length - 1]) * 100}%`,
+    transform: 'translate(-50%, -50%)',
+    width: '8px',
+    height: '20px',
+    borderRadius: '6px',
+    backgroundColor: 'white',
+    border: '1px solid var(--primary-blue-500, #0D65B6)',
+    zIndex: 1,
+  };
+
+  const tickLabelStyle = {
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(15px)',
+    textAlign: 'center',
+    fontSize: '12px',
+    width: '10px',
+    height: '20px',
+    fontFamily: 'poppins',
+  };
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        fontFamily: 'poppins',
-        fontSize: '12px',
-      }}
-    >
-      {/* <p className="mx-10">{props.label}</p> */}
-      <Box sx={{ width: '100%', mr: 1 }}>
-        <LinearProgress
-          variant="determinate"
-          className='bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500"'
+    <div>
+      <div style={meterStyle}>
+        {ticksarray.map(tick => (
+          <div
+            key={tick}
+            style={{
+              ...tickLabelStyle,
+              left: `${(tick / ticksarray[ticksarray.length - 1]) * 100}%`,
+              color: 'black',
+            }}
+          >
+            {tick}
+          </div>
+        ))}
+        <div
+          style={{
+            width: '25%',
+            height: '100%',
+            backgroundColor: colors[0],
+            float: 'left',
+            borderTopLeftRadius: '3px',
+            borderBottomLeftRadius: '3px',
+          }}
         />
-      </Box>
-      <Box sx={{ minWidth: 35 }}>
-        <Typography variant="body2" color="text.secondary">
-          5
-        </Typography>
-      </Box>
-    </Box>
+        <div
+          style={{
+            width: '25%',
+            height: '100%',
+            backgroundColor: colors[1],
+            float: 'left',
+          }}
+        />
+        <div
+          style={{
+            width: '25%',
+            height: '100%',
+            backgroundColor: colors[2],
+            float: 'left',
+          }}
+        />
+        <div
+          style={{
+            width: '25%',
+            height: '100%',
+            backgroundColor: colors[3],
+            float: 'left',
+            borderTopRightRadius: '3px',
+            borderBottomRightRadius: '3px',
+          }}
+        />
+        <div style={pointerStyle} />
+      </div>
+    </div>
   );
 };
 
-export default LinearScale;
+export default LinearMeter;
