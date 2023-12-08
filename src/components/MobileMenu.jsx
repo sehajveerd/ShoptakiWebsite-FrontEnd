@@ -15,7 +15,7 @@ const MobileMenu = () => {
   };
 
   return (
-    <div className="mobile-menu bg-white flex xs:px-5 sm:px-5 px-[100px]">
+    <div className="mobile-menu bg-white flex xs:px-5 sm:px-5 px-[100px] z-20">
       <div className="w-64 absolute right-4 top-16 bg-white h-auto max-h-64 shadow-md overflow-hidden z-10 transition-max-h-500 ease-in-out py-2 font-medium items-center hover:bg-gray-400">
         <MobileTooltip text="Marketplace" className="visible"></MobileTooltip>
       </div>

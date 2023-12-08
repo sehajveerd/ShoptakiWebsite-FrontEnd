@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PreRegister from './preRegister';
 // import { useAuth0 } from '@auth0/auth0-react';
 import Slider from 'react-slick';
 
 function SamplePrevArrow(props) {
-  const { onClick } = props;
+  const { className, onClick } = props;
   return (
-    <div onClick={onClick}>
+    <div className={`${className} custom-prev-arrow`} onClick={onClick}>
       <img
-        className="relative w-6 h-6 p-2"
+        className="relative w-8 h-8"
         alt="Left Arrow"
         src="/landing/LeftArrow.png"
       />
@@ -17,11 +17,11 @@ function SamplePrevArrow(props) {
 }
 
 function SampleNextArrow(props) {
-  const { onClick } = props;
+  const { className, onClick } = props;
   return (
-    <div onClick={onClick}>
+    <div className={`${className} custom-next-arrow`} onClick={onClick}>
       <img
-        className="relative w-6 h-6 p-2"
+        className="relative w-8 h-8"
         alt="Right Arrow"
         src="/landing/RightArrow.png"
       />
@@ -32,6 +32,47 @@ function SampleNextArrow(props) {
 const Landing = () => {
   // const { loginWithRedirect } = useAuth0();
   const [isModalOpen, setModalOpen] = useState(false);
+  // Image component of the first image in the landing page
+  const ImageComponent = () => {
+    const [style, setStyle] = useState({});
+
+    useEffect(() => {
+      const handleResize = () => {
+        if (window.innerWidth < 421) {
+          setStyle({ filter: 'brightness(40%)' });
+        } else {
+          setStyle({});
+        }
+      };
+      // Set initial style
+      handleResize();
+      window.addEventListener('resize', handleResize);
+
+      // Remove event listener on cleanup
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    return (
+      <img
+        className="max-w-full h-auto object-cover ml-auto"
+        alt="landing page photo"
+        src="/landing/launchPhoto.png"
+        style={style}
+      />
+    );
+  };
+  const [showBackground, setShowBackground] = useState(true);
+
+  useEffect(() => {
+    const checkSize = () => {
+      setShowBackground(window.innerWidth <= 1200);
+    };
+
+    window.addEventListener('resize', checkSize);
+    checkSize();
+
+    return () => window.removeEventListener('resize', checkSize);
+  }, []);
 
   const handlePreRegister = () => {
     setModalOpen(true);
@@ -40,7 +81,20 @@ const Landing = () => {
   const [showContent2, setShowContent2] = useState(false);
   const [showContent3, setShowContent3] = useState(false);
   const [showContent4, setShowContent4] = useState(false);
+
   const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    // arrows: true,
+    // nextArrow: <SampleNextArrow />,
+    // prevArrow: <SamplePrevArrow />,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
+  const gatewaySettings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -53,22 +107,23 @@ const Landing = () => {
     // autoplaySpeed: 3000,
   };
   return (
-    <div className="relative bg-white w-full overflow-x-hidden flex flex-col items-center justify-start gap-[171px] text-left text-17xl text-dimgray-401 font-poppins">
-      <div className="self-stretch bg-gray-400 flex flex-row md:flex-col xs:px-2 sm:px-5 pl-[100px] md:pl-[40px] sm:pl-[20px] md:px-[50px] items-center justify-between text-dimgray-300 gap-[110px]">
-        <div className="flex flex-col items-start justify-start gap-[96px] w-full md:w-3/4">
-          <div className="flex flex-col items-start justify-start gap-[40px]">
-            <div className="relative font-medium inline-block w-auto lg:text-xl md:text-lg sm:text-base xs:text-sm">
+    <div className="relative bg-white w-full overflow-x-hidden flex flex-col items-center justify-start gap-[150px] text-left text-17xl text-dimgray-401 font-poppins pb-[40px]">
+      <div className="self-stretch bg-gray-400 flex flex-row md:flex-col xs:px-2 sm:px-5 pl-[100px] md:pl-[40px] sm:pl-[20px] md:px-[50px] items-center justify-between text-dimgray-300 gap-[110px] relative">
+        <div className="sm:absolute sm:inset-0 sm:bg-black sm:bg-opacity-50 sm:z-0 hidden sm:block"></div>
+        <div className="flex flex-col items-start justify-start gap-[96px] w-full md:w-3/4 z-10 sm:bg-opacity-50">
+          <div className="flex flex-col items-start justify-start gap-[40px] sm:text-neutralgray-100">
+            <div className="relative font-medium inline-block w-auto lg:text-xl md:text-lg sm:my-5 sm:text-xl xs:text-sm">
               Earn Passive and Active Income through Crowdfunded Real Estate
               Investments
             </div>
-            <div className="relative text-lg inline-block lg:text-lg md:text-base sm:text-sm xs:text-2xs">
+            <div className="relative text-lg inline-block lg:text-lg md:text-base sm:text-xs xs:text-2xs sm:hidden">
               Experience Hassle-Free Real Estate Investing at your Fingertips.
-              Manage your portfolio and join related communities
+              Manage your portfolio and join related communities.
             </div>
           </div>
-          <div className="flex flex-row lg:flex-col md:flex-col items-start justify-start gap-[32px]">
+          <div className="flex flex-row lg:flex-col md:flex-row items-start justify-start gap-[32px]">
             <button
-              className="cursor-pointer py-2 px-2.5 bg-primaryblue-500 rounded-lg flex flex-row items-center justify-start hover:shadow-[0px 1px 4px rgba(0,0,0,0.25)]"
+              className="cursor-pointer py-2 px-2.5 bg-primaryblue-500 rounded-lg flex flex-row items-center justify-start"
               onClick={handlePreRegister}
             >
               <div className="relative text-sm font-semibold font-poppins text-white text-left">
@@ -76,7 +131,7 @@ const Landing = () => {
               </div>
             </button>
             <button
-              className="cursor-pointer p-2 bg-[transparent] rounded-lg flex flex-row items-center justify-start hover:shadow-[0px 1px 4px rgba(0,0,0,0.25)]"
+              className="cursor-pointer p-2 bg-[transparent] rounded-lg flex flex-row items-center justify-start"
               onClick={() => {
                 const scrollTarget = document.getElementById('scrollTarget');
                 if (scrollTarget) {
@@ -84,40 +139,35 @@ const Landing = () => {
                 }
               }}
             >
-              <div className="relative text-sm font-medium font-poppins text-primary text-left">
+              <div className="relative text-sm font-medium font-poppins text-primary sm:text-white text-left underline">
                 Learn More
               </div>
             </button>
           </div>
         </div>
-        <div className="relative flex-grow flex-shrink-0">
-          <img
-            className="max-w-full h-auto object-cover ml-auto"
-            alt="landing page photo"
-            src="/landing/launchPhoto.png"
-          />
+        <div className="relative flex-grow flex-shrink-0 sm:absolute sm:w-full sm:h-full sm:object-cover">
+          <ImageComponent />
         </div>
       </div>
       <PreRegister isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
       <div
         id="scrollTarget"
-        className="self-stretch flex flex-col items-center justify-center py-0 xs:px-2 sm:px-5 px-[100px] gap-[100px] text-[24.57px] text-dimgray-200 font-inter"
+        className="self-stretch flex flex-col items-center justify-center py-0 gap-[100px] text-[24.57px] text-dimgray-200 font-inter"
       >
         <Slider
           {...settings}
-          className="w-full h-auto flex items-center justify-center"
+          className="w-full h-auto flex items-center justify-center xs:px-2 sm:px-5 md:px-6 px-[100px]"
         >
           <div className="flex flex-col bg-white items-center justify-center">
             <div className="text-black text-center font-semibold xs:text-sm sm:text-md md:text-lg text-2xl">
               Our Mission
             </div>
-            {/* "w-full text-2xl text-blue-500 leading-1.5 mb-8 inline-block
-            md:max-w-[max-width-on-md] md:mt-4 md:leading-1.8 md:text-lg" */}
             <div className="text-black text-center xs:w-full sm:w-3/4 md:w-2/3 lg:w-1/2 mx-auto font-poppins xs:text-xs sm:text-sm md:text-sm text-lg">
-              To democratize real estate investing by providing a global
-              platform for individuals to participate in diverse real estate
-              opportunities, obtain financial goals, and contribute to the
-              growth of communities worldwide.
+              To democratize real estate investing, we are committed to
+              providing a global platform for individuals to participate in
+              diverse real estate opportunities, achieve their financial goals,
+              and actively contribute to the growth and development of
+              communities worldwide.
             </div>
           </div>
 
@@ -126,25 +176,34 @@ const Landing = () => {
               Our Vision
             </div>
             <div className="text-black text-center xs:w-full sm:w-3/4 md:w-2/3 lg:w-1/2 mx-auto font-poppins xs:text-xs sm:text-sm md:text-sm text-lg">
-              We envision a world where everyone, regardless of their location
-              or financial status, can access and benefit from real estate
-              investment opportunities with a click of a button. By harnessing
-              the power of AI and cutting-edge technology, we aim to create an
-              inclusive and transparent ecosystem that fosters collaboration,
-              innovation, and sustainable growth.
+              We envision a world where everyone, regardless of location or
+              financial status, can benefit from real estate investment
+              opportunities with a click. By harnessing AI and cutting-edge
+              technology, we aim to create an inclusive, transparent ecosystem
+              fostering collaboration, innovation,and sustainable growth.
             </div>
           </div>
         </Slider>
         <div className="self-stretch flex flex-col transition-all items-start justify-start gap-[96px] text-center text-13xl text-neutralgray-600 font-poppins">
-          <div className="self-stretch flex flex-col items-start justify-start gap-[10px] mt-20 md:items-center">
-            <div className="w-[573px] flex flex-col items-end justify-start">
-              <div className="self-stretch flex flex-row text-13xl sm:text-7xl-8 items-center justify-start py-14 mx-auto">
+          <div className="self-stretch flex flex-col items-start justify-start gap-[10px] md:items-center">
+            <div className="relative w-full shrink-0 flex flex-col items-end justify-start">
+              {showBackground && (
+                <div className="absolute inset-0 w-full h-full">
+                  <img
+                    className="absolute inset-0 w-full h-full object-cover"
+                    src="/landing/launchPhoto2.png"
+                    alt="Background"
+                  />
+                  <div className="absolute inset-0 bg-black opacity-50"></div>
+                </div>
+              )}
+              <div className="relative flex flex-row text-13xl sm:text-7xl-8 items-center justify-start py-14 mx-auto lg:text-primarywhite">
                 <h1 className="m-0 flex-1 relative text-inherit font-semibold font-inherit">
                   What Sets Us Apart
                 </h1>
               </div>
             </div>
-            <div className="self-stretch flex flex-row md:flex-col sm:flex-col items-start justify-between md:items-center text-left text-base text-darkslategray-100 gap-[100px]">
+            <div className="self-stretch flex flex-row md:flex-col sm:flex-col items-start justify-between md:items-center text-left text-base xs:px-2 sm:px-5 md:px-6 px-[100px] text-darkslategray-100 gap-[100px]">
               <div className="self-stretch w-[573px] lg:w-full md:w-full sm:w-full flex flex-col items-start justify-start">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[32px]">
                   <div
@@ -313,27 +372,27 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex-1 h-[456px] flex flex-row items-center justify-center py-6 px-10 box-border md:hidden lg:hidden">
+              <div className="flex-1 h-[456px] flex flex-row items-center justify-center py-6 px-0 box-border lg:hidden">
                 <img
-                  className="self-stretch flex-1 relative rounded-3xl max-w-full overflow-hidden max-h-full object-cover mt-[-100px]"
+                  className="self-stretch flex-1 relative rounded-3xl max-w-full max-h-full mt-[-60px]"
                   alt=""
                   src="/landing/launchPhoto2.png"
                 />
               </div>
             </div>
           </div>
-          <div className="self-stretch flex flex-col items-center justify-center gap-[80px] mt-[-40px] ">
-            <div className="md:text-13xl max-w-[569px] flex flex-row items-center justify-center">
+          <div className="self-stretch flex flex-col items-center justify-center gap-[80px] mt-[-40px]">
+            <div className="md:text-13xl max-w-[569px] flex flex-row items-center justify-center xs:px-2 sm:px-5 md:px-6 px-[100px] ">
               <h1 className="m-0 flex-1 relative text-inherit font-semibold font-inherit sm:text-5xl">
                 Your Gateway to Exclusive Real Estate Opportunities
               </h1>
             </div>
-            <div className="self-stretch grid grid-rows-2 grid-cols-3 lg:grid-rows-3 lg:grid-cols-2 md:grid-rows-6 md:grid-cols-1 items-start justify-between text-left sm:items-center sm:justify-center md:items-center md:justify-center sm:text-xs text-xl text-gray-400 md:flex-col">
-              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[300px] overflow-auto shrink-0 flex flex-col items-start justify-start sm:items-center sm:justify-center md:items-center md:justify-center py-10 px-6 box-border m-5">
+            <div className="self-stretch grid grid-rows-2 grid-cols-3 lg:grid-rows-3 lg:grid-cols-2 items-start justify-between text-left text-xl text-gray-400 xs:px-2 sm:px-5 md:px-6 px-[100px] md:hidden sm:hidden">
+              <div className="rounded-3xs bg-gray-200 w-[344px] lg:w-[330px] h-[344px] lg:h-[330px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
-                      <div className="rounded-[11.25px] bg-primarywhite flex flex-row items-start justify-start p-2">
+                      <div className="rounded-[11.25px] flex flex-row items-start justify-start p-2">
                         <img
                           className="relative w-8 h-8"
                           alt="Profile Icon"
@@ -352,11 +411,11 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[300px] overflow-auto shrink-0 flex flex-col items-start justify-start sm:items-center sm:justify-center md:items-center md:justify-center py-10 px-6 box-border m-5">
+              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] h-[344px] lg:h-[330px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
-                      <div className="rounded-[11.25px] bg-primarywhite flex flex-row items-start justify-start p-2">
+                      <div className="rounded-[11.25px] flex flex-row items-start justify-start p-2">
                         <img
                           className="relative w-8 h-8"
                           alt=""
@@ -375,11 +434,11 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[300px] overflow-auto shrink-0 flex flex-col items-start justify-start sm:items-center sm:justify-center md:items-center md:justify-center py-10 px-6 box-border m-5">
+              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] h-[344px] lg:h-[330px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
-                      <div className="rounded-[11.25px] bg-primarywhite flex flex-row items-start justify-start p-2">
+                      <div className="rounded-[11.25px] flex flex-row items-start justify-start p-2">
                         <img
                           className="relative w-8 h-8"
                           alt="Bank icon"
@@ -398,11 +457,11 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[330px] overflow-auto shrink-0 flex flex-col items-start justify-start sm:items-center sm:justify-center md:items-center md:justify-center py-10 px-6 box-border m-5">
+              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] h-[344px] lg:h-[330px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
-                      <div className="rounded-[11.25px] bg-primarywhite flex flex-row items-start justify-start p-2">
+                      <div className="rounded-[11.25px] flex flex-row items-start justify-start p-2">
                         <img
                           className="relative w-8 h-8"
                           alt="Profile Icon"
@@ -422,11 +481,11 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[300px] overflow-auto shrink-0 flex flex-col items-start justify-start sm:items-center sm:justify-center md:items-center md:justify-center py-10 px-6 box-border m-5">
+              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] h-[344px] lg:h-[330px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
-                      <div className="rounded-[11.25px] bg-primarywhite flex flex-row items-start justify-start p-2">
+                      <div className="rounded-[11.25px] flex flex-row items-start justify-start p-2">
                         <img
                           className="relative w-8 h-8"
                           alt=""
@@ -445,11 +504,11 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] md:w-[340px] sm:w-[250px] h-[344px] lg:h-[330px] md:h-[340px] sm:h-[330px] overflow-auto shrink-0 flex flex-col items-start justify-start sm:items-center sm:justify-center md:items-center md:justify-center py-10 px-6 box-border m-5">
+              <div className="rounded-3xs bg-gray-200 overflow-y-hidden w-[344px] lg:w-[330px] h-[344px] lg:h-[330px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border m-5">
                 <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
                   <div className="flex flex-col items-start justify-start gap-[16px]">
                     <div className="flex flex-col items-center justify-start">
-                      <div className="rounded-[11.25px] bg-primarywhite flex flex-row items-start justify-start p-2">
+                      <div className="rounded-[11.25px] flex flex-row items-start justify-start p-2">
                         <img
                           className="relative w-8 h-8"
                           alt="Bank icon"
@@ -469,6 +528,156 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="self-stretch p-10 xs:px-2 sm:px-10 sm:py-10 md:px-6 px-[100px] md:block sm:block xlScreen:hidden lg:hidden">
+              <Slider
+                {...gatewaySettings}
+                className="w-full h-auto flex items-center justify-center sm:block md:block"
+              >
+                {/* Repeat this div for each of the 6 items */}
+                <div className="rounded-3xs bg-secondaryblue-50 overflow-y-hidden w-[340px] h-[344px] overflow-auto shrink-0 flex flex-col items-start justify-start py-10 px-10 box-border">
+                  <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
+                    <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
+                      <div className="flex flex-col items-start justify-start">
+                        <div className="rounded-[11.25px] flex flex-row items-start justify-start p-2">
+                          <img
+                            className="relative w-8 h-8"
+                            alt="Profile Icon"
+                            src="/landing/landing_investorsimage.png"
+                          />
+                        </div>
+                      </div>
+                      <h3 className="m-0 relative text-left text-gray-700 sm:text-base font-medium font-poppins">
+                        Investors
+                      </h3>
+                    </div>
+                    <div className="relative text-sm text-left text-darkslategray-200">
+                      Build your portfolio, manage your purchases, and view your
+                      profit and losses across all of your investments from our
+                      convenient dashboard.
+                    </div>
+                  </div>
+                </div>
+                <div className="rounded-3xs bg-secondaryblue-50 overflow-y-hidden w-[340px] h-[344px] overflow-auto shrink-0 flex flex-col items-center justify-center py-10 px-10 box-border">
+                  <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
+                    <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
+                      <div className="flex flex-col items-center justify-start">
+                        <div className="rounded-[11.25px] flex flex-row items-start justify-start p-2">
+                          <img
+                            className="relative w-8 h-8"
+                            alt=""
+                            src="/landing/landing_repimage.png"
+                          />
+                        </div>
+                      </div>
+                      <h3 className="m-0 relative text-left text-gray-700 font-medium sm:text-base font-poppins">
+                        Real Estate Professionals
+                      </h3>
+                    </div>
+                    <div className="relative text-sm text-left text-darkslategray-200">
+                      Build relationships and network with other professionals.
+                      Showcase your expertise to attract investors while
+                      promoting your properties and raising capital on our
+                      platform.
+                    </div>
+                  </div>
+                </div>
+                <div className="rounded-3xs bg-secondaryblue-50 overflow-y-hidden w-[340px] h-[344px] overflow-auto shrink-0 flex flex-col items-center justify-center py-10 px-10 box-border">
+                  <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
+                    <div className="flex flex-col items-start justify-start gap-[16px]">
+                      <div className="flex flex-col items-center justify-start">
+                        <div className="rounded-[11.25px] flex flex-row items-start justify-start p-2">
+                          <img
+                            className="relative w-8 h-8"
+                            alt="Bank icon"
+                            src="/landing/landing_institutionsimage.png"
+                          />
+                        </div>
+                      </div>
+                      <h3 className="m-0 relative text-left text-gray-700 font-medium sm:text-base font-poppins">
+                        Financial Institutions
+                      </h3>
+                    </div>
+                    <div className="relative text-sm text-left text-darkslategray-200">
+                      You will be able to showcase your offerings, connect with
+                      qualified borrowers, expand your customer base and build
+                      rapport with our investors.
+                    </div>
+                  </div>
+                </div>
+                <div className="rounded-3xs bg-secondaryblue-50 overflow-y-hidden w-[340px] h-[344px] overflow-auto shrink-0 flex flex-col items-center justify-center py-10 px-10 box-border">
+                  <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
+                    <div className="flex flex-col items-start justify-start gap-[16px]">
+                      <div className="flex flex-col items-center justify-start">
+                        <div className="rounded-[11.25px] flex flex-row items-start justify-start p-2">
+                          <img
+                            className="relative w-8 h-8"
+                            alt="Profile Icon"
+                            src="/landing/Wholesalers.png"
+                          />
+                        </div>
+                      </div>
+                      <h3 className="m-0 relative text-left text-gray-700 font-medium sm:text-base font-poppins">
+                        Wholesalers
+                      </h3>
+                    </div>
+                    <div className="relative text-sm text-left text-darkslategray-200">
+                      Showcase your projects on our platform to captivate a
+                      myriad of investors, manage listings, underwrite deals,
+                      and gauge potential earnings. Dive in with no upfront
+                      investment, perfect for novices and experts alike.
+                    </div>
+                  </div>
+                </div>
+                <div className="rounded-3xs bg-secondaryblue-50 overflow-y-hidden w-[340px] h-[344px] overflow-auto shrink-0 flex flex-col items-center justify-center py-10 px-10 box-border">
+                  <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
+                    <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
+                      <div className="flex flex-col items-center justify-start">
+                        <div className="rounded-[11.25px] flex flex-row items-start justify-start p-2">
+                          <img
+                            className="relative w-8 h-8"
+                            alt=""
+                            src="/landing/PropertyManagers.png"
+                          />
+                        </div>
+                      </div>
+                      <h3 className="m-0 relative text-left text-gray-700 font-medium sm:text-base font-poppins">
+                        Property Managers
+                      </h3>
+                    </div>
+                    <div className="relative text-sm text-left text-darkslategray-200">
+                      As you engage, you can bid on contracts, showcase your
+                      expertise on our user forum, and receive feedback to
+                      foster a reputable standing among property owners and
+                      investors.
+                    </div>
+                  </div>
+                </div>
+                <div className="rounded-3xs bg-secondaryblue-50 overflow-y-hidden w-[340px] h-[344px] overflow-auto shrink-0 flex flex-col items-center justify-center py-10 px-10 box-border">
+                  <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
+                    <div className="flex flex-col items-start justify-start gap-[16px]">
+                      <div className="flex flex-col items-center justify-start">
+                        <div className="rounded-[11.25px] flex flex-row items-start justify-start p-2">
+                          <img
+                            className="relative w-8 h-8"
+                            alt="Bank icon"
+                            src="/landing/Contractors.png"
+                          />
+                        </div>
+                      </div>
+                      <h3 className="m-0 relative text-left text-gray-700 font-medium sm:text-base font-poppins">
+                        Contractors
+                      </h3>
+                    </div>
+                    <div className="relative text-sm text-left text-darkslategray-200">
+                      You will be able to bid and secure construction projects
+                      right on our platform, display your craftsmanship in our
+                      user forum, and garner feedback to establish a record of
+                      quality and timely completion.
+                    </div>
+                  </div>
+                </div>
+              </Slider>
             </div>
             <div className="self-stretch flex flex-row items-start justify-between text-left text-xl text-gray-400 md:flex-col"></div>
           </div>
@@ -651,14 +860,14 @@ const Landing = () => {
           </div>
         </div>
       </div>
-      <div className="self-stretch bg-gray-300 flex flex-col items-center justify-start py-14 xs:px-2 sm:px-5 px-[100px] gap-[80px] text-left text-13xl text-neutralgray-600">
+      <div className="self-stretch bg-gray-300 sm:bg-secondaryblue-50 flex flex-col items-center justify-start py-14 xs:px-2 sm:px-5 px-[100px] gap-[80px] text-left text-13xl text-neutralgray-600">
         <div className="flex flex-row items-center justify-center">
           <h1 className="m-0 relative text-inherit font-semibold font-inherit sm:text-7xl-8">
             How it Works
           </h1>
         </div>
-        <div className="self-stretch flex flex-row lg:flex-col md:items-center lg:items-center items-start justify-between text-xl text-gray-400">
-          <div className="rounded-3xs bg-primary-white w-[344px] overflow-hidden shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border">
+        <div className="self-stretch flex flex-row lg:flex-col md:items-center lg:items-center items-start justify-between text-xl text-gray-400 gap-[48px]">
+          <div className="rounded-3xs bg-white w-[344px] overflow-hidden shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border">
             <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
               <div className="flex flex-row items-start justify-start relative gap-[136px]">
                 <div className="flex flex-col items-start justify-start gap-[16px] z-[0]">
@@ -675,18 +884,19 @@ const Landing = () => {
                     Explore Opportunities
                   </h3>
                 </div>
-                <div className="absolute top-[-42px] left-[237.31px] text-neutralgray-100 text-105xl font-black [background:linear-gradient(180deg, #f1f1f1, rgba(32, 32, 32, 0))] opacity-[1] z-[1]">
+                <div className="absolute top-[-42px] left-[237.31px] text-neutralgray-100 text-105xl font-black">
                   1
                 </div>
               </div>
               <div className="self-stretch relative text-sm text-darkslategray-200">
                 Access a curated range of real estate projects, businesses, more
                 complete with detailed insights like location and expected
-                returns.
+                returns. Explore a diverse portfolio of investments,featuring
+                market trends to inform your decisions.
               </div>
             </div>
           </div>
-          <div className="rounded-3xs bg-primary-white w-[344px] overflow-hidden shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border">
+          <div className="rounded-3xs bg-white w-[344px] overflow-hidden shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border">
             <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
               <div className="flex flex-row items-start justify-start relative gap-[136px]">
                 <div className="flex-1 flex flex-col items-start justify-start gap-[16px] z-[0]">
@@ -703,7 +913,7 @@ const Landing = () => {
                     Community + AI Strategy
                   </h3>
                 </div>
-                <div className="absolute top-[-42px] left-[237.31px] text-neutralgray-100 text-105xl font-black [background:linear-gradient(180deg, #f1f1f1, rgba(32, 32, 32, 0))] opacity-[1] z-[1]">
+                <div className="absolute top-[-42px] left-[237.31px] text-neutralgray-100 text-105xl font-black">
                   2
                 </div>
               </div>
@@ -715,7 +925,7 @@ const Landing = () => {
               </div>
             </div>
           </div>
-          <div className="rounded-3xs bg-primary-white w-[344px] overflow-hidden shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border">
+          <div className="rounded-3xs bg-white w-[344px] overflow-hidden shrink-0 flex flex-col items-start justify-start py-10 px-6 box-border">
             <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
               <div className="flex flex-row items-start justify-start relative gap-[136px]">
                 <div className="flex flex-col items-start justify-start gap-[16px] z-[0]">
@@ -732,7 +942,7 @@ const Landing = () => {
                     Smart Investment
                   </h3>
                 </div>
-                <div className="absolute top-[-42px] left-[237.31px] text-neutralgray-100 text-105xl font-black [background:linear-gradient(180deg, #f1f1f1, rgba(32, 32, 32, 0))] opacity-[1] z-[1]">
+                <div className="absolute top-[-42px] left-[237.31px] text-neutralgray-100 text-105xl font-black">
                   3
                 </div>
               </div>
@@ -761,15 +971,19 @@ const Landing = () => {
         </div>
       </div>
       <div className="self-stretch font-poppins">
-        <footer className="self-stretch bg-gray-800 h-[50px] shrink-0 flex md:flex-row sm:flex-col items-center justify-between py-0 px-8 box-border text-left text-sm text-primarywhite">
-          <div className="relative leading-[20px] inline-block w-[204px] shrink-0">
+        <footer className="self-stretch bg-gray-800 h-[80px] shrink-0 flex md:flex-row sm:flex-col items-center justify-between py-[16px] px-8 box-border text-left text-sm text-primarywhite gap-[8px]">
+          <div className="relative inline-block shrink-0">
             Copyright 2023 - Sophtera
           </div>
-          <div className="relative leading-[20px] text-right">
-            Investment Made Easy!
-          </div>
+          <div className="relative text-right">Investment Made Easy!</div>
         </footer>
       </div>
+      <button
+        className="cursor-pointer fixed h-auto bottom-0 left-0 w-full py-3 bg-primaryblue-500 text-primarywhite text-lg z-10"
+        onClick={handlePreRegister}
+      >
+        Pre-Register
+      </button>
     </div>
   );
 };

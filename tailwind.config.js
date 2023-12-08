@@ -126,6 +126,9 @@ module.exports = {
       inherit: 'inherit',
     },
     screens: {
+      xlScreen: {
+        min: '1201px',
+      },
       lg: {
         max: '1200px',
       },
