@@ -1,9 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      spacing: {
+        '10px': '10px', // custom margin value for 10px
+      },
       colors: {
+        'primary-blue-500': '#0d65b6',
         lightgray: '#d0d0d0',
         silver: '#bfbfbf',
         white: '#ffffff',
@@ -66,6 +71,7 @@ module.exports = {
           100: '#f1f1f1',
           200: '#e8e8e8',
           300: '#d0d0d0',
+          400: '#717171',
           500: '#747474',
           600: '#484848',
           700: '#010101',
@@ -124,6 +130,7 @@ module.exports = {
       '17xl': '36px',
       '105xl': '124px',
       inherit: 'inherit',
+      32: '2rem',
     },
     screens: {
       xlScreen: {
