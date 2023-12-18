@@ -22,11 +22,11 @@ const Investcard = ({
     }
   }, [percentage]);
   return (
-    <div className="border border-solid border-neutralgray-200 font-poppins w-full">
+    <div className="border border-solid border-neutralgray-200 font-poppins w-full px-0 sm:px-5xl">
       <div className="py-5 px-6">
         {/* Raised Amount and Target */}
         <div className="text-left w-full mb-5">
-          <span className="font-bold text-3xl text-primary-blue-500 w-1/3">
+          <span className="font-bold font-poppins text-5xl text-primary-blue-500 w-1/3">
             {raisedAmount}
           </span>
           <span className="text-base font-normal text-black w-2/3">
@@ -36,7 +36,7 @@ const Investcard = ({
 
         {/* Progress Bar and Percentage */}
         <div className="flex items-center w-full mb-6">
-          <div className="text-neutralgray-700 font-body-small14 text-right">
+          <div className="text-neutralgray-700 text-base text-right">
             {percentage}%
           </div>
           <div className="bg-secondaryblue-50 h-3 rounded-full w-full mx-2">
@@ -51,49 +51,49 @@ const Investcard = ({
         <div className="flex flex-col w-full ml-auto justify-center">
           <div className="flex items-start self-stretch gap-5">
             {/* Left Section  */}
-            <div className="flex flex-col bg-white self-stretch gap-5 items-center w-1/2 h-full">
-              <div className="flex bg-white self-stretch items-center">
+            <div className="flex flex-col bg-white self-stretch gap-5 items-center h-full">
+              <div className="flex bg-white self-stretch items-center gap-2">
                 <img
                   loading="lazy"
                   src="/listing/investors.png"
-                  className="aspect-w-1 object-contain object-center w-6"
+                  className="aspect-w-1 object-contain object-center w-5"
                 />
-                <div className="text-neutralgray-600 whitespace-nowrap font-normal text-base self-stretch">
+                <div className="text-neutralgray-600 font-normal text-base self-stretch">
                   <span>{investors}</span> Investors
                 </div>
               </div>
 
               {/* Time Left Section */}
-              <div className="flex bg-white self-stretch gap-1 items-center">
+              <div className="flex bg-white self-stretch items-center gap-2">
                 <img
                   loading="lazy"
                   src="/listing/time.png"
-                  className="aspect-w-1 object-contain object-center w-6"
+                  className="aspect-w-1 object-contain object-center w-5"
                 />
-                <div className="text-neutralgray-600 whitespace-nowrap font-normal text-base self-stretch">
+                <div className="text-neutralgray-600 font-normal text-base self-stretch">
                   <span>{timeLeft}</span>
                 </div>
               </div>
 
               {/* Min. Deposit Section */}
-              <div className="flex bg-white self-stretch gap-1 items-center">
+              <div className="flex bg-white self-stretch items-center gap-2">
                 <img
                   loading="lazy"
                   src="/listing/money.png"
-                  className="object-contain object-center w-6"
+                  className="object-contain object-center w-5"
                 />
-                <div className="text-neutralgray-600 whitespace-nowrap font-normal text-base self-stretch">
+                <div className="text-neutralgray-600 font-normal text-base self-stretch">
                   Min. Deposit: <span>{minDeposit}</span>
                 </div>
               </div>
             </div>
 
             {/* Right Section */}
-            <div className="flex flex-col items-center justify-center ml-2 mt-2 w-1/3 h-full self-stretch">
+            <div className="flex flex-col items-center justify-center ml-2 mt-5 h-full self-stretch">
               <div className="text-neutralgray-600 stretch whitespace-nowrap text-sm font-normal font-poppins">
                 Risk Rating
               </div>
-              <div className="text-neutralgray-600 self-center whitespace-nowrap text-32 font-semibold font-poppins">
+              <div className="text-neutralgray-600 self-center whitespace-nowrap text-13xl font-bold font-poppins">
                 <span>{riskRating}</span>
               </div>
             </div>
@@ -103,9 +103,9 @@ const Investcard = ({
         {/* Invest Button */}
         <button
           onClick={invest}
-          className="justify-center bg-sky-700 flex mx-auto p-2 w-full rounded-md mt-10"
+          className="justify-center bg-primaryblue-500 flex mx-auto p-2 w-full rounded-md mt-10"
         >
-          <div className="text-white text-sm bg-transparent w-full p-2 mr-10px">
+          <div className="text-white text-sm bg-transparent w-full font-medium p-2">
             Invest
           </div>
         </button>

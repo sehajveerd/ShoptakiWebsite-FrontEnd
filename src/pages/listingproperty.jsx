@@ -149,7 +149,7 @@ const Listingproperty = () => {
     // Add more data objects here as needed
   ];
   return (
-    <div className="px-100 overflow-scroll mx-auto max-w-6xl">
+    <div className="px-40 overflow-scroll mx-auto max-w-6xl">
       <div className="fixed bg-white z-50 w-[1166px] h-[72px] justify-between items-center inline-flex flex-row">
         <div className="justify-center items-center gap-4 flex">
           <div className="w-6 h-6 relative">
@@ -279,7 +279,7 @@ const Listingproperty = () => {
               />
             ))}
           </div>
-          <div className="text-zinc-700 text-small font-normal font-['Poppins'] text-left w-full">
+          <div className="text-zinc-700 text-small font-normal font-['Poppins'] text-left w-full mt-10">
             <p>
               Welcome to &quot;The Beacon&quot;! This charming vacant
               single-family home is a hidden gem offering 3 bedrooms, 1 bath,
@@ -311,14 +311,14 @@ const Listingproperty = () => {
           />
         </div>
       </div>
-      <div className="flex items-start relative w-full mt-4">
-        <div className="px-100 pb-20 w-3/5 ">
+      <div className="flex items-start w-full gap-24 h-auto mt-20">
+        <div className="px-100 pb-20 w-3/5">
           <CustomTabPanel
             latitude={property_details['latitude']}
             longitude={property_details['longitude']}
           />
         </div>
-        <div className="flex flex-col absolute top-0 left-2/3 w-2/5">
+        <div className="flex w-1/3 items-end">
           <AnnouncementCard
             commenttype={'🚨 Announcements'}
             MemberName={'Steph'}
