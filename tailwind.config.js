@@ -134,6 +134,9 @@ module.exports = {
       32: '2rem',
     },
     screens: {
+      xlScreen: {
+        min: '1201px',
+      },
       lg: {
         max: '1200px',
       },

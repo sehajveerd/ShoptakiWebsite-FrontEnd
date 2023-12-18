@@ -72,6 +72,21 @@ body {
   opacity: 1;
 }
 
+.custom-prev-arrow, .custom-next-arrow {
+  position: absolute;
+  top: 110%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.custom-prev-arrow {
+  left: 100px;
+}
+
+.custom-next-arrow {
+  right: 100px; 
+}
+
 .map-container {
   height: 100%;
   width: 100%;
